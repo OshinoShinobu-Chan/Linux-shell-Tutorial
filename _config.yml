@@ -1,0 +1,21 @@
+# Site settings
+title: 更丝滑的Linux体验——Linux shell教程
+description: 一个关于如何更好地使用linux shell的教程
+baseurl: "" # 如果你的网站不在根目录，可以设置为子目录路径
+url: "https://oshinoshinobu-chan.github.io/Linux-shell-Tutorial/" # 你的 GitHub Pages 网站的 URL
+
+# Theme settings
+remote_theme: jekyll/moonwalk
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Other settings
+author: Crimmy
+email: crimmypeng@gmail.com
