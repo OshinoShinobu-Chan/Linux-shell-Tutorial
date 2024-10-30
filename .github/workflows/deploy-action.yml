@@ -26,20 +26,6 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     needs: Build
     steps:
-    - name: Setup Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.10'
-    - name: Install peotry
-      run: |
-        python -m pip install --upgrade pip
-        pip install poetry
-    - name: Install dependencies
-      run: |
-        poetry install
-    - name: Deploy
-      run: |
-        poetry run mkdocs build --clean
     - name: Setup Pages
       uses: actions/configure-pages@v5
     - name: Upload artifact
