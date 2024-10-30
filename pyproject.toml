@@ -1,0 +1,11 @@
+[tool.poetry]
+name = "Linux-shell-Tutorial"
+version = "0.1.0"
+description = "Linux shell tutorial"
+authors = ["Crimmy <crimmypeng@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[tool.poetry.dev-dependencies]
+mkdocs = "^1.2.3"
