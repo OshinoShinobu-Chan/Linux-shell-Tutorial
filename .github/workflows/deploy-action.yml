@@ -21,9 +21,11 @@ jobs:
         poetry run mkdocs build --clean
   Deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     needs: Build
     steps:
-    - uses: actions/checkout@v2
     - name: Setup Python
       uses: actions/setup-python@v2
       with:
@@ -37,9 +39,16 @@ jobs:
         poetry install
     - name: Deploy
       run: |
-        poetry run mkdocs gh-deploy --force
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
+        poetry run mkdocs build --clean
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Setup Pages
+      uses: actions/configure-pages@v5
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: site
+        # Upload entire repository
+        path: 'site/'
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
