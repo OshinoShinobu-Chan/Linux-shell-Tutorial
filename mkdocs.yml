@@ -1,16 +1,39 @@
+repo_name: OshinoShinobuLinux-Chan/-shell-Tutorial
+repo_url: https://github.com/OshinoShinobu-Chan/Linux-shell-Tutorial
+site_author: Crimmy
+site_descrption: 这是一个关于如何更好地使用linux shell的教程
 site_name: Linux shell Tutorial
 site_url: https://oshinoshinobu-chan.github.io/Linux-shell-Tutorial/
 nav:
-  - Home: index.md
+- 初级篇:
+  - 2.什么是shell: 初级篇/2.什么是shell.md
+  - 3.最开始的shell命令与shell的基本操作: 初级篇/3.最开始的shell命令与shell的基本操作.md
+  - 1.引言: 初级篇/1.引言.md
+  - 4.操作文件系统的shell命令: 初级篇/4.操作文件系统的shell命令.md
+  - 6.更多的文件操作shell命令: 初级篇/6.更多的文件操作shell命令.md
+  - 5.文件路径和当前工作目录: 初级篇/5.文件路径和当前工作目录.md
+- 中级篇: []
+- 高级篇: []
+- 附录:
+  - A.安装WSL2: 附录/A.安装WSL2.md
+  - B.安装虚拟机: 附录/B.安装虚拟机.md
 theme:
-  name: material
-  language: zh
-  palette:
-    primary: blue
-    accent: light blue
   font:
-    code: Cascadia Mono
-  features:
-    - navigation.instant
-    - navigation.instant.progress
-    - navigation.footer
+    code: Fira Mono
+  language: zh
+  name: material
+  palette:
+  - accent: light blue
+    media: '(prefers-color-scheme: light)'
+    primary: white
+    scheme: default
+    toggle:
+      icon: material/weather-sunny
+      name: Switch to dark mode
+  - accent: light blue
+    media: '(prefers-color-scheme: dark)'
+    primary: light grey
+    scheme: slate
+    toggle:
+      icon: material/weather-night
+      name: Switch to light mode
