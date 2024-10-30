@@ -6,9 +6,9 @@ site_name: Linux shell Tutorial
 site_url: https://oshinoshinobu-chan.github.io/Linux-shell-Tutorial/
 nav:
 - 初级篇:
+  - 1.引言: 初级篇/1.引言.md
   - 2.什么是shell: 初级篇/2.什么是shell.md
   - 3.最开始的shell命令与shell的基本操作: 初级篇/3.最开始的shell命令与shell的基本操作.md
-  - 1.引言: 初级篇/1.引言.md
   - 4.操作文件系统的shell命令: 初级篇/4.操作文件系统的shell命令.md
   - 6.更多的文件操作shell命令: 初级篇/6.更多的文件操作shell命令.md
   - 5.文件路径和当前工作目录: 初级篇/5.文件路径和当前工作目录.md
