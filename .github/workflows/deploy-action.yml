@@ -40,8 +40,6 @@ jobs:
     - name: Deploy
       run: |
         poetry run mkdocs build --clean
-    - name: Checkout
-      uses: actions/checkout@v4
     - name: Setup Pages
       uses: actions/configure-pages@v5
     - name: Upload artifact
