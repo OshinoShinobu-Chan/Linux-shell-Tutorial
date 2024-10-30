@@ -1,3 +1,16 @@
 site_name: Linux shell Tutorial
+site_url: https://oshinoshinobu-chan.github.io/Linux-shell-Tutorial/
 nav:
   - Home: index.md
+theme:
+  name: material
+  language: zh
+  palette:
+    primary: blue
+    accent: light blue
+  font:
+    code: Cascadia Mono
+  features:
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.footer
