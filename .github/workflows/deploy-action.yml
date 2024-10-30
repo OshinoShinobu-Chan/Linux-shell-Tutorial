@@ -37,7 +37,7 @@ jobs:
         poetry install
     - name: Deploy
       run: |
-        poetry run mkdocs gh-deploy
+        poetry run mkdocs gh-deploy --force
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
