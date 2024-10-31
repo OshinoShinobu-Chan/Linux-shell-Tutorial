@@ -4,19 +4,6 @@ site_author: Crimmy
 site_descrption: 这是一个关于如何更好地使用linux shell的教程
 site_name: Linux shell Tutorial
 site_url: https://oshinoshinobu-chan.github.io/Linux-shell-Tutorial/
-nav:
-- 初级篇:
-  - 1.引言: 初级篇/1.引言.md
-  - 2.什么是shell: 初级篇/2.什么是shell.md
-  - 3.最开始的shell命令与shell的基本操作: 初级篇/3.最开始的shell命令与shell的基本操作.md
-  - 4.操作文件系统的shell命令: 初级篇/4.操作文件系统的shell命令.md
-  - 6.更多的文件操作shell命令: 初级篇/6.更多的文件操作shell命令.md
-  - 5.文件路径和当前工作目录: 初级篇/5.文件路径和当前工作目录.md
-- 中级篇: []
-- 高级篇: []
-- 附录:
-  - A.安装WSL2: 附录/A.安装WSL2.md
-  - B.安装虚拟机: 附录/B.安装虚拟机.md
 theme:
   font:
     code: Fira Mono
@@ -37,3 +24,22 @@ theme:
     toggle:
       icon: material/weather-night
       name: Switch to light mode
+  features:
+    - content.code.copy
+    - navigation.footer
+    - navigation.sections
+    - navigation.indexes
+extra:
+  analytics:
+    provider: google
+    property: G-T87G1452XL
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/OshinoShinobu-Chan
+      # name: GitHub
+    - icon: fontawesome/regular/envelope
+      link: mailto:2200012909@stu.pku.edu.cn
+  status:
+    # <identifier>: <description>
+    # identifier 只能包含字母数字字符，破折号和下划线
+    new: Recently added
