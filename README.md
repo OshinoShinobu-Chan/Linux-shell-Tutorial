@@ -51,44 +51,44 @@ mkdocs build --clean
 
 初级篇
 
-- [x]3. echo, printf, 命令行参数, terminal和shell操作相关的知识
-- [ ]4. ls, cd, mkdir, touch, find
-- [ ]5. pwd,
-- [ ]6. cp, mv, cat, view, rm, shred, rmdir, tee
-- [ ]7. 输入输出重定向，管道, mkfifo, &&
-- [ ]8. ip, ifconfig, curl, telnet, wget, ssh, scp, netcat
-- [ ]9. 进程，信号, ctrl-C, ctrl-D
-- [ ]10. top, htop, kill, pkill, ps, nohup, &
-- [ ]11. tar, zip, unzip
-- [ ]12. sleep. timeout, date
-- [ ]13. man, pr, tldr
-- [ ]14. history, alias, su, sudo, install, yes
+* [x] 3. echo, printf, 命令行参数, terminal和shell操作相关的知识
+* [x] 4. ls, cd, mkdir, touch, find
+* [x] 5. pwd,
+* [ ] 6. cp, mv, cat, view, rm, shred, rmdir, tee
+* [ ] 7. 输入输出重定向，管道, mkfifo, &&
+* [ ] 8. ip, ifconfig, curl, telnet, wget, ssh, scp, netcat
+* [ ] 9. 进程，信号, ctrl-C, ctrl-D
+* [ ] 10. top, htop, kill, pkill, ps, nohup, &
+* [ ] 11. tar, zip, unzip
+* [ ] 12. sleep. timeout, date
+* [ ] 13. man, pr, tldr
+* [ ] 14. history, alias, su, sudo, install, yes
 
 中级篇
 
-- [ ]13. 硬链接，软连接，readlink, readpath, link, ln, mount, unmount, /mnt, pwd
-- [ ]14. 万物皆文件，文件类型，mknod, mktemp
-- [ ]15. less, more
-- [ ]16. vim, vi
-- [ ]17. head, tail, tr, wc, nl
-- [ ]18. grep, awk, sed
-- [ ]19. bc, numfmt, od, xxd, hexdump
-- [ ]20. 展开
-- [ ]21. tmux
-- [ ]22. 环境变量, printenv，path
-- [ ]23. .bashrc, fish-config
-- [ ]24. strace
+* [ ] 13. 硬链接，软连接，readlink, readpath, link, ln, mount, unmount, /mnt, pwd
+* [ ] 14. 万物皆文件，文件类型，mknod, mktemp
+* [ ] 15. less, more
+* [ ] 16. vim, vi
+* [ ] 17. head, tail, tr, wc, nl
+* [ ] 18. grep, awk, sed
+* [ ] 19. bc, numfmt, od, xxd, hexdump
+* [ ] 20. 展开
+* [ ] 21. tmux
+* [ ] 22. 环境变量, printenv，path
+* [ ] 23. .bashrc, fish-config
+* [ ] 24. strace
 
 高级篇
 
-- [ ]25. 脚本基础
-- [ ]26. To be continue
+* [ ] 25. 脚本基础
+* [ ] 26. To be continue
 
 这一篇可能包括的内容：脚本, shabang, 脚本命令行参数，if语句，for语句，
 loop语句，变量，数组, seq, xargs, test
 
 整活篇
 
-- [ ]xx. To be continue
+* [ ] xx. To be continue
 
 这一篇可能包括的内容：还不知道
