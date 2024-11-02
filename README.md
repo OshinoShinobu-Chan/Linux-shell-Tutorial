@@ -6,7 +6,7 @@
 
 ### 配置构建环境
 
-本文档使用[mkdocs](https://python-poetry.org/)构建，并使用[poetry](https://python-poetry.org/)管理`python`环境。因此首先请配置好python环境并根据poetry官方网站的指导安装好poetry。
+本文档使用[mkdocs](https://www.mkdocs.org/)构建，并使用[poetry](https://python-poetry.org/)管理`python`环境。因此首先请配置好python环境并根据poetry官方网站的指导安装好poetry。
 
 如果你懒得去看那些东西并且你恰好使用的是`Debian`/`Ubuntu`，那么也可以尝试直接使用下面的命令
 
