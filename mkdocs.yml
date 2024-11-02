@@ -4,6 +4,7 @@ site_author: Crimmy
 site_descrption: 这是一个关于如何更好地使用linux shell的教程
 site_name: Linux shell Tutorial
 site_url: https://oshinoshinobu-chan.github.io/Linux-shell-Tutorial/
+use_directory_urls: false
 theme:
   font:
     code: Fira Mono
@@ -27,7 +28,7 @@ theme:
   features:
     - content.code.copy
     - navigation.footer
-    - navigation.sections
+    - navigation.expand
     - navigation.indexes
 extra:
   analytics:
@@ -43,3 +44,7 @@ extra:
     # <identifier>: <description>
     # identifier 只能包含字母数字字符，破折号和下划线
     new: Recently added
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
