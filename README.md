@@ -16,6 +16,13 @@ sudo apt install pip --update
 pip install poetry
 ```
 
+### 克隆本项目到本地
+
+```bash
+git clone git@github.com:OshinoShinobu-Chan/Linux-shell-Tutorial.git
+cd ./Linux-shell-Tutorial
+```
+
 ### 使用peotry安装依赖
 
 使用下面的命令，让poetry根据配置文件`pyproject.toml`安装合适的依赖。然后进入本项目的python环境。
@@ -54,7 +61,7 @@ mkdocs build --clean
 * [x] 3. echo, printf, 命令行参数, terminal和shell操作相关的知识
 * [x] 4. ls, cd, mkdir, touch, find
 * [x] 5. pwd,
-* [ ] 6. cp, mv, cat, view, rm, shred, rmdir, tee
+* [x] 6. cp, mv, cat, view, rm, shred, rmdir, tee
 * [ ] 7. 输入输出重定向，管道, mkfifo, &&
 * [ ] 8. ip, ifconfig, curl, telnet, wget, ssh, scp, netcat
 * [ ] 9. 进程，信号, ctrl-C, ctrl-D
