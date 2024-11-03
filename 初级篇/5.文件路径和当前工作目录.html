@@ -516,13 +516,22 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      文件路径自动补全
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       当前工作目录
     </span>
@@ -532,7 +541,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       查看当前工作目录
     </span>
@@ -546,7 +555,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       小结
     </span>
@@ -783,13 +792,22 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      文件路径自动补全
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       当前工作目录
     </span>
@@ -799,7 +817,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       查看当前工作目录
     </span>
@@ -813,7 +831,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       小结
     </span>
@@ -895,9 +913,21 @@
 根据我们所学的<code>echo</code>的功能，这条命令应该输出<code>~</code>这个符号才对。但是我们发现，<code>echo</code>却输出了我们自己的主目录的绝对路径。这就是因为<code>~</code>这个符号被<code>bash</code>展开成主目录的绝对路径之后才被当做参数传入<code>echo</code>的。</p>
 <p><code>bash</code>的展开是一个有点复杂但是很有用的功能，具体内容会在<a href="">第20章</a>中讲解。这里我们只要知道，有的时候一些特殊的符号或者符号组合会在<code>shell</code>中被替换成另外的东西。如果一个命令的运行结果出乎你的意料，可能要考虑你的参数中是否有特殊符号被展开了。通常避免展开的方式就是使用引号把你的参数包裹起来，就像我们对待参数中出现空格的时候做的那样。</p>
 <p>最后，<code>bash</code>(其他<code>shell</code>应该也差不多)，还提供一个关于主目录的展开，<code>~xxx</code>如果<code>xxx</code>是一个有效的用户名，那么这个东西会被展开成<code>xxx</code>这个用户的主目录绝对路径。</p>
-<h2 id="_5">当前工作目录</h2>
+<h3 id="_5">文件路径自动补全</h3>
+<p>一般比较现代的<code>shell</code>都会提供命令自动补全的功能，主要会进行的自动补全的就是文件路径。因为文件路径很有可能会很长，并且文件路径更有可能被预测。<code>bash</code>提供了最近的文件路径补全，输入路径的前一部分，然后按Tab键就会自动补全。自动补全的结果有下面几种可能性。
+1. 如果只有一条路径和你输入的部分开头相同，那么自动补全会将路径完整补全。
+2. 如果没有一条可能路径和你输入的部分开头相同，那么自动补全不会进行并且会给你播放<code>\a</code>(振铃符)的声音。
+3. 如果有大于一条可能的路径和你输入的部分开头相同，那么自动补全的行为还会分为两种：
+    1. 如果这些可能的路径公共部分只是你输入的部分，<code>bash</code>不会进行补全，并给你播放<code>\a</code>的声音。例如：你输入的是<code>./test</code>，并且当前文件夹下有<code>test.txt</code>和<code>testtest.txt</code>这两个文件是以<code>test</code>开头的。
+    2. 如果这些可能的路径公共部分比你输入的部分更长，那么<code>bash</code>会补全到更长的公共部分，但是不会补全完整路径，并给你播放<code>\a</code>的声音。例如你输入的是<code>./t</code>，并且当前文件夹下有<code>test.txt</code>和<code>testtest.txt</code>这两个文件是以<code>t</code>开头的。</p>
+<p>上面的情况是对于使用<code>bash</code>直接进行补全，<code>bash</code>还提供文件路径的提示功能，如果你输入了文件路径的一部分但是发现补全不能正常进行(上述的2,3两种情况)，这时可以再按一次Tab键(两次按Tab键的间隔时间不能太长，其实相当于是双击Tab键，但是太快<code>bash</code>可能会反应不过来)，<code>bash</code>就可以将所有可能的路径都输出，你可以根据这个提示来完成你的命令。下面是一个例子，我的文件夹下有两个文件分别是<code>test.txt</code>和<code>testtest.txt</code>。输入<code>cat ./t</code>并按了一次Tab键之后，<code>bash</code>帮我补全了<code>test</code>。这时我再次按Tab键就会得到下面的结果。
+<div class="highlight"><pre><span></span><code>root@Crimmy:~#<span class="w"> </span>cat<span class="w"> </span>./test
+test.txt<span class="w">      </span>testtest.txt
+root@Crimmy:~#<span class="w"> </span>cat<span class="w"> </span>./test
+</code></pre></div></p>
+<h2 id="_6">当前工作目录</h2>
 <p><strong>当前工作目录</strong>(pwd, <strong>p</strong>resent <strong>w</strong>orking <strong>d</strong>irectory)是<code>shell</code>当中的一个概念。一句话来说，当前工作目录就是当前所在的文件夹。因为linux文件系统中支持相对路径，因此<code>shell</code>命令中使用相对路径的时候需要有一个当前位置。这个当前位置就是当前工作目录。</p>
-<h3 id="_6">查看当前工作目录</h3>
+<h3 id="_7">查看当前工作目录</h3>
 <p>一般有三种方式可以查看当前工作目录。</p>
 <p>第一种方式是通过命令行提示符。</p>
 <p>默认的命令行提示符中包含当前工作目录，因为我们在使用命令的时候经常需要观察当前我们所在的位置。如果你选择使用自己配置的命令行提示符，一般也建议在命令行提示符中包含当前工作目录(也可以是当前工作目录的缩写)。这是最简单的一种查看当前工作目录的方式。</p>
@@ -910,7 +940,7 @@
 <blockquote>
 <p>环境变量<code>PWD</code>中的值可能与<code>pwd</code>输出的值不完全相同，这是因为linux文件系统中存在链接，导致文件系统中从根目录开始到某个节点的路径不一定唯一。更具体的内容会在<a href="">第13章</a>中讲到。</p>
 </blockquote>
-<h2 id="_7">小结</h2>
+<h2 id="_8">小结</h2>
 <p>这一章的内容比较简单，但是十分常用。这一章介绍了linux系统中文件路径的表示方式，包括绝对路径和相对路径。在相对路径中会使用三个特殊记号: <code>.</code>表示当前目录，<code>..</code>表示当前目录的上一级目录，<code>~</code>表示用户的主目录。为了在<code>shell</code>中表示当前位置，<code>shell</code>中引入了当前工作目录这个概念。有了这些基础知识之后，我们就能更方便地操作文件系统了。</p>
 <p>当然，<code>shell</code>当中还有更多的和文件系统相关的命令，我们将在下一章介绍它们。</p>
 <script src="https://giscus.app/client.js"
