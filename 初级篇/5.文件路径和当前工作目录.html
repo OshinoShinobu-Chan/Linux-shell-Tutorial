@@ -914,12 +914,26 @@
 <p><code>bash</code>的展开是一个有点复杂但是很有用的功能，具体内容会在<a href="">第20章</a>中讲解。这里我们只要知道，有的时候一些特殊的符号或者符号组合会在<code>shell</code>中被替换成另外的东西。如果一个命令的运行结果出乎你的意料，可能要考虑你的参数中是否有特殊符号被展开了。通常避免展开的方式就是使用引号把你的参数包裹起来，就像我们对待参数中出现空格的时候做的那样。</p>
 <p>最后，<code>bash</code>(其他<code>shell</code>应该也差不多)，还提供一个关于主目录的展开，<code>~xxx</code>如果<code>xxx</code>是一个有效的用户名，那么这个东西会被展开成<code>xxx</code>这个用户的主目录绝对路径。</p>
 <h3 id="_5">文件路径自动补全</h3>
-<p>一般比较现代的<code>shell</code>都会提供命令自动补全的功能，主要会进行的自动补全的就是文件路径。因为文件路径很有可能会很长，并且文件路径更有可能被预测。<code>bash</code>提供了最近的文件路径补全，输入路径的前一部分，然后按Tab键就会自动补全。自动补全的结果有下面几种可能性。
-1. 如果只有一条路径和你输入的部分开头相同，那么自动补全会将路径完整补全。
-2. 如果没有一条可能路径和你输入的部分开头相同，那么自动补全不会进行并且会给你播放<code>\a</code>(振铃符)的声音。
-3. 如果有大于一条可能的路径和你输入的部分开头相同，那么自动补全的行为还会分为两种：
-    1. 如果这些可能的路径公共部分只是你输入的部分，<code>bash</code>不会进行补全，并给你播放<code>\a</code>的声音。例如：你输入的是<code>./test</code>，并且当前文件夹下有<code>test.txt</code>和<code>testtest.txt</code>这两个文件是以<code>test</code>开头的。
-    2. 如果这些可能的路径公共部分比你输入的部分更长，那么<code>bash</code>会补全到更长的公共部分，但是不会补全完整路径，并给你播放<code>\a</code>的声音。例如你输入的是<code>./t</code>，并且当前文件夹下有<code>test.txt</code>和<code>testtest.txt</code>这两个文件是以<code>t</code>开头的。</p>
+<p>一般比较现代的<code>shell</code>都会提供命令自动补全的功能，主要会进行的自动补全的就是文件路径。因为文件路径很有可能会很长，并且文件路径更有可能被预测。<code>bash</code>提供了最近的文件路径补全，输入路径的前一部分，然后按Tab键就会自动补全。自动补全的结果有下面几种可能性。</p>
+<ol>
+<li>
+<p>如果只有一条路径和你输入的部分开头相同，那么自动补全会将路径完整补全。</p>
+</li>
+<li>
+<p>如果没有一条可能路径和你输入的部分开头相同，那么自动补全不会进行并且会给你播放<code>\a</code>(振铃符)的声音。</p>
+</li>
+<li>
+<p>如果有大于一条可能的路径和你输入的部分开头相同，那么自动补全的行为还会分为两种：</p>
+<ol>
+<li>
+<p>如果这些可能的路径公共部分只是你输入的部分，<code>bash</code>不会进行补全，并给你播放<code>\a</code>的声音。例如：你输入的是<code>./test</code>，并且当前文件夹下有<code>test.txt</code>和<code>testtest.txt</code>这两个文件是以<code>test</code>开头的。</p>
+</li>
+<li>
+<p>如果这些可能的路径公共部分比你输入的部分更长，那么<code>bash</code>会补全到更长的公共部分，但是不会补全完整路径，并给你播放<code>\a</code>的声音。例如你输入的是<code>./t</code>，并且当前文件夹下有<code>test.txt</code>和<code>testtest.txt</code>这两个文件是以<code>t</code>开头的。</p>
+</li>
+</ol>
+</li>
+</ol>
 <p>上面的情况是对于使用<code>bash</code>直接进行补全，<code>bash</code>还提供文件路径的提示功能，如果你输入了文件路径的一部分但是发现补全不能正常进行(上述的2,3两种情况)，这时可以再按一次Tab键(两次按Tab键的间隔时间不能太长，其实相当于是双击Tab键，但是太快<code>bash</code>可能会反应不过来)，<code>bash</code>就可以将所有可能的路径都输出，你可以根据这个提示来完成你的命令。下面是一个例子，我的文件夹下有两个文件分别是<code>test.txt</code>和<code>testtest.txt</code>。输入<code>cat ./t</code>并按了一次Tab键之后，<code>bash</code>帮我补全了<code>test</code>。这时我再次按Tab键就会得到下面的结果。
 <div class="highlight"><pre><span></span><code>root@Crimmy:~#<span class="w"> </span>cat<span class="w"> </span>./test
 test.txt<span class="w">      </span>testtest.txt
