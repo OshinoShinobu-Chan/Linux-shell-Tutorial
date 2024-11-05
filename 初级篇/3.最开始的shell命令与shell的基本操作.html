@@ -438,6 +438,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      引言
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#shellecho" class="md-nav__link">
     <span class="md-ellipsis">
       最开始的shell命令——echo
@@ -447,7 +456,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       命令行参数
     </span>
@@ -457,7 +466,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       命令行参数的基本形式
     </span>
@@ -466,7 +475,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       位置参数
     </span>
@@ -475,7 +484,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       选项参数
     </span>
@@ -484,7 +493,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       标志参数
     </span>
@@ -493,7 +502,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       命令行参数的缩写
     </span>
@@ -525,7 +534,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       小结
     </span>
@@ -768,6 +777,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      引言
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#shellecho" class="md-nav__link">
     <span class="md-ellipsis">
       最开始的shell命令——echo
@@ -777,7 +795,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       命令行参数
     </span>
@@ -787,7 +805,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       命令行参数的基本形式
     </span>
@@ -796,7 +814,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       位置参数
     </span>
@@ -805,7 +823,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       选项参数
     </span>
@@ -814,7 +832,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       标志参数
     </span>
@@ -823,7 +841,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       命令行参数的缩写
     </span>
@@ -855,7 +873,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
       小结
     </span>
@@ -882,6 +900,7 @@
 
 
 <h1 id="shellshell">最开始的shell命令与shell的基本操作</h1>
+<h2 id="_1">引言</h2>
 <p>上一章的最后我们写出了我们的第一个<code>bash</code>命令，这一章，我们将从那条命令开始，介绍我们的第一个命令<code>echo</code>。</p>
 <blockquote>
 <p>注：上一章我们也提到了，通常我们在<code>shell</code>中完成任务的方式是运行其他软件，但是也有一些<code>shell</code>的内置命令，它们并不能算是软件。为了简单，在本文档中我将不会区分，把它们都称之为命令，因为他们用起来几乎没有区别。</p>
@@ -915,13 +934,13 @@
 </code></pre></div>
 你应该会看到一个红色的<code>Hello world!</code>。如果你想知道这是怎么做到的，去了解一下<a href="https://en.wikipedia.org/wiki/ANSI_escape_code">escape code</a>。</p>
 </blockquote>
-<h2 id="_1">命令行参数</h2>
+<h2 id="_2">命令行参数</h2>
 <p>如果你学过什么是函数调用，你会知道很多函数在使用的时候需要传入参数(argument)。我在这里并不想讨论argument和parameter的区别，所以我们就统一称为参数。</p>
 <p>命令行参数(command line argument)，名字看上去就跟函数参数类似。实际上作用也类似，函数参数是在程序中给函数传入数据的，命令函参数则是在<code>shell</code>中给命令（实际上是软件）传入数据用的。命令行参数主要有两种作用：传入数据和控制命令的行为。</p>
 <p>命令行参数主要有三种形式：位置参数(positional argument), 选项参数(optional argument), 标志参数(flag argument)。下面我将先介绍命令行参数的基本形式，然后分别介绍这三种形式的命令行参数。</p>
-<h3 id="_2">命令行参数的基本形式</h3>
+<h3 id="_3">命令行参数的基本形式</h3>
 <p>命令行参数是跟在命令行命令<strong>后面</strong>的，<strong>以空格间隔的</strong>一系列字符串，每两个空格之间会被认为是一个参数。这就是为什么我上面说到需要注意空格。如果你的一个参数中不得不包括空格，可以用引号(通常<code>'</code>或<code>"</code>都行)把它包裹起来。</p>
-<h3 id="_3">位置参数</h3>
+<h3 id="_4">位置参数</h3>
 <p>位置参数(positional argument)是在命令行中有特定位置的参数，也就是说，cli程序通过参数的位置来区分这些参数。这里所说的位置，指的是参数的顺序。因此，对于位置参数来说，顺序是很重要的。另外，后面我们会学到的选项参数和标志参数是不区分顺序的，甚至个数都是可变的，因此位置参数和其他的参数不能掺杂在一起使用。通常情况下，位置参数在所有参数的最前面，或者所有参数的最后面。在最前面的位置参数必须有确定的个数，在最后面的位置参数个数可以是不定的。</p>
 <p>再拿出前面的例子：
 <div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;Hello\n world!&quot;</span>
@@ -939,14 +958,14 @@
 <blockquote>
 <p>注意：如果你使用的不是<code>bash</code>，而是其他的<code>shell</code>，上面这些可能指令的行为可能不同，因为其他的<code>shell</code>可能会内置自己版本的<code>echo</code>指令，它们的行为和<code>echo</code>类似，但是在一些特殊的情况下会有不同。感兴趣的同学可以自行去探索它们的行为。</p>
 </blockquote>
-<h3 id="_4">选项参数</h3>
+<h3 id="_5">选项参数</h3>
 <p>选项参数(optional argument)通常是两个或者更多的参数，以<code>--xxx</code>或者<code>-x</code>开头，后面接一个或者更多个参数（都是以空格间隔的）。选项参数中开头那个<code>--xxx</code>或<code>-x</code>表示后面给出的参数属于哪个选项，后面接着的是参数的具体内容。它和位置参数功能上类似，但是因为前面有指定选项的标志，因此选项参数不需要有固定的顺序。并且有默认值的选项参数可以省略, 通常情况下相同选项的选项参数只能出现一次。</p>
 <blockquote>
 <p>会<code>Python</code>的同学可能会觉得熟悉，<code>Python</code>的函数也支持选项参数。例如：<code>print("Hello world", end="!")</code>。这里的<code>end="!"</code>就是选项参数。</p>
 </blockquote>
 <p>上面给出的选项参数的开头有两种形式，这是因为通常情况下，命令行参数的选项中<code>-</code>后面只能接一个字母，具体原因在后面<a href="#命令行参数的缩写">命令行参数的缩写</a>中会提到。但是只用一个字母又很容易冲突，因此使用<code>--</code>，后面可以接一个单词。很多时候常用的选项参数会同时有<code>--xxx</code>的全称形式和<code>-x</code>的简称形式。</p>
 <p>例如，很多需要传入文件名的命令都会有<code>--file /path/to/file</code>这个选项，它也常常可以用<code>-f /path/to/file</code>这样的简称形式。</p>
-<h3 id="_5">标志参数</h3>
+<h3 id="_6">标志参数</h3>
 <p>标志参数(flag argument)和选项参数很像，但是它通常只有一个参数作为选项，没有后面的内容，也就是单独的形如<code>--xxx</code>或<code>-x</code>的形式。标志参数相当于是给程序传入了一个布尔值，有这个参数表示<code>true</code>，没有这个参数表示<code>false</code>，通常用于表示某项功能是否开启。习惯上同一个标志参数只出现一次，但是有的时候可能会使用同时出现多次的相同标志参数用于表示一些特殊含义。</p>
 <p>还是用上面的例子：
 <div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;Hello\n world!`</span>
@@ -956,7 +975,7 @@
 <blockquote>
 <p>后面在学习了很多指令之后你们会发现，很多选项参数和标志参数已经成为了一种不成文的约定，例如：<code>-v</code>是"verbosely"的缩写，作为标志参数表示更输出更详细的执行过程。</p>
 </blockquote>
-<h3 id="_6">命令行参数的缩写</h3>
+<h3 id="_7">命令行参数的缩写</h3>
 <p>目前我们学习的命令还比较简单，但是后面我们可能会遇到一些命令，需要数量非常多的参数。尤其是当我们需要很多标志参数的时候，我们需要连着输入很多的<code>-</code>和空格，很麻烦。因此大部分命令都会支持命令行参数的缩写，允许我们将多个标志参数连在一起。</p>
 <p>命令行参数的缩写形式是这样的<code>-xyz</code>这里<code>xyz</code>分别表示了三个不同的参数，可以把他们连在一起，省略中间的空格和<code>-</code>。这里举一个后面会讲到的例子：
 <div class="highlight"><pre><span></span><code>ls<span class="w"> </span>-l<span class="w"> </span>-a
@@ -1012,7 +1031,7 @@
 <li>如果一条命令在执行过程中你想要终止它，可以按Ctrl-C（可能没有用）或者Ctrl-D（一定有用），具体原理可以看<a href="">第9章</a>。因为<code>shell</code>也是一个软件，所以在没有命令执行的时候按Ctrl-D可以退出<code>shell</code>，如果你的终端只有一个<code>shell</code>，那么终端也会关闭。</li>
 <li>因为终端拥有图形化界面，所以你可以使用鼠标滚轮翻看之前的执行情况，如果是没有图形化界面的终端，那么离开屏幕的内容就永远消失了。</li>
 </ul>
-<h2 id="_7">小结</h2>
+<h2 id="_8">小结</h2>
 <p>这一章介绍了两个用于在屏幕上输出文字的命令作为我们<code>bash</code>命令的"Hello world"。另外，我们还介绍了命令行参数的知识，这对于cli程序和命令行命令的使用来说十分重要，后面也会经常用到，必须熟悉。最后我们介绍了<code>shell</code>的一些基本操作，这些操作可以让你更丝滑地使用<code>shell</code>，如果你经常使用就会自然地变得很熟练。</p>
 <script src="https://giscus.app/client.js"
         data-repo="OshinoShinobu-Chan/Linux-shell-Tutorial"
