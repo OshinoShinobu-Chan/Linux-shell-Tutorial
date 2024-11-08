@@ -62,7 +62,7 @@ mkdocs build --clean
 * [x] 4. ls, cd, mkdir, touch, find
 * [x] 5. pwd,
 * [x] 6. cp, mv, cat, view, rm, shred, rmdir, tee
-* [ ] 7. 输入输出重定向，管道, mkfifo, &&
+* [x] 7. 输入输出重定向，管道, mkfifo, &&
 * [ ] 8. ip, ifconfig, curl, telnet, wget, ssh, scp, netcat
 * [ ] 9. 进程，信号, ctrl-C, ctrl-D
 * [ ] 10. top, htop, kill, pkill, ps, nohup, &
