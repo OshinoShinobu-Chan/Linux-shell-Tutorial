@@ -16,7 +16,7 @@
         <link rel="prev" href="5.%E6%96%87%E4%BB%B6%E8%B7%AF%E5%BE%84%E5%92%8C%E5%BD%93%E5%89%8D%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95.html">
       
       
-        <link rel="next" href="../%E9%99%84%E5%BD%95/index.html">
+        <link rel="next" href="7.Linux%E7%B3%BB%E7%BB%9F%E6%9B%B4%E5%A4%9A%E7%9A%84%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B.html">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -291,6 +291,8 @@
       
         
           
+        
+      
         
       
         
@@ -812,6 +814,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="7.Linux%E7%B3%BB%E7%BB%9F%E6%9B%B4%E5%A4%9A%E7%9A%84%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linux系统更多的文件类型
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -830,6 +853,8 @@
       
         
           
+        
+      
         
       
         
@@ -932,6 +957,27 @@
   
   <span class="md-ellipsis">
     图和树介绍(省流版)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E9%99%84%E5%BD%95/D.%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8gcc.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    如何使用gcc
   </span>
   
 
@@ -1321,7 +1367,7 @@ cp<span class="w"> </span>test.txt<span class="w"> </span>./testdir/kissshot.txt
 <p>需要特别注意，当你使用<code>cp</code>复制文件的时候，如果目标位置已经存在同名的文件了，<code>cp</code>会直接用新文件将原来的文件覆盖。如果你不是有意这么做的，你可以使用<code>--interactive</code>/<code>-i</code>参数避免你的错误，这个参数可以让<code>cp</code>每次在存在同名文件的时候都询问你是否要覆盖它。另外，<code>cp</code>还提供<code>--update</code>参数，这参数可以让你更精细地控制哪些文件应当被覆盖，这样既可以防止一些文件被你无意中覆盖了，也可以避免你在复制大量文件的时候，每个都要手动控制是否要覆盖。</p>
 <p><code>cp</code>还有很多其他的参数，但都不那么常用，所以这里就不介绍了。</p>
 <h2 id="mv">移动文件——mv</h2>
-<p><code>mv</code>和<code>cp</code>简直就像是双胞胎一样，在常见的用法上，移动文件和复制文件几乎唯一的区别就是移动文件的时候，原来的文件不会被保留。所以你们可以自己尝试一下，上面<code>cp</code>介绍过的基础用法和复制文件夹的用法，在<code>mv</code>都可以用。关于覆盖的行为，<code>mv</code>和<code>cp</code>也完全一样。<code>mv</code>也是GNU coreutils的一个软件。</p>
+<p><code>mv</code>和<code>cp</code>简直就像是双胞胎一样，在常见的用法上，移动文件和复制文件几乎唯一的区别就是移动文件的时候，原来的文件不会被保留。所以你们可以自己尝试一下，上面<code>cp</code>介绍过的基础用法，在<code>mv</code>都可以用。<code>mv</code>不需要<code>-r</code>就可以移动文件夹。关于覆盖的行为，<code>mv</code>和<code>cp</code>也完全一样。<code>mv</code>也是GNU coreutils的一个软件。</p>
 <h3 id="_5">文件(夹)重命名</h3>
 <p>使用<code>mv</code>还可以做到给文件或者文件夹重命名，这是这个命令稍微有趣一点的用法。但其实你们稍微想一下也很容易能想到。如果我想把现在文件夹下面一个叫<code>test.txt</code>的文件重命名为<code>test</code>(相当于我们去掉了这个文件的后缀名，这很有趣，请你暂时记着这件事，之后我们还会再讨论一下这个问题)，可以用下面这个命令
 <div class="highlight"><pre><span></span><code>mv<span class="w"> </span>test.txt<span class="w"> </span><span class="nb">test</span>
@@ -1411,9 +1457,9 @@ Birth: 2024-10-31 23:50:02.898005975 +0800
 <p><code>rm</code>命令接受<strong>至少一个</strong>在最末尾的位置参数，表示要删除的文件的路径。可以先使用前面介绍过的方式创建一个文件，比如<code>miku</code>，然后使用下面这个命令(你可以先用<code>ls</code>验证一下是否创建成功了)
 <div class="highlight"><pre><span></span><code>rm<span class="w"> </span>miku
 </code></pre></div>
-然后你可以再使用<code>ls</code>验证<code>rm</code>的效果。~~(什么？miku？她从没存在过啊)~~同时你会发现，<code>rm</code>其实不会毫无声响地直接删掉这个文件，而是会先提醒你。</p>
+然后你可以再使用<code>ls</code>验证<code>rm</code>的效果。~~(什么？miku？她从没存在过啊)~~我们就这样毫无声息的永久删除了一个文件。</p>
 <h3 id="_13">有提示的删除</h3>
-<p>如果你想在每次删除的时候都获得提示以免误删了你本来不想删除的东西的话，可以使用<code>-i</code>选项。加上这参数之后，每删除一个文件，<code>rm</code>都会询问你是否要删除。只有输入<code>y</code>或者<code>yes</code>然后按回车才会删除，直接回车或者按其他的东西都会让<code>rm</code>跳过这个文件而不删除它。(不过上面我也看到了，这是<code>rm</code>的默认行为)</p>
+<p>如果你想在每次删除的时候都获得提示以免误删了你本来不想删除的东西的话，可以使用<code>-i</code>选项。加上这参数之后，每删除一个文件，<code>rm</code>都会询问你是否要删除。只有输入<code>y</code>或者<code>yes</code>然后按回车才会删除，直接回车或者按其他的东西都会让<code>rm</code>跳过这个文件而不删除它。</p>
 <p>当然，使用<code>-i</code>有个问题，就是如果你想一次删除一大批文件，如果每次都确认就太麻烦了。还有<code>-I</code>参数可以选择，它会在每次删除的文件数目大于3或者你删除的内容中包含文件夹的时候询问你一次，它可以一定程度上避免你犯错误。</p>
 <h3 id="_14">安静地删除</h3>
 <p>现在你可以尝试一下删除一个文件夹中不存在的文件。你会发现<code>rm</code>会提示你这个文件不存在。当你删除一大批文件而其中包含不少文件不存在的时候，<code>rm</code>就会给出大量这样的错误信息，有的时候这些信息会将我们想看的信息挤掉。这个时候就可以使用<code>force</code>/<code>-f</code>选项，这会让<code>rm</code>不输出任何信息。这个选项和前面的<code>-i</code>/<code>-I</code>是冲突的，因此放在后面的选项会覆盖前面的选项的效果。你可以试试下面两条指令的不同
@@ -1523,13 +1569,13 @@ Birth: 2024-10-31 23:50:02.898005975 +0800
         
         
           
-          <a href="../%E9%99%84%E5%BD%95/index.html" class="md-footer__link md-footer__link--next" aria-label="下一页: 附录">
+          <a href="7.Linux%E7%B3%BB%E7%BB%9F%E6%9B%B4%E5%A4%9A%E7%9A%84%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B.html" class="md-footer__link md-footer__link--next" aria-label="下一页: Linux系统更多的文件类型">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                附录
+                Linux系统更多的文件类型
               </div>
             </div>
             <div class="md-footer__button md-icon">

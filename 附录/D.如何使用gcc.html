@@ -10,13 +10,11 @@
         <meta name="author" content="Crimmy">
       
       
-        <link rel="canonical" href="https://oshinoshinobu-chan.github.io/Linux-shell-Tutorial/%E9%99%84%E5%BD%95/index.html">
+        <link rel="canonical" href="https://oshinoshinobu-chan.github.io/Linux-shell-Tutorial/%E9%99%84%E5%BD%95/D.%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8gcc.html">
       
       
-        <link rel="prev" href="../%E5%88%9D%E7%BA%A7%E7%AF%87/7.Linux%E7%B3%BB%E7%BB%9F%E6%9B%B4%E5%A4%9A%E7%9A%84%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B.html">
+        <link rel="prev" href="C.%E5%9B%BE%E5%92%8C%E6%A0%91%E4%BB%8B%E7%BB%8D%28%E7%9C%81%E6%B5%81%E7%89%88%29.html">
       
-      
-        <link rel="next" href="A.%E5%AE%89%E8%A3%85WSL2.html">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -24,7 +22,7 @@
     
     
       
-        <title>附录 - Linux shell Tutorial</title>
+        <title>如何使用gcc - Linux shell Tutorial</title>
       
     
     
@@ -86,7 +84,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#gcc" class="md-skip">
           跳转至
         </a>
       
@@ -122,7 +120,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              附录
+              如何使用gcc
             
           </span>
         </div>
@@ -534,7 +532,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="index.html" class="md-nav__link md-nav__link--active">
+            <a href="index.html" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -545,7 +543,7 @@
             </a>
             
               
-              <label class="md-nav__link md-nav__link--active" for="__nav_3" id="__nav_3_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
@@ -627,10 +625,19 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="D.%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8gcc.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="D.%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8gcc.html" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -639,6 +646,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -671,50 +679,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#awsl2" class="md-nav__link">
-    <span class="md-ellipsis">
-      A.安装WSL2
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#b" class="md-nav__link">
-    <span class="md-ellipsis">
-      B.安装装虚拟机
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#c" class="md-nav__link">
-    <span class="md-ellipsis">
-      C.图和树介绍(省流版)
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dgcc" class="md-nav__link">
-    <span class="md-ellipsis">
-      D.如何使用gcc
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -731,11 +695,7 @@
   
 
 
-<h1 id="_1">附录</h1>
-<h2 id="awsl2"><a href="A.%E5%AE%89%E8%A3%85WSL2.html">A.安装WSL2</a></h2>
-<h2 id="b"><a href="B.%E5%AE%89%E8%A3%85%E8%99%9A%E6%8B%9F%E6%9C%BA.html">B.安装装虚拟机</a></h2>
-<h2 id="c"><a href="C.%E5%9B%BE%E5%92%8C%E6%A0%91%E4%BB%8B%E7%BB%8D%28%E7%9C%81%E6%B5%81%E7%89%88%29.html">C.图和树介绍(省流版)</a></h2>
-<h2 id="dgcc"><a href="D.%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8gcc.html">D.如何使用gcc</a></h2>
+<h1 id="gcc">如何使用gcc</h1>
 
 
 
@@ -767,7 +727,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../%E5%88%9D%E7%BA%A7%E7%AF%87/7.Linux%E7%B3%BB%E7%BB%9F%E6%9B%B4%E5%A4%9A%E7%9A%84%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B.html" class="md-footer__link md-footer__link--prev" aria-label="上一页: Linux系统更多的文件类型">
+          <a href="C.%E5%9B%BE%E5%92%8C%E6%A0%91%E4%BB%8B%E7%BB%8D%28%E7%9C%81%E6%B5%81%E7%89%88%29.html" class="md-footer__link md-footer__link--prev" aria-label="上一页: 图和树介绍(省流版)">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -777,27 +737,11 @@
                 上一页
               </span>
               <div class="md-ellipsis">
-                Linux系统更多的文件类型
+                图和树介绍(省流版)
               </div>
             </div>
           </a>
         
-        
-          
-          <a href="A.%E5%AE%89%E8%A3%85WSL2.html" class="md-footer__link md-footer__link--next" aria-label="下一页: 安装WSL2">
-            <div class="md-footer__title">
-              <span class="md-footer__direction">
-                下一页
-              </span>
-              <div class="md-ellipsis">
-                安装WSL2
-              </div>
-            </div>
-            <div class="md-footer__button md-icon">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
-            </div>
-          </a>
         
       </nav>
     
