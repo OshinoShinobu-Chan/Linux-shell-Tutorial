@@ -16,7 +16,7 @@
         <link rel="prev" href="6.%E6%9B%B4%E5%A4%9A%E7%9A%84%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9Cshell%E5%91%BD%E4%BB%A4.html">
       
       
-        <link rel="next" href="../%E9%99%84%E5%BD%95/index.html">
+        <link rel="next" href="8.%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3%E7%9A%84shell%E5%91%BD%E4%BB%A4.html">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -300,6 +300,8 @@
       
         
           
+        
+      
         
       
         
@@ -658,10 +660,40 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      小结
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="8.%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3%E7%9A%84shell%E5%91%BD%E4%BB%A4.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    网络相关的shell命令
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -978,6 +1010,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      小结
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1114,6 +1155,8 @@
 <h3 id="_11">有名称的管道</h3>
 <p>很有趣的是，GNU coreutils还给我们提供了可以创造有名称的管道的命令<code>mkfifo</code>(<strong>m</strong>a<strong>k</strong>e <strong>fifo</strong>)。这里<code>fifo</code>就是First In First Out的缩写，也就是管道最重要的特点。用这条命令创建出来的文件拥有管道的2, 3, 4三个特点，但不满足1, 5这两条特点。也就是它拥有名称，并且需要我们手动删掉。</p>
 <p>这条命令的基础用法很简单，就是后面使用一个位置参数表示创建的管道的文件路径。因为一般用到的很少，所以这里我们只做一个简单的介绍，感兴趣的同学可以自己去尝试一下。你们可以思考一下，怎样用命令检验它创建的文件是否有3, 4这两个特点(管道的特点2很难用命令行命令来验证)。</p>
+<h2 id="_12">小结</h2>
+<p>这一章我们讲解了Linux系统中的两种特殊的文件，标准输出输出文件和管道，并且介绍了在<code>shell</code>中使用输入输出重定向和使用管道的方式。使用这两种能力，我们就可以将命令组合起来使用完成更加复杂的工作了。至此，初级篇和文件系统相关的内容就全部完成了(别想多了，中级篇还会介绍更多<code>shell</code>和文件系统相关的内容的)。从下一章开始，我们将会开始介绍如何使用<code>shell</code>操作计算机另一项，我们每个人现在都离不开的东西——网络。</p>
 <script src="https://giscus.app/client.js"
         data-repo="OshinoShinobu-Chan/Linux-shell-Tutorial"
         data-repo-id="R_kgDONEc4yg"
@@ -1178,13 +1221,13 @@
         
         
           
-          <a href="../%E9%99%84%E5%BD%95/index.html" class="md-footer__link md-footer__link--next" aria-label="下一页: 附录">
+          <a href="8.%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3%E7%9A%84shell%E5%91%BD%E4%BB%A4.html" class="md-footer__link md-footer__link--next" aria-label="下一页: 网络相关的shell命令">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                附录
+                网络相关的shell命令
               </div>
             </div>
             <div class="md-footer__button md-icon">
