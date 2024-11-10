@@ -560,6 +560,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#shell" class="md-nav__link">
+    <span class="md-ellipsis">
+      在shell中表示标准输入输出文件
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -871,6 +880,15 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#shell" class="md-nav__link">
+    <span class="md-ellipsis">
+      在shell中表示标准输入输出文件
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1012,6 +1030,14 @@
 <blockquote>
 <p>你是否会好奇，如果我向标准输入流写数据会怎么样？类似的我们还可以问，如果我从标准输出流读数据会怎么样？或许有人会说，都说了叫标准输入流了，肯定不能读吧。但是我建议大家，当遇到这种问题的时候，不要轻易下结论，自己去试一试。不过，我仍然推荐你按照约定的方式使用这些标准输入输出流，否则之后使用<code>shell</code>的重定向和管道之类功能的时候可能会发生意料之外的事情。</p>
 </blockquote>
+<h3 id="shell">在shell中表示标准输入输出文件</h3>
+<p>在<code>shell</code>中我们可以使用<code>-</code>表示标准输入输出文件，这个符号可以被使用在很多命令中。比如<code>cat</code>命令就可以接<code>-</code>表示从标准输入文件中读入，然后把内容输出到标准输出中，因此我们可以使用这样的命令来使用<code>cat</code>
+<div class="highlight"><pre><span></span><code>cat<span class="w"> </span>test.txt<span class="w"> </span>-<span class="w"> </span>test.txt
+</code></pre></div>
+上面这个命令中，<code>cat</code>首先会输出<code>test.txt</code>的内容，然后读取标准输入流中的内容输出到标准输出中，然后再输出一遍<code>test.txt</code>的内容。结合下面我们马上会讲到的输出重定向，我们可以实现将文件的内容和我们输入的内容连接起来并输出到另一个文件中。这也是向文件末尾附加内容的方式。</p>
+<p>除了<code>cat</code>，我们甚至可以使用<code>stat</code>查看标准输入输出文件的信息。只需要使用下面这个命令。
+<div class="highlight"><pre><span></span><code>stat<span class="w"> </span>-
+</code></pre></div></p>
 <h2 id="_4">输入输出重定向</h2>
 <h3 id="_5">简短的前置知识</h3>
 <p>我们现在其实还有一个问题上面没有提及，上面的代码相比于第二章的代码还有一个区别，就是我们还省去了关闭文件的过程。或许直觉上告诉我们，标准输入输出流怎么能被关掉呢？但是仍然，我建议大家亲自试一试。试一试下面这段C程序。
