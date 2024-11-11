@@ -710,9 +710,7 @@
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
           
@@ -1043,7 +1041,7 @@
 <li>使用交互式命令行界面虽然方便，但是也存在一些缺陷，比如，如果我们需要一次执行大量的语句，或者我们有一些复杂的分支，循环等逻辑，使用交互式界面将会很不方便。因此 <code>shell</code>通常也提供给我们了另一种使用方式——脚本。脚本就像是用 <code>shell</code>命令这种"编程语言"写成的程序，但是相比于 <code>C</code>语言程序，它的执行方式更像是 <code>python</code>语言程序，也就是说，<code>shell</code>脚本是读一句执行一句的，没有提前的编译过程。</li>
 </ol>
 <p>上面我们也提到了，<code>shell</code>是<strong>一种软件</strong>，因此实际上我们在不同的操作系统中通常都分别有多种 <code>shell</code>可以选，但是显然这里我们只介绍linux中的 <code>shell</code>。同一种操作系统中的不同 <code>shell</code>通常也很相近，因此之后我的介绍只使用 <code>bash</code>这一种最常用的 <code>shell</code>。其他的 <code>shell</code>使用方式基本相同。</p>
-<p>最后我再推荐一个 <code>shell</code>，就是 <code>fish</code>，它在交互式界面上的操作和 <code>bash</code>几乎没有区别，因此这个文档后面的操作除非特殊说明，否则使用 <code>fish</code>也可以进行。除此之外，<code>fish</code>最大的一个好处就是它可以预测你的输入，如果你想要输入的内容和它的预测相同，那么简单地按一下$\rightarrow$就可以将它的预测输入了。另外，<code>fish</code>有好看的语法高亮，这些你可以自己在学完后面的一些基本指令之后自己探索一下，我也会在这个文档中再介绍一些 <code>fish</code>好用的特性。下图中红色的文字是我的输入，灰色的文字是 <code>fish</code>的预测。</p>
+<p>最后我再推荐一个 <code>shell</code>，就是 <code>fish</code>，它在交互式界面上的操作和 <code>bash</code>几乎没有区别，因此这个文档后面的操作除非特殊说明，否则使用 <code>fish</code>也可以进行。除此之外，<code>fish</code>最大的一个好处就是它可以预测你的输入，如果你想要输入的内容和它的预测相同，那么简单地按一下<span class="arithmatex">\(\rightarrow\)</span>就可以将它的预测输入了。另外，<code>fish</code>有好看的语法高亮，这些你可以自己在学完后面的一些基本指令之后自己探索一下，我也会在这个文档中再介绍一些 <code>fish</code>好用的特性。下图中红色的文字是我的输入，灰色的文字是 <code>fish</code>的预测。</p>
 <p><a class="glightbox" href="resource/2-2.fish-pred.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="fish的预测" src="resource/2-2.fish-pred.png" /></a></p>
 <h2 id="bash">尝试写第一个 <code>bash</code>命令</h2>
 <p>前面说了这么多理论，现在终于到了实际操作的时间了。虽然我猜读者中或许有一些同学已经用过一点点命令行命令了，但是为了那些从零开始的人也能毫无困难地开始，在这之前我还要再讲一个小问题。</p>
@@ -1206,10 +1204,14 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.footer", "navigation.expand", "navigation.indexes"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.tracking"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
       <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
       
     
   <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});

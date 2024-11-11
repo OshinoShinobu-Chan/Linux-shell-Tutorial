@@ -785,9 +785,7 @@
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
           
@@ -1183,7 +1181,7 @@
 </blockquote>
 <p>对于普通文件来说，读写权限很好理解，执行权限就是用户(组)是否有权限将这个文件作为一个可执行二进制文件执行。对于文件夹来说，这些文件权限含义有些不同，读权限指的是用户(组)是否有权限读取文件夹的内容（也就是对于没有读权限的文件夹，你无法使用<code>ls</code>），写权限指的是你是否能在这个文件夹中创建，删除文件和修改文件名，执行权限则指的是你是否能进入这个文件夹(也就是能否使用下面要讲到的<code>cd</code>)。</p>
 <p>对于上面这个例子来说，第一列表示的信息是：这个文件是一个普通文件，对于所有者来说有读写权限，对于所有者所在的用户组(的其他用户)和其他用户来说只有读的权限。</p>
-<p>第二列表示文件的硬链接数量。硬链接类似于Windows系统的快捷方式。文件系统的这个概念会在<a href="">第13章</a>讲到，没有其他硬链接的文件这里就是1。第三列表示文件的所有者。第四列表示文件所有者所属的用户组。第五列表示文件大小，默认使用字节为单位，但是你可以使用<code>-h</code>参数让这里的输出使用人类可读的单位(K-$10^3$, M-$10^6$, G-$10^9$, T-$10^{12}$ 等)。还有其他的参数可以改变文件大小使用的单位。第六列和第七列表示文件最近修改时间的月和日，第八列也表示的最近修改时间，当最近修改时间比较近的的时候这里表示具体时间，当最近修改时间不在这一年的时候这里使用年份。最后第九列就是文件名。</p>
+<p>第二列表示文件的硬链接数量。硬链接类似于Windows系统的快捷方式。文件系统的这个概念会在<a href="">第13章</a>讲到，没有其他硬链接的文件这里就是1。第三列表示文件的所有者。第四列表示文件所有者所属的用户组。第五列表示文件大小，默认使用字节为单位，但是你可以使用<code>-h</code>参数让这里的输出使用人类可读的单位(K-<span class="arithmatex">\(10^3\)</span>, M-<span class="arithmatex">\(10^6\)</span>, G-<span class="arithmatex">\(10^9\)</span>, T-<span class="arithmatex">\(10^{12}\)</span> 等)。还有其他的参数可以改变文件大小使用的单位。第六列和第七列表示文件最近修改时间的月和日，第八列也表示的最近修改时间，当最近修改时间比较近的的时候这里表示具体时间，当最近修改时间不在这一年的时候这里使用年份。最后第九列就是文件名。</p>
 <h3 id="_6">隐藏文件</h3>
 <p>一般的文件都会提供隐藏文件的功能，很有趣的是，在linux系统中，用文件名来区分一个文件是否是隐藏文件。你可以尝试使用下面这个命令
 <div class="highlight"><pre><span></span><code><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;hidden&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>.hidden
@@ -1402,10 +1400,14 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.footer", "navigation.expand", "navigation.indexes"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.tracking"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
       <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
       
     
   <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
