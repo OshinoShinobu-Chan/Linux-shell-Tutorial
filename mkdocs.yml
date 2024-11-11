@@ -28,8 +28,8 @@ theme:
   features:
     - content.code.copy
     - navigation.footer
-    - navigation.expand
     - navigation.indexes
+    - navigation.tracking
 extra:
   analytics:
     provider: google
