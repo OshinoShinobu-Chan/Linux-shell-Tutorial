@@ -1008,7 +1008,7 @@
 </li>
 </ol>
 <figure>
-    <a class="glightbox" href="resource/8-1.internet-5-layer-model.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="internet 5 layer model" loading="lazy" src="resource/8-1.internet-5-layer-model.png" width="50%," /></a>
+    <a class="glightbox" href="resource/8-1.internet-5-layer-model.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="internet 5 layer model" src="resource/8-1.internet-5-layer-model.png" width="50%" /></a>
     <figcaption>计算机网络5层模型的示意图(NIC指网卡)<figcaption>
 </figure>
 <h3 id="_4">计算机网络的简化版模型</h3>
@@ -1017,12 +1017,12 @@
 <p>首先，浏览器会将<code>baidu.com</code>发给一个DNS服务器(这里的发送实际上就要从上到下经历那5层结构，但是这里我不打算详细描述因为后面马上会再说一遍这个。)，询问<code>baidu.com</code>对应的ip地址。ip地址就是一个网络上设备的地址，根据ip协议，我们利用这个ip地址就能找到对应的服务器。</p>
 <p>得到这个ip地址之后，浏览器会将你的访问请求写成http协议的格式(http协议的具体内容在下一章)。到这一步，应用层的任务就完成了。接下来，这请求数据会和ip地址还有端口号一起交给计算机中负责tcp协议的软件(操作系统就提供了这种服务，当然也可以使用普通软件来实现)。</p>
 <figure>
-    <a class="glightbox" href="resource/8-2.step1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="step1" loading="lazy" src="resource/8-2.step1.png" width="60%," /></a>
+    <a class="glightbox" href="resource/8-2.step1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="step1" src="resource/8-2.step1.png" width="60%" /></a>
     <figcaption>访问网站的第一步(这里DNS服务画的很简略，下面蓝色框里是当前的数据的样子)<figcaption>
 </figure>
 <p>刚才我们提到了，传输层的协议可以将数据从进程传输到进程，我们还知道使用ip地址可以定位到一台计算机。那么如何定位到一台计算机上的一个特定的进程呢？使用的就是端口号(port)。端口号是一个16位的无符号数，每个端口号对应着一个进程(不过，一个进程可以同时使用多个端口号)。因此有ip地址和端口号，tcp协议就可以将数据可靠地传输给一个特定的计算机上的一个特定的进程。很有趣的是，同一台计算机上的两个进程也可以使用tcp进行传输数据。这里对于浏览网页来说，http服务器通常都使用80端口。因此这里tcp将ip地址和端口号以及其他必要的信息假如的数据的最开头，称为tcp头(tcp header)的一个部分(使用其他的协议比如UDP就会有UDP头)，然后将打包好的数据和ip地址交给负责ip协议的软件。到这一步，传输层的<strong>主要</strong>任务就完成了。</p>
 <figure>
-    <a class="glightbox" href="resource/8-3.step2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="step2" loading="lazy" src="resource/8-3.step2.png" /></a>
+    <a class="glightbox" href="resource/8-3.step2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="step2" src="resource/8-3.step2.png" /></a>
     <figcaption>访问网站的第二步<figcaption>
 </figure>
 <p>这里我说主要，是因为tcp协议为了保证可靠传输，首先还要用额外的几次通信建立tcp连接，并且它在发出数据之后要等待对方的确认，对方在收到数据之后要发出确认，如果在一定时间内没有收到确认，根据协议要求，需要重新发送数据。因此这里会涉及很多的技术细节，我就不展开说了。</p>
@@ -1034,17 +1034,17 @@
 <p>链路层利用mac地址在一个子网中找到网络设备，所以我们必须要知道目标设备的mac地址才能将数据发送到它。但是网络层使用的是ip地址，因此在一个子网内部，使用arp协议来知道某个ip地址的设备的mac地址。这个协议也很简单，就是如果不知道，那就广播一个询问给这个子网内的全部设备，对应ip地址的设备就会将自己的mac地址返回给询问者。询问者就会将这个ip地址和mac地址的对应记录在表中。因为ip地址经常会发生变化，所以arp表的内容如果时间长了就会被清理掉。</p>
 <p>知道了mac地址后之后，传输层就会将目标ip地址等信息也加入到数据最开头，ip头(ip header)中，然后将数据和mac地址传给链路层。</p>
 <figure>
-    <a class="glightbox" href="resource/8-4.step3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="step3" loading="lazy" src="resource/8-4.step3.png" /></a>
+    <a class="glightbox" href="resource/8-4.step3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="step3" src="resource/8-4.step3.png" /></a>
     <figcaption>访问网站的第三步<br>根据路由表下一跳是10.129.192.1，这是我们校园网网关的ip地址。<br>根据arp表，这个地址对应的mac地址是00:00:5e:00:01:0b。<figcaption>
 </figure>
 <p>链路层再将目标mac地址等信息加入到数据最开头，ethernet头中，然后将这个数据传给网卡，网卡将其发送出去。</p>
 <figure>
-    <a class="glightbox" href="resource/8-5.step4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="step4" loading="lazy" src="resource/8-5.step4.png" /></a>
+    <a class="glightbox" href="resource/8-5.step4.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="step4" src="resource/8-5.step4.png" /></a>
     <figcaption>访问网站的第四步，数据经过链路层的包装从网卡被发出。<figcaption>
 </figure>
 <p>数据发送出去之后会经过网关以及互联网上的多个路由器的中转。每次中转，接受的数据的设备都会检查数据中最开始的头部信息。然后数据头部会被扔掉然后向上传递直到到达到达中转设备的网络层。中转设备的网络层会检查ip头中的目标ip，发现不是自己，于是中转设备会知道自己是这条路径中的一跳。然后中转设备会根据路由表找到下一跳，重新包装数据(比如，每一次转发下一跳mac地址都会发生变化)，之后再向下经过链路层和物理层被发送出去。最终数据会到达我们要访问的网站的服务器。</p>
 <figure>
-    <a class="glightbox" href="resource/8-6.step5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="step5" loading="lazy" src="resource/8-6.step5.png" /></a>
+    <a class="glightbox" href="resource/8-6.step5.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="step5" src="resource/8-6.step5.png" /></a>
     <figcaption>访问网站的第五步，数据经过多跳之后到达服务器<br>其中红色方块是我们的个人电脑, 蓝色圆圈是网关或者路由器<br>橙色方块是服务器, 绿色圆圈是子网<figcaption>
 </figure>
 <p>在服务器这一端，首先网卡会接收到数据，然后检查ethernet头发现目标mac地址是自己，就会把数据向上传输给链路层。链路层检查到ethernet头中目标是自己之后，就会将ethernet头扔掉将数据向上传输给网络层。网络层检查ip头中目标ip地址是自己之后，根据ip头中的信息发现这个数据应该由tcp协议处理，就会将ip头扔掉之后向上转发给负责tcp协议的软件。负责tcp协议的软件根据tcp头中的端口号信息，找到对应的进程，将tcp头扔掉之后数据传输给进程。此时，服务器上的相应进程就收到了和浏览器当初发出来的数据完全一样的数据。</p>
