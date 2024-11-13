@@ -1,0 +1,1647 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Crimmy">
+      
+      
+        <link rel="canonical" href="https://oshinoshinobu-chan.github.io/Linux-shell-Tutorial/%E5%88%9D%E7%BA%A7%E7%AF%87/9.%E7%BD%91%E7%BB%9C%E5%BA%94%E7%94%A8%E7%9B%B8%E5%85%B3%E7%9A%84shell%E5%91%BD%E4%BB%A4.html">
+      
+      
+        <link rel="prev" href="8.%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3%E7%9A%84shell%E5%91%BD%E4%BB%A4.html">
+      
+      
+        <link rel="next" href="../%E9%99%84%E5%BD%95/index.html">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.42">
+    
+    
+      
+        <title>网络应用相关的shell命令 - Linux shell Tutorial</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CFira+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Fira Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-T87G1452XL"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-T87G1452XL",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-T87G1452XL",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+   <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#shell" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../index.html" title="Linux shell Tutorial" class="md-header__button md-logo" aria-label="Linux shell Tutorial" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Linux shell Tutorial
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              网络应用相关的shell命令
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="light-grey" data-md-color-accent="light-blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/OshinoShinobu-Chan/Linux-shell-Tutorial" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    OshinoShinobuLinux-Chan/-shell-Tutorial
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="Linux shell Tutorial" class="md-nav__button md-logo" aria-label="Linux shell Tutorial" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Linux shell Tutorial
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/OshinoShinobu-Chan/Linux-shell-Tutorial" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    OshinoShinobuLinux-Chan/-shell-Tutorial
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    更丝滑的Linux体验——Linux shell教程
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="index.html" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    初级篇
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            初级篇
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1.%E5%BC%95%E8%A8%80.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    引言
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="2.%E4%BB%80%E4%B9%88%E6%98%AFshell.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    什么是 shell
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="3.%E6%9C%80%E5%BC%80%E5%A7%8B%E7%9A%84shell%E5%91%BD%E4%BB%A4%E4%B8%8Eshell%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    最开始的shell命令与shell的基本操作
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="4.%E6%93%8D%E4%BD%9C%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%9A%84shell%E5%91%BD%E4%BB%A4.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    操作文件系统的shell命令
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="5.%E6%96%87%E4%BB%B6%E8%B7%AF%E5%BE%84%E5%92%8C%E5%BD%93%E5%89%8D%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    文件路径和当前工作目录
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="6.%E6%9B%B4%E5%A4%9A%E7%9A%84%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9Cshell%E5%91%BD%E4%BB%A4.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    更多的文件操作shell命令
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="7.Linux%E7%B3%BB%E7%BB%9F%E6%9B%B4%E5%A4%9A%E7%9A%84%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Linux系统更多的文件类型
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="8.%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3%E7%9A%84shell%E5%91%BD%E4%BB%A4.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    网络相关的shell命令
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    网络应用相关的shell命令
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="9.%E7%BD%91%E7%BB%9C%E5%BA%94%E7%94%A8%E7%9B%B8%E5%85%B3%E7%9A%84shell%E5%91%BD%E4%BB%A4.html" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    网络应用相关的shell命令
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#curl" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用命令行向服务器发送请求——curl
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="使用命令行向服务器发送请求——curl">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#curlhttp" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用curl发送http请求
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="使用curl发送http请求">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#http" class="md-nav__link">
+    <span class="md-ellipsis">
+      http协议简介
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#curlget" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用curl发送一个GET请求
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#curlhttp_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      curl发送http请求的其他功能
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#curl_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      curl的其他功能
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wget" class="md-nav__link">
+    <span class="md-ellipsis">
+      从网络上下载文件——wget
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="从网络上下载文件——wget">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      基础用法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      其他用法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#telnet" class="md-nav__link">
+    <span class="md-ellipsis">
+      向服务器发送命令——telnet
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      更安全地向服务器发送命令——ssh
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="更安全地向服务器发送命令——ssh">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ssh_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      ssh的身份验证
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      如何生成和使用密钥
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssh_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      如何使用ssh连接主机
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssh_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      ssh的配置文件
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scp" class="md-nav__link">
+    <span class="md-ellipsis">
+      与服务器之间传递文件——scp
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="与服务器之间传递文件——scp">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      基础用法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      其他用法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      在两个服务器之间传递文件
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tcpnetcat" class="md-nav__link">
+    <span class="md-ellipsis">
+      与服务器建立tcp连接——netcat
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="与服务器建立tcp连接——netcat">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      建立tcp连接并发送数据
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tcp_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      侦听tcp连接
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#udp" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用udp协议
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      小结
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../%E9%99%84%E5%BD%95/index.html" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    附录
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            附录
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E9%99%84%E5%BD%95/A.%E5%AE%89%E8%A3%85WSL2.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    安装WSL2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E9%99%84%E5%BD%95/B.%E5%AE%89%E8%A3%85%E8%99%9A%E6%8B%9F%E6%9C%BA.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    安装虚拟机
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E9%99%84%E5%BD%95/C.%E5%9B%BE%E5%92%8C%E6%A0%91%E4%BB%8B%E7%BB%8D%28%E7%9C%81%E6%B5%81%E7%89%88%29.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    图和树介绍(省流版)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E9%99%84%E5%BD%95/D.%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8gcc.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    如何使用gcc
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#curl" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用命令行向服务器发送请求——curl
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="使用命令行向服务器发送请求——curl">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#curlhttp" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用curl发送http请求
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="使用curl发送http请求">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#http" class="md-nav__link">
+    <span class="md-ellipsis">
+      http协议简介
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#curlget" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用curl发送一个GET请求
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#curlhttp_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      curl发送http请求的其他功能
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#curl_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      curl的其他功能
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wget" class="md-nav__link">
+    <span class="md-ellipsis">
+      从网络上下载文件——wget
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="从网络上下载文件——wget">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      基础用法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      其他用法
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#telnet" class="md-nav__link">
+    <span class="md-ellipsis">
+      向服务器发送命令——telnet
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      更安全地向服务器发送命令——ssh
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="更安全地向服务器发送命令——ssh">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ssh_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      ssh的身份验证
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      如何生成和使用密钥
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssh_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      如何使用ssh连接主机
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssh_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      ssh的配置文件
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scp" class="md-nav__link">
+    <span class="md-ellipsis">
+      与服务器之间传递文件——scp
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="与服务器之间传递文件——scp">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      基础用法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      其他用法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      在两个服务器之间传递文件
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tcpnetcat" class="md-nav__link">
+    <span class="md-ellipsis">
+      与服务器建立tcp连接——netcat
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="与服务器建立tcp连接——netcat">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      建立tcp连接并发送数据
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tcp_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      侦听tcp连接
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#udp" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用udp协议
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      小结
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="shell">网络应用相关的shell命令</h1>
+<p>上一章我们讲了计算机网络必要的前置知识，并且介绍了查看计算机上网络设置和5层结构中下面4层的相关信息的命令<code>ip</code>。但是对于我们来说，我们接触到计算机网络最多的，还是最上面的应用层，所以这一章我们将关注应用层，介绍一些在应用层常用的命令。</p>
+<h2 id="curl">使用命令行向服务器发送请求——curl</h2>
+<p>我们要介绍的下一个命令就是一个应用层的软件，<code>curl</code>。如果你第一次使用这个软件，你可能需要安装它。如果你使用的是Ubuntu/Debian可以使用下面这个命令。
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>curl
+</code></pre></div>
+如果你使用的其他的linux发行版或者MacOS那请你自己去搜索一下如何安装<code>curl</code>。</p>
+<h3 id="curlhttp">使用curl发送http请求</h3>
+<p><code>curl</code>最常见的用法就是用来发送<code>http</code>请求和接受<code>http</code>响应。</p>
+<h4 id="http">http协议简介</h4>
+<p>这里我们先简单介绍一下什么是<code>http</code>协议。<code>http</code>协议是一种用于在互联网上交换信息的协议。<code>http</code>协议基于tcp协议并且它默认使用80号端口。它主要分为请求(request)和响应(response)两个部分。</p>
+<p><code>http</code>请求通常都是客户端(client)，比如我们的浏览器等，向服务器发送的。<code>http</code>请求通常包含<code>http</code>请求方法，<code>http</code>请求路径，<code>http</code>版本，<code>http</code>请求头和<code>http</code>请求体。其中我们要重点关注的是<code>http</code>请求类型。<code>http</code>请求方法有很多种类型，每种类型的请求方法通常都有一种应用场景。例如，GET请求用于向服务器请求数据，POST请求用于向服务器发送数据。之后的的<code>http</code>请求路径就是我们要请求的资源在服务器当中的位置，例如我们请求的图片的路径等等。不过有的时候，这个路径并不是一个实际的文件路径。当我们需要向服务器发送数据的时候，数据放在<code>http</code>请求体中，比如发送POST方法的请求的时候，<code>http</code>请求体中就要包含我们要发送的数据。<code>http</code>请求头中则是包含一些客户端的数据等信息，这个不是我们要关注的重点。</p>
+<p><code>http</code>响应则是服务器在收到客户端的请求之后返回的响应。<code>http</code>响应通常包含<code>http</code>版本，<code>http</code>状态码，<code>http</code>状态信息，<code>http</code>响应头和<code>http</code>响应体。其中我们关注的重点是<code>http</code>状态码。这个状态码是一个数字，表示<code>http</code>相应的状态。常见的一些响应码例如：</p>
+<ul>
+<li>
+<p>200：表示请求成功。</p>
+</li>
+<li>
+<p>403: 表示客户端没有权限。</p>
+</li>
+<li>
+<p>404: 表示请求的资源不存在</p>
+</li>
+</ul>
+<p>如果你想要了解更多状态码的信息，可以访问<a href="https://datatracker.ietf.org/doc/html/rfc2616#section-10">RFC2616第10节</a></p>
+<p><code>http</code>状态信息是用一个简短的英文对这个<code>http</code>响应状态进行描述，例如当状态码为200时，这描述通常是OK。<code>http</code>响应体则是服务器返回的客户端请求的数据。<code>http</code>响应头中也是包含一些有关信息的，这个不是我们要关注的重点。</p>
+<p>最后再额外提一句，<code>https</code>协议是基于<code>http</code>协议的一个更加安全的协议，现在<code>https</code>更受推荐，但是它的原理比较复杂，这里就不做介绍了。<code>curl</code>也可以发送<code>https</code>协议的请求和接收<code>https</code>协议的响应，和<code>http</code>的操作方式没什么区别。</p>
+<h4 id="curlget">使用curl发送一个GET请求</h4>
+<p>我们简单了解了什么是<code>http</code>协议之后，我们终于可以开始尝试使用<code>curl</code>发送一个<code>http</code>请求了。使用下面这个命令就可以向百度发送一个<code>http</code>请求。
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>http://www.baidu.com
+</code></pre></div>
+首先，<code>curl</code>命令接受一个位置参数表示要请求的URL，这里也可以直接写ip地址加URL。如果没有其他的参数，<code>curl</code>默认向这个地址发送一个<code>http</code>的GET请求。因为GET请求只是请求数据，不发送任何数据，所以它的<code>http</code>请求中没有请求体，所以也不需要在参数上添加其他任何东西。如果命令执行正常，我们应该会收到这样的输出，
+<div class="highlight"><pre><span></span><code>&gt; GET http://www.baidu.com/ HTTP/1.1
+&gt; Host: www.baidu.com
+&gt; User-Agent: curl/7.81.0
+&gt; Accept: */*
+&gt; Proxy-Connection: Keep-Alive
+&gt;
+* Mark bundle as not supporting multiuse
+&lt; HTTP/1.1 200 OK
+&lt; Transfer-Encoding: chunked
+&lt; Cache-Control: private, no-cache, no-store, proxy-revalidate, no-transform
+&lt; Connection: keep-alive
+&lt; Content-Type: text/html
+&lt; Date: Sun, 10 Nov 2024 06:44:16 GMT
+&lt; Keep-Alive: timeout=4
+&lt; Last-Modified: Mon, 23 Jan 2017 13:27:36 GMT
+&lt; Pragma: no-cache
+&lt; Proxy-Connection: keep-alive
+&lt; Server: bfe/1.0.8.18
+&lt; Set-Cookie: BDORZ=27315; max-age=86400; domain=.baidu.com; path=/
+&lt;
+&lt;!DOCTYPE html&gt;
+&lt;!--STATUS OK--&gt;&lt;html&gt; &lt;head&gt;&lt;meta http-equiv=content-type content=text/html;charset=utf-8&gt;&lt;meta http-equiv=X-UA-Compatible content=IE=Edge&gt;&lt;meta content=always name=referrer&gt;&lt;link rel=stylesheet type=text/css href=http://s1.bdstatic.com/r/www/cache/bdorz/baidu.min.css&gt;&lt;title&gt;百度一下，你就知道&lt;/title&gt;&lt;/head&gt; &lt;body link=#0000cc&gt; &lt;div id=wrapper&gt; &lt;div id=head&gt; &lt;div class=head_wrapper&gt; &lt;div class=s_form&gt; &lt;div class=s_form_wrapper&gt; &lt;div id=lg&gt; &lt;img hidefocus=true src=//www.baidu.com/img/bd_logo1.png width=270 height=129&gt; &lt;/div&gt; &lt;form id=form name=f action=//www.baidu.com/s class=fm&gt; &lt;input type=hidden name=bdorz_come value=1&gt; &lt;input type=hidden name=ie value=utf-8&gt; &lt;input type=hidden name=f value=8&gt; &lt;input type=hidden name=rsv_bp value=1&gt; &lt;input type=hidden name=rsv_idx value=1&gt; &lt;input type=hidden name=tn value=baidu&gt;&lt;span class=&quot;bg s_ipt_wr&quot;&gt;&lt;input id=kw name=wd class=s_ipt value maxlength=255 autocomplete=off autofocus&gt;&lt;/span&gt;&lt;span class=&quot;bg s_btn_wr&quot;&gt;&lt;input type=submit id=su value=百度一下 class=&quot;bg s_btn&quot;&gt;&lt;/span&gt; &lt;/form&gt; &lt;/div&gt; &lt;/div&gt; &lt;div id=u1&gt; &lt;a href=http://news.baidu.com name=tj_trnews class=mnav&gt;新闻&lt;/a&gt; &lt;a href=http://www.hao123.com name=tj_trhao123 class=mnav&gt;hao123&lt;/a&gt; &lt;a href=http://map.baidu.com name=tj_trmap class=mnav&gt;地图&lt;/a&gt; &lt;a href=http://v.baidu.com name=tj_trvideo class=mnav&gt;视频&lt;/a&gt; &lt;a href=http://tieba.baidu.com name=tj_trtieba class=mnav&gt;贴吧&lt;/a&gt; &lt;noscript&gt; &lt;a href=http://www.baidu.com/bdorz/login.gif?login&amp;amp;tpl=mn&amp;amp;u=http%3A%2F%2Fwww.baidu.com%2f%3fbdorz_come%3d1 name=tj_login class=lb&gt;登录&lt;/a&gt; &lt;/noscript&gt; &lt;script&gt;document.write(&#39;&lt;a href=&quot;http://www.baidu.com/bdorz/login.gif?login&amp;tpl=mn&amp;u=&#39;+ encodeURIComponent(window.location.href+ (window.location.search === &quot;&quot; ? &quot;?&quot; : &quot;&amp;&quot;)+ &quot;bdorz_come=1&quot;)+ &#39;&quot; name=&quot;tj_login&quot; class=&quot;lb&quot;&gt;登录&lt;/a&gt;&#39;);&lt;/script&gt; &lt;a href=//www.baidu.com/more/ name=tj_briicon class=bri style=&quot;display: block;&quot;&gt;更多产品&lt;/a&gt; &lt;/div&gt; &lt;/div&gt; &lt;/div&gt; &lt;div id=ftCon&gt; &lt;div id=ftConw&gt; &lt;p id=lh&gt; &lt;a href=http://home.baidu.com&gt;关于百度&lt;/a&gt; &lt;a href=http://ir.baidu.com&gt;About Baidu&lt;/a&gt; &lt;/p&gt; &lt;p id=cp&gt;&amp;copy;2017&amp;nbsp;Baidu&amp;nbsp;&lt;a href=http://www.baidu.com/duty/&gt;使用百度前必读&lt;/a&gt;&amp;nbsp; &lt;a href=http://jianyi.baidu.com/ class=cp-feedback&gt;意见反馈&lt;/a&gt;&amp;nbsp;京ICP证030173号&amp;nbsp; &lt;img src=//www.baidu.com/img/gs.gif&gt; &lt;/p&gt; &lt;/div&gt; &lt;/div&gt; &lt;/div&gt; &lt;/body&gt; &lt;/html&gt;
+</code></pre></div>
+其中这一段就是我们发送的<code>http</code>请求
+<div class="highlight"><pre><span></span><code>&gt; GET http://www.baidu.com/ HTTP/1.1
+&gt; Host: www.baidu.com
+&gt; User-Agent: curl/7.81.0
+&gt; Accept: */*
+&gt; Proxy-Connection: Keep-Alive
+</code></pre></div>
+最前面是请求的方法GET。然后是我们的请求路径，也就是百度网站(<code>www.baidu.com</code>)的根目录(注意最后面的那个<code>/</code>)。一般网站的根目录都是它的主页。然后是我们的<code>http</code>版本是1.1。后面的部分都是请求头。</p>
+<p>下面这一段和它后面的内容是<code>http</code>响应。
+<div class="highlight"><pre><span></span><code>&lt; HTTP/1.1 200 OK
+&lt; Transfer-Encoding: chunked
+&lt; Cache-Control: private, no-cache, no-store, proxy-revalidate, no-transform
+&lt; Connection: keep-alive
+&lt; Content-Type: text/html
+&lt; Date: Sun, 10 Nov 2024 06:44:16 GMT
+&lt; Keep-Alive: timeout=4
+&lt; Last-Modified: Mon, 23 Jan 2017 13:27:36 GMT
+&lt; Pragma: no-cache
+&lt; Proxy-Connection: keep-alive
+&lt; Server: bfe/1.0.8.18
+&lt; Set-Cookie: BDORZ=27315; max-age=86400; domain=.baidu.com; path=/
+&lt;
+</code></pre></div>
+最前面是<code>http</code>版本。然后是<code>http</code>状态码和<code>http</code>状态描述。这里表示我们的请求成功。下面部分直到我这里截取的部分为止是<code>http</code>的请求头。再后面的部分直到结尾是<code>http</code>的请求体，我们会发现请求体的内容是百度首页的<code>html</code>。</p>
+<p>值得一提，<code>http</code>的请求头/响应头和<code>http</code>请求体/响应体之间是用一个空行来间隔的，并且<code>http</code>协议中规定换行用CRFL也就是回车符+换行符表示换行。</p>
+<h4 id="curlhttp_1">curl发送http请求的其他功能</h4>
+<p>当然，<code>curl</code>关于发送<code>http</code>请求还有很多其他的功能，例如可以使用它来发送POST请求和其他种类的请求，发送的请求头可以附加其他信息，可以将<code>http</code>响应体的内容保存到文件中等等。受限于篇幅，这些功能就请大家自己去探索了。</p>
+<h3 id="curl_1">curl的其他功能</h3>
+<p><code>curl</code>的功能也不只是发送<code>http</code>请求，它支持的协议包括SMTP(用于发送电子邮件), POP3(由于接收电子邮件), FTP(用于传输文件)等。你可以尝试使用下面这命令来接收你的电子邮箱中的一封邮件。
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-X<span class="w"> </span><span class="s2">&quot;RETR 1&quot;</span><span class="w"> </span>--user<span class="w"> </span>USR:PWD<span class="w"> </span>pop3://MAIL
+</code></pre></div>
+你需要将命令中的<code>USR</code>替换成你的邮箱地址，<code>PWD</code>替换成你的邮箱登录密码，<code>MAIL</code>替换成你的邮箱服务器地址。这里的邮箱服务器地址通常是你登录邮箱时的网址，比如你使用163邮箱，你的邮箱服务器地址就是<code>mail.163.com</code>。</p>
+<div class="admonition warning">
+<p class="admonition-title">warning</p>
+<p>小心！你的账号和密码可能是被明文传输的，存在密码被泄露的风险。</p>
+</div>
+<h2 id="wget">从网络上下载文件——wget</h2>
+<p><code>wget</code>是一个非交互式的网络下载器，你可以使用<code>http</code>/<code>https</code>/<code>ftp</code>协议下载文件。如果你是第一次使用这个软件，那么你需要安装一下，如果你使用的是Ubuntu/Debian，可以使用下面这个命令。
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>wget
+</code></pre></div></p>
+<h3 id="_1">基础用法</h3>
+<p><code>wget</code>接受一个位置参数表示要下载文件的url，例如下面这个命令：
+<div class="highlight"><pre><span></span><code>wget<span class="w"> </span><span class="s2">&quot;https://baidu.com&quot;</span>
+</code></pre></div>
+这个命令会将百度的首页的html文件下载下来并且保存在当前文件夹下的<code>index.html</code>文件中。这个命令会自动选取下载的文件名。</p>
+<h3 id="_2">其他用法</h3>
+<p>你可以使用选项参数<code>--output-document</code>后面接文件路径来指定下载的文件的名称，如果这文件已经存在，下载的内容会接在文件的后面。这里可以使用<code>-</code>表示标准输出流，也就是将文件的内容打印的屏幕上。</p>
+<p>你可以使用参数<code>--limit-rate=xxx</code>限制下载速度，其中<code>xxx</code>表示下载的速度，单位是字节每秒，你可以可以使用<code>k</code>, <code>M</code>, <code>G</code>等后缀。</p>
+<p>你可以使用参数<code>--tries=x</code>表示出错的话重试的次数。</p>
+<p>你可以使用<code>--user=xxx</code>和<code>--password=xxx</code>，指定登录的用户名和密码，如果你的下载的文件需要登录的话。</p>
+<p><code>wget</code>还有很多其他功能，这里就不更多介绍了。</p>
+<h2 id="telnet">向服务器发送命令——telnet</h2>
+<p><code>telnet</code>不只是一个软件的名称，也是一个应用层协议的名称。<code>telnet</code>协议的作用就是让用户可以远程操控主机。<code>telnet</code>协议基于tcp协议并且默认使用23号端口。</p>
+<p><code>telnet</code>命令的作用就是使用<code>telnet</code>协议连接一个服务器。它的用法很简单，它接受两个位置参数，第一个表示要连接的主机的地址(IP地址或者域名)，第二表示使用的端口号。如果没有指定端口号则使用23号端口。建立连接之后，<code>telnet</code>会在名目上输出一个<code>prompt</code>，在其中你可以输入命令，这命令将会传给服务器被执行，然后服务器执行的结果将会返回并打印在屏幕上，就像我们在本地使用<code>shell</code>那样。不过因为安全问题的原因，现在几乎没有人使用<code>telnet</code>协议了。你仍然可以使用<code>telnet</code>命令来发送电子邮件，不过我不打算在这里详细介绍具体的方法，如果你好奇的话，你去网上所有一下就能很容易得到答案。</p>
+<h2 id="ssh">更安全地向服务器发送命令——ssh</h2>
+<p>因为<code>telnet</code>协议存在安全风险，所以人们提出了更加安全的<code>ssh</code>(<strong>S</strong>ecure <strong>S</strong>hell Protocol)协议。同样的，<code>ssh</code>不只是一个软件的名称，它也是一个应用层协议的名称。它的作用从名字来看也很容易能想到，可以允许用户更安全地操作服务器的<code>shell</code>。<code>ssh</code>协议基于tcp协议并且默认使用22号端口。(不过<code>ssh</code>是否绝对安全目前存疑)</p>
+<h3 id="ssh_1">ssh的身份验证</h3>
+<p>使用<code>ssh</code>的时候，我们通常会遇到的第一个问题就是身份验证。<code>ssh</code>通过身份验证来保证只有被授权的用户可以操作服务器，这是安全性的一部分。</p>
+<p><code>ssh</code>使用非对称加密的方式来进行身份验证。非对称加密简单来说原理是这样的。加密使用公钥(<span class="arithmatex">\(c\)</span>)和私钥(<span class="arithmatex">\(d\)</span>)两个部分。可以把它们都看做是一个函数。它们满足这样的两个性质：</p>
+<ol>
+<li>
+<p><span class="arithmatex">\(d(c(x)) = x\)</span>, 也就是<span class="arithmatex">\(d = c^{-1}\)</span></p>
+</li>
+<li>
+<p>在已知<span class="arithmatex">\(c\)</span>的情况下，<span class="arithmatex">\(c(x)\)</span>很好求但是<span class="arithmatex">\(c^{-1}(x)\)</span>很难求</p>
+</li>
+</ol>
+<p>满足这样性质的一个简单的例子，<span class="arithmatex">\(c\)</span>是求大质数的乘积，<span class="arithmatex">\(d\)</span>是从合数中除去这个质数(已知)。这都是比较快的操作。但是在不知道<span class="arithmatex">\(d\)</span>的情况下，我们想要求<span class="arithmatex">\(c^{-1}\)</span>需要做质因数分解，并且这质因数很大。这对于计算机来说非常的慢。</p>
+<p>现在利用公钥和私钥就可以加密传输数据了。</p>
+<ol>
+<li>
+<p>客户端手中有私钥和公钥，并且它将公钥传递到服务器上。(这个过程中公钥被窃取了也没关系，因为性质2)</p>
+</li>
+<li>
+<p>服务器要传输数据<span class="arithmatex">\(x\)</span>的时候，首先求出<span class="arithmatex">\(c(x)\)</span>，并把<span class="arithmatex">\(c(x)\)</span>传给客户端。(这过程中<span class="arithmatex">\(c(x)\)</span>被切去了也没关系，因为性质2)</p>
+</li>
+<li>
+<p>客户端收到<span class="arithmatex">\(c(x)\)</span>之后求<span class="arithmatex">\(d(c(x))\)</span>。由于性质1，<span class="arithmatex">\(d(c(x)) = x\)</span>，于是客户端就正确收到了消息。</p>
+</li>
+</ol>
+<p>如果你觉得上面这的介绍没能完全理解，我们可以再形象的解释一下。公钥就像是一个开着的锁，私钥就是打开锁的钥匙。开始的时候客户端将一把开着的锁寄给服务器。然后服务器把数据放进保险柜用这把锁锁起来(一般来说锁的设计是扣一下就能关锁不需要钥匙)。然后服务器把这个保险柜寄回给客户端，客户端用自己的钥匙就能打开锁然后拿出其中的数据。这个过程中如果中间有坏人偷走了复制了锁也没有用，它不能锁打开保险柜；它复制了整个上锁的保险柜也没有用，因为它也无法打开保险柜。</p>
+<p>用这样的方式传递信息是安全的，一个重要的前提是<strong>私钥从没有暴露过</strong>。也就是使用非对称加密的时候请不要以任何方式传递你的私钥，除非你的服务器被别人使用了也没关系或者你确信你用来传递私钥的途径是绝对安全的。</p>
+<h3 id="_3">如何生成和使用密钥</h3>
+<p>首先，<code>ssh</code>提供了一个工具可以用于生成密钥——<code>ssh-keygen</code>。这个工具的基础用法很简单，直接输入<code>ssh-keygen</code>就可以交互式的生成一个密钥。首先你需要根据提示输入你的密钥的保存路径和保存私钥的文件名，如果不输入就会自动生成在默认地址。通常我们把用于<code>ssh</code>的密钥放在<code>~/.ssh/</code>文件夹下(<code>~</code>表示用户的主目录，还记得吗？)。然后它会提示你输入一个密码，这个密码用来在使用密钥的时候辅助验证身份，也就是只有正确输入密码才能使用你生成的这密钥。对我们自己的普通使用场景，可以省略这个密码。</p>
+<p>完成之后，我们可以在我们一开始输入的那个路径下面找到两个文件，一个有<code>.pub</code>后缀，这个就是公钥，另一个同名的没有后缀的文件则是私钥。我们需要把这里生成的公钥(也就是<code>.pub</code>结尾的文件的内容)复制到我们的主机上。通常我们在使用云服务器或者使用github的<code>ssh</code>连接的时候平台上都会有让我们创建密钥的地方，在那里根据提示复制公钥的内容就可以了。通常一个服务器可以使用多个密钥，所以如果不止你一个人要使用这台服务器的话，每个人都应该创建一个自己的密钥。</p>
+<div class="admonition danger">
+<p class="admonition-title">danger</p>
+<p>再次提示，不要将私钥以任何形式发到网上。</p>
+</div>
+<p>另一个很有用的命令行选项是<code>-R</code>。当我们使用<code>ssh</code>连接过一个主机之后，这个主机的信息就会被记录在known_hosts文件中，这样下次我们链接这个主机的时候就会自动使用上一次使用的密钥。但是当主机的密钥发生变化的时候就会连接失败了。这个时候就可以使用下面这个命令清除相关的记录
+<div class="highlight"><pre><span></span><code>ssh-keygen<span class="w"> </span>-R<span class="w"> </span>xxx
+</code></pre></div>
+其中<code>xxx</code>的位置是这主机的地址(域名或者ip地址)。</p>
+<h3 id="ssh_2">如何使用ssh连接主机</h3>
+<p>我们现在了解了关于<code>ssh</code>如何进行身份验证，我们终于可以使用<code>ssh</code>来链接服务器了。可以使用下面这个命令
+<div class="highlight"><pre><span></span><code>ssh<span class="w"> </span>USR@HOST
+</code></pre></div>
+其中<code>USR</code>的位置是你的连接使用的用户的名称，<code>HOST</code>的位置是你要连接的服务器的地址(域名或者ip地址)。如果你目前没有可以用来尝试的远程主机的话，你可以搜索一个云服务器供应商(比如华为云，阿里云等)，他们通常会给新用户提供比较优惠的(甚至免费的)试用云服务器的机会。(如果你是北大的学生的话，可以使用Linux俱乐部提供的<a href="https://clab.pku.edu.cn/auth/login">clab</a>)</p>
+<p>如果你使用的不是默认路径下的密钥的话，可以使用<code>-i</code>选项来指定密钥的路径，就像这样
+<div class="highlight"><pre><span></span><code>ssh<span class="w"> </span>-i<span class="w"> </span>/path/to/key<span class="w"> </span>USR@HOST
+</code></pre></div>
+这里<code>/path/to/key</code>的位置就是你的私钥的路径。</p>
+<p>如果你连接的服务器使用的不是默认端口号(22)的话，可以使用<code>-p</code>选项来指定端口号。</p>
+<h3 id="ssh_3">ssh的配置文件</h3>
+<p>上面我们介绍了如何使用命令和命令行参数来进行<code>ssh</code>连接。如果你要连接的主机没有域名或者域名比较复杂的话，每次都要输入ip地址或者复杂的域名；如果你的密钥不在默认路径下的，你每次都要使用<code>-i</code>选项如果你使用的端口不是默认端口的话，你每次都要使用<code>-p</code>选项，这些都会让你每次使用<code>ssh</code>的时候很不方便。这时候就可以使用配置文件了。你可以在<code>ssh</code>的配置文件中添加你的主机，设置每次连接的时候使用的选项并且为这个主机取一个更有意义的名称。</p>
+<p><code>ssh</code>的配置文件在<code>~/.ssh/config</code>路径下，这文件下每个主机之间用空行隔开，每个主机的配置类似下面这样(注意缩进和空格)
+<div class="highlight"><pre><span></span><code>Host testHost
+    HostName HOST
+    User USR
+    Port 22
+    IdentityFile /path/to/key
+    PasswordAuthentication no
+</code></pre></div>
+这里，第一行<code>Host</code>后面是你给这主机去的名字，第二行<code>Hostname</code>后面<code>HOST</code>的位置是这个主机的地址，第三行<code>User</code>后面<code>USR</code>的位置是连接的时候使用的用户名，第四行<code>Port</code>后面是连接使用的端口号，第五行<code>IdentityFile</code>后面<code>/path/to/key</code>的位置是这主机连接的时候使用的私钥的地址，第六行表示是否使用密码登录(<code>ssh</code>也支持使用用户名和密码登录，但是这样不安全所以现在几乎不用了)。这些项的顺序不重要并且保持默认的项可以省略。</p>
+<h2 id="scp">与服务器之间传递文件——scp</h2>
+<p>和上面介绍过的命令一样，<code>scp</code>同时也是一个协议的名称。这个协议是一种基于<code>ssh</code>协议的文件传输协议。因此<code>scp</code>也就是一个可以与服务器传递文件的软件。因为这命令是基于<code>ssh</code>协议的，所以这个命令也使用和<code>ssh</code>完全相同的方式进行身份验证。</p>
+<h3 id="_4">基础用法</h3>
+<p>使用这个命令的方式也很简单，这个命令接收两个位置参数。按顺序前一个位置参数表示要传输的文件的路径，后一个位置参数表示文件要传输到的目标地址，如果指定了新的文件名称，那么文件在传输之后会用新的文件名称。这个命令既可以将文件从本地上传到服务器，也可以将文件从服务下载到本地。</p>
+<p>很明显，这个指令的源地址和目标地址中有一个是本地文件路径，有一个是服务器上的文件路径。那么要如何表示服务器上的文件路径呢？采用下面这样的形式
+<div class="highlight"><pre><span></span><code>USR@HOST:/path/on/server
+</code></pre></div>
+其中<code>USR</code>的位置是你在服务器上的用户名，<code>HOST</code>的位置上是你的服务器的地址，然后<code>:</code>后面就是在服务器的文件系统上的文件路径。</p>
+<h3 id="_5">其他用法</h3>
+<p>和之前我们介绍过的很多命令一样，如果你想要传输的是文件夹，那么可以使用<code>-r</code>选项。</p>
+<p>和<code>ssh</code>一样，如果你想要指定使用的私钥地址，可以使用<code>-i</code>选项。</p>
+<p>和<code>ssh</code>有一点不同的是，如果你想要指定端口号要使用<code>-P</code>选项。因为小写的<code>-p</code>被用来表示在文件传输的时候保留文件的修改时间，访问时间和模式位信息。</p>
+<h3 id="_6">在两个服务器之间传递文件</h3>
+<p>这命令的一个比较有趣的用法是，你可以以你自己的电脑作为中转在两个服务器之间传递文件。如果你有多个服务器，你想在多个服务器之间传递文件，但是你又不想在服务器上放置密钥的话(比较麻烦而且可能不安全)，你可以选择用自己的电脑作为中转。这个功能使用<code>-3</code>选项。后面的位置参数和前面介绍的一样，有两个位置参数，前一个是源地址，后一个目标地址，只是这两个地址都是服务器上的地址。</p>
+<h2 id="tcpnetcat">与服务器建立tcp连接——netcat</h2>
+<p>前面我们介绍的命令都是在tcp协议的基础之上，使用其他的应用层协议实现了某种功能的应用。但是<code>netcat</code>有一些不同，这个软件不基于任何应用层协议。我们既可以把它看作是应用层的软件，也在一定程度上可以把它看做是网络层的软件。这个软件的功能很简单，就是直接接受和发送tcp和udp数据。</p>
+<h3 id="tcp">建立tcp连接并发送数据</h3>
+<p>使用<code>netcat</code>最基础的用法就是与某个服务器的某个进程建立tcp连接并发送数据，这里<code>netcat</code>需要两个位置参数，前一个是服务器地址，后一个是端口号，例如：
+<div class="highlight"><pre><span></span><code>netcat<span class="w"> </span>smtp.163.com<span class="w"> </span><span class="m">25</span>
+</code></pre></div>
+<code>netcat</code>也可以简写成<code>nc</code>，就像这样
+<div class="highlight"><pre><span></span><code>nc<span class="w"> </span>smtp.163.com<span class="w"> </span><span class="m">25</span>
+</code></pre></div>
+这里我们连接了163邮箱的服务器，并连接了smtp协议(用于发送邮件)的端口。如果链接成功了，<code>netcat</code>应该会返回一条从服务器发回的消息，然后会继续等待你的输入。你可以尝试输入下面的内容和邮箱服务器招呼。
+<div class="highlight"><pre><span></span><code>HELO relay.162.com
+</code></pre></div>
+按回车之后，<code>netcat</code>就会通过tcp协议发送这条数据，然后你应该能看到来自服务器的回应。最前面的数字是<code>smtp</code>协议规定的回应状态码。你还可以根据<code>smtp</code>协议的规定继续和服务器通信并发送邮件，具体细节这里就不介绍了。实际上<code>netcat</code>的这个功能和之前介绍过的<code>telnet</code>很像。</p>
+<h3 id="tcp_1">侦听tcp连接</h3>
+<p><code>netcat</code>除了可以主动和服务器建立tcp连接以外，还可以侦听来自其他计算机其他进程的连接建立请求。<code>netcat</code>可以使用<code>-l</code>选项指定侦听的端口号，像下面这样
+<div class="highlight"><pre><span></span><code>netcat<span class="w"> </span>-l<span class="w"> </span><span class="m">8080</span>
+</code></pre></div>
+这个命令让<code>netcat</code>侦听本机的8080端口，如果有其他人尝试和我们的电脑的8008端口建立tcp连接，那么<code>netcat</code>就会接受，并且将其他通过tcp传输过来的数据打印到屏幕上。</p>
+<p>利用上面两个命令我们可以尝试自己电脑上的两个进程互相连接。首先我们打开两个终端，在其中一个终端使用<code>netcat</code>命令侦听12345端口，然后我们打开另一个终端然后使用下面这个命令和刚才的<code>netcat</code>进程建立tcp连接，例如
+<div class="highlight"><pre><span></span><code>nc<span class="w"> </span><span class="m">127</span>.0.0.1<span class="w"> </span><span class="m">12345</span>
+</code></pre></div>
+这里使用的<code>127.0.0.1</code>是一个特殊的ip地址，表示自己这台计算机，这里就是和自己计算机上的12345端口建立连接。</p>
+<p>然后我们可以在两个终端分别尝试输入各种数据，然后回车，我们会看到另外一个终端上显示相同的文字，这说明我们的数据通过tcp连接被传输给了另一个进程。并且如果我们使用Ctrl-C终止侦听的一端，另一端不会终止，但是如果如果我们主动终止建立连接的一端，侦听一端也会终止。</p>
+<h3 id="udp">使用udp协议</h3>
+<p>在上面介绍过的用法中添加<code>-u</code>选项，我们就可以让<code>netcat</code>使用udp协议连接。</p>
+<h2 id="_7">小结</h2>
+<p>这一章我们介绍了<code>shell</code>中常用的几个网络应用命令的用法，这其中的一些命令我们可能经常会使用。比如我们写了一个http服务器，当我们想要测试服务器的时候可能需要使用<code>curl</code>命令。当我们想要从网站下载一些文件的时候，我们可以使用<code>wget</code>命令。现在云服务器正在逐渐成为趋势，在远程操作云服务器的时候，<code>ssh</code>命令和<code>scp</code>命令通常是必不可少的。对于其他使用了tcp协议的服务器，想要测试的时候，则可以使用<code>telnet</code>和<code>netcat</code>。</p>
+<script src="https://giscus.app/client.js"
+        data-repo="OshinoShinobu-Chan/Linux-shell-Tutorial"
+        data-repo-id="R_kgDONEc4yg"
+        data-category="Announcements"
+        data-category-id="DIC_kwDONEc4ys4Cj5Fk"
+        data-mapping="title"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="8.%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3%E7%9A%84shell%E5%91%BD%E4%BB%A4.html" class="md-footer__link md-footer__link--prev" aria-label="上一页: 网络相关的shell命令">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                网络相关的shell命令
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../%E9%99%84%E5%BD%95/index.html" class="md-footer__link md-footer__link--next" aria-label="下一页: 附录">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                附录
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/OshinoShinobu-Chan" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="mailto:2200012909@stu.pku.edu.cn" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M64 112c-8.8 0-16 7.2-16 16v22.1l172.5 141.6c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16zM48 212.2V384c0 8.8 7.2 16 16 16h384c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0zM0 128c0-35.3 28.7-64 64-64h384c35.3 0 64 28.7 64 64v256c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "navigation.footer", "navigation.indexes", "navigation.tracking"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>
