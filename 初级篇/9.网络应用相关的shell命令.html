@@ -1295,16 +1295,16 @@
 <h1 id="shell">网络应用相关的shell命令</h1>
 <p>上一章我们讲了计算机网络必要的前置知识，并且介绍了查看计算机上网络设置和5层结构中下面4层的相关信息的命令<code>ip</code>。但是对于我们来说，我们接触到计算机网络最多的，还是最上面的应用层，所以这一章我们将关注应用层，介绍一些在应用层常用的命令。</p>
 <h2 id="curl">使用命令行向服务器发送请求——curl</h2>
-<p>我们要介绍的下一个命令就是一个应用层的软件，<code>curl</code>。如果你第一次使用这个软件，你可能需要安装它。如果你使用的是Ubuntu/Debian可以使用下面这个命令。
+<p>我们要介绍的下一个命令是一个应用层的软件——<code>curl</code>。如果你第一次使用这个软件，你可能需要安装它。如果你使用的是Ubuntu/Debian可以使用下面这个命令。
 <div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>apt<span class="w"> </span>update
 sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>curl
 </code></pre></div>
-如果你使用的其他的linux发行版或者MacOS那请你自己去搜索一下如何安装<code>curl</code>。</p>
+如果你使用的其他的linux发行版或者MacOS，那么请你自己去搜索一下如何安装<code>curl</code>。</p>
 <h3 id="curlhttp">使用curl发送http请求</h3>
 <p><code>curl</code>最常见的用法就是用来发送<code>http</code>请求和接受<code>http</code>响应。</p>
 <h4 id="http">http协议简介</h4>
 <p>这里我们先简单介绍一下什么是<code>http</code>协议。<code>http</code>协议是一种用于在互联网上交换信息的协议。<code>http</code>协议基于tcp协议并且它默认使用80号端口。它主要分为请求(request)和响应(response)两个部分。</p>
-<p><code>http</code>请求通常都是客户端(client)，比如我们的浏览器等，向服务器发送的。<code>http</code>请求通常包含<code>http</code>请求方法，<code>http</code>请求路径，<code>http</code>版本，<code>http</code>请求头和<code>http</code>请求体。其中我们要重点关注的是<code>http</code>请求类型。<code>http</code>请求方法有很多种类型，每种类型的请求方法通常都有一种应用场景。例如，GET请求用于向服务器请求数据，POST请求用于向服务器发送数据。之后的的<code>http</code>请求路径就是我们要请求的资源在服务器当中的位置，例如我们请求的图片的路径等等。不过有的时候，这个路径并不是一个实际的文件路径。当我们需要向服务器发送数据的时候，数据放在<code>http</code>请求体中，比如发送POST方法的请求的时候，<code>http</code>请求体中就要包含我们要发送的数据。<code>http</code>请求头中则是包含一些客户端的数据等信息，这个不是我们要关注的重点。</p>
+<p><code>http</code>请求通常都是客户端(client)，比如我们的浏览器等，向服务器发送的。<code>http</code>请求通常包含<code>http</code>请求方法，<code>http</code>请求路径，<code>http</code>版本，<code>http</code>请求头和<code>http</code>请求体。其中我们要重点关注的是<code>http</code>请求类型。<code>http</code>请求方法有很多种类型，每种类型的请求方法通常都有一种应用场景。例如，GET请求用于向服务器请求数据，POST请求用于向服务器提交数据。之后的的<code>http</code>请求路径就是我们要请求的资源在服务器当中的位置，例如我们请求的图片的路径等等。不过有的时候，这个路径并不是一个实际的文件路径。当我们需要向服务器发送数据的时候，数据放在<code>http</code>请求体中，比如发送POST方法的请求的时候，<code>http</code>请求体中就要包含我们要发送的数据。<code>http</code>请求头中则是包含一些客户端的数据等信息，这个不是我们要关注的重点。</p>
 <p><code>http</code>响应则是服务器在收到客户端的请求之后返回的响应。<code>http</code>响应通常包含<code>http</code>版本，<code>http</code>状态码，<code>http</code>状态信息，<code>http</code>响应头和<code>http</code>响应体。其中我们关注的重点是<code>http</code>状态码。这个状态码是一个数字，表示<code>http</code>相应的状态。常见的一些响应码例如：</p>
 <ul>
 <li>
@@ -1317,14 +1317,14 @@ sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> <
 <p>404: 表示请求的资源不存在</p>
 </li>
 </ul>
-<p>如果你想要了解更多状态码的信息，可以访问<a href="https://datatracker.ietf.org/doc/html/rfc2616#section-10">RFC2616第10节</a></p>
-<p><code>http</code>状态信息是用一个简短的英文对这个<code>http</code>响应状态进行描述，例如当状态码为200时，这描述通常是OK。<code>http</code>响应体则是服务器返回的客户端请求的数据。<code>http</code>响应头中也是包含一些有关信息的，这个不是我们要关注的重点。</p>
+<p>如果你想要了解更多状态码的信息，可以查看<a href="https://datatracker.ietf.org/doc/html/rfc2616#section-10">RFC2616第10节</a></p>
+<p><code>http</code>状态信息是用一个简短的英文对这个<code>http</code>响应状态进行描述，例如当状态码为200时，这个描述通常是OK。<code>http</code>响应体则是服务器返回的客户端请求的数据。<code>http</code>响应头中也是包含一些有关信息的，这个不是我们要关注的重点。</p>
 <p>最后再额外提一句，<code>https</code>协议是基于<code>http</code>协议的一个更加安全的协议，现在<code>https</code>更受推荐，但是它的原理比较复杂，这里就不做介绍了。<code>curl</code>也可以发送<code>https</code>协议的请求和接收<code>https</code>协议的响应，和<code>http</code>的操作方式没什么区别。</p>
 <h4 id="curlget">使用curl发送一个GET请求</h4>
 <p>我们简单了解了什么是<code>http</code>协议之后，我们终于可以开始尝试使用<code>curl</code>发送一个<code>http</code>请求了。使用下面这个命令就可以向百度发送一个<code>http</code>请求。
-<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>http://www.baidu.com
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>http://www.baidu.com/
 </code></pre></div>
-首先，<code>curl</code>命令接受一个位置参数表示要请求的URL，这里也可以直接写ip地址加URL。如果没有其他的参数，<code>curl</code>默认向这个地址发送一个<code>http</code>的GET请求。因为GET请求只是请求数据，不发送任何数据，所以它的<code>http</code>请求中没有请求体，所以也不需要在参数上添加其他任何东西。如果命令执行正常，我们应该会收到这样的输出，
+首先，<code>curl</code>命令接受一个位置参数表示要请求的URL，这里<code>http://</code>表示使用<code>http</code>协议，<code>www.baidu.com</code>是网站的域名，<code>/</code>是在服务器上的路径，这里表示请求百度网站的根目录。如果没有其他的参数，<code>curl</code>默认向这个地址发送一个<code>http</code>的GET请求。因为GET请求只是请求数据，不发送任何数据，所以它的<code>http</code>请求中没有请求体，所以也不需要在参数上添加其他任何东西。如果命令执行正常，我们应该会收到这样的输出，
 <div class="highlight"><pre><span></span><code>&gt; GET http://www.baidu.com/ HTTP/1.1
 &gt; Host: www.baidu.com
 &gt; User-Agent: curl/7.81.0
@@ -1391,7 +1391,7 @@ sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> <
 </code></pre></div></p>
 <h3 id="_1">基础用法</h3>
 <p><code>wget</code>接受一个位置参数表示要下载文件的url，例如下面这个命令：
-<div class="highlight"><pre><span></span><code>wget<span class="w"> </span><span class="s2">&quot;https://baidu.com&quot;</span>
+<div class="highlight"><pre><span></span><code>wget<span class="w"> </span>https://baidu.com/
 </code></pre></div>
 这个命令会将百度的首页的html文件下载下来并且保存在当前文件夹下的<code>index.html</code>文件中。这个命令会自动选取下载的文件名。</p>
 <h3 id="_2">其他用法</h3>
@@ -1402,12 +1402,12 @@ sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> <
 <p><code>wget</code>还有很多其他功能，这里就不更多介绍了。</p>
 <h2 id="telnet">向服务器发送命令——telnet</h2>
 <p><code>telnet</code>不只是一个软件的名称，也是一个应用层协议的名称。<code>telnet</code>协议的作用就是让用户可以远程操控主机。<code>telnet</code>协议基于tcp协议并且默认使用23号端口。</p>
-<p><code>telnet</code>命令的作用就是使用<code>telnet</code>协议连接一个服务器。它的用法很简单，它接受两个位置参数，第一个表示要连接的主机的地址(IP地址或者域名)，第二表示使用的端口号。如果没有指定端口号则使用23号端口。建立连接之后，<code>telnet</code>会在名目上输出一个<code>prompt</code>，在其中你可以输入命令，这命令将会传给服务器被执行，然后服务器执行的结果将会返回并打印在屏幕上，就像我们在本地使用<code>shell</code>那样。不过因为安全问题的原因，现在几乎没有人使用<code>telnet</code>协议了。你仍然可以使用<code>telnet</code>命令来发送电子邮件，不过我不打算在这里详细介绍具体的方法，如果你好奇的话，你去网上所有一下就能很容易得到答案。</p>
+<p><code>telnet</code>命令的作用就是使用<code>telnet</code>协议连接一个服务器。它的用法很简单，它接受两个位置参数，第一个表示要连接的主机的地址(IP地址或者域名)，第二表示使用的端口号。如果没有指定端口号则使用23号端口。建立连接之后，<code>telnet</code>会在名目上输出一个<code>prompt</code>，在其中你可以输入命令，这命令将会被传给服务器被执行，然后服务器执行的结果将会返回并打印在屏幕上，就像我们在本地使用<code>shell</code>那样。不过因为安全问题的原因，现在几乎没有人使用<code>telnet</code>协议了。你仍然可以使用<code>telnet</code>命令来发送电子邮件，不过我不打算在这里详细介绍具体的方法，如果你好奇的话，你去网上搜索一下就能很容易得到答案。</p>
 <h2 id="ssh">更安全地向服务器发送命令——ssh</h2>
 <p>因为<code>telnet</code>协议存在安全风险，所以人们提出了更加安全的<code>ssh</code>(<strong>S</strong>ecure <strong>S</strong>hell Protocol)协议。同样的，<code>ssh</code>不只是一个软件的名称，它也是一个应用层协议的名称。它的作用从名字来看也很容易能想到，可以允许用户更安全地操作服务器的<code>shell</code>。<code>ssh</code>协议基于tcp协议并且默认使用22号端口。(不过<code>ssh</code>是否绝对安全目前存疑)</p>
 <h3 id="ssh_1">ssh的身份验证</h3>
 <p>使用<code>ssh</code>的时候，我们通常会遇到的第一个问题就是身份验证。<code>ssh</code>通过身份验证来保证只有被授权的用户可以操作服务器，这是安全性的一部分。</p>
-<p><code>ssh</code>使用非对称加密的方式来进行身份验证。非对称加密简单来说原理是这样的。加密使用公钥(<span class="arithmatex">\(c\)</span>)和私钥(<span class="arithmatex">\(d\)</span>)两个部分。可以把它们都看做是一个函数。它们满足这样的两个性质：</p>
+<p><code>ssh</code>使用非对称加密的方式来进行身份验证。非对称加密的原理简单来说是这样的。加密使用公钥(<span class="arithmatex">\(c\)</span>)和私钥(<span class="arithmatex">\(d\)</span>)两个部分。可以把它们都看做是一个函数。它们满足这样的两个性质：</p>
 <ol>
 <li>
 <p><span class="arithmatex">\(d(c(x)) = x\)</span>, 也就是<span class="arithmatex">\(d = c^{-1}\)</span></p>
@@ -1423,27 +1423,27 @@ sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> <
 <p>客户端手中有私钥和公钥，并且它将公钥传递到服务器上。(这个过程中公钥被窃取了也没关系，因为性质2)</p>
 </li>
 <li>
-<p>服务器要传输数据<span class="arithmatex">\(x\)</span>的时候，首先求出<span class="arithmatex">\(c(x)\)</span>，并把<span class="arithmatex">\(c(x)\)</span>传给客户端。(这过程中<span class="arithmatex">\(c(x)\)</span>被切去了也没关系，因为性质2)</p>
+<p>服务器要传输数据<span class="arithmatex">\(x\)</span>的时候，首先求出<span class="arithmatex">\(c(x)\)</span>，并把<span class="arithmatex">\(c(x)\)</span>传给客户端。(这过程中<span class="arithmatex">\(c(x)\)</span>被窃取了也没关系，因为性质2)</p>
 </li>
 <li>
 <p>客户端收到<span class="arithmatex">\(c(x)\)</span>之后求<span class="arithmatex">\(d(c(x))\)</span>。由于性质1，<span class="arithmatex">\(d(c(x)) = x\)</span>，于是客户端就正确收到了消息。</p>
 </li>
 </ol>
-<p>如果你觉得上面这的介绍没能完全理解，我们可以再形象的解释一下。公钥就像是一个开着的锁，私钥就是打开锁的钥匙。开始的时候客户端将一把开着的锁寄给服务器。然后服务器把数据放进保险柜用这把锁锁起来(一般来说锁的设计是扣一下就能关锁不需要钥匙)。然后服务器把这个保险柜寄回给客户端，客户端用自己的钥匙就能打开锁然后拿出其中的数据。这个过程中如果中间有坏人偷走了复制了锁也没有用，它不能锁打开保险柜；它复制了整个上锁的保险柜也没有用，因为它也无法打开保险柜。</p>
+<p>如果你觉得上面的介绍没能完全理解，我们可以再形象地解释一下。公钥就像是一个开着的锁，私钥就是打开锁的钥匙。开始的时候客户端将一把开着的锁寄给服务器。然后服务器把数据放进保险柜用这把锁锁起来(一般来说锁的设计是扣一下就能关锁不需要钥匙)。然后服务器把这个保险柜寄回给客户端，客户端用自己的钥匙就能打开锁然后拿出其中的数据。这个过程中如果中间有坏人复制了锁也没有用，它不能用锁打开保险柜；它复制了整个上锁的保险柜也没有用，因为它也无法打开保险柜。</p>
 <p>用这样的方式传递信息是安全的，一个重要的前提是<strong>私钥从没有暴露过</strong>。也就是使用非对称加密的时候请不要以任何方式传递你的私钥，除非你的服务器被别人使用了也没关系或者你确信你用来传递私钥的途径是绝对安全的。</p>
 <h3 id="_3">如何生成和使用密钥</h3>
-<p>首先，<code>ssh</code>提供了一个工具可以用于生成密钥——<code>ssh-keygen</code>。这个工具的基础用法很简单，直接输入<code>ssh-keygen</code>就可以交互式的生成一个密钥。首先你需要根据提示输入你的密钥的保存路径和保存私钥的文件名，如果不输入就会自动生成在默认地址。通常我们把用于<code>ssh</code>的密钥放在<code>~/.ssh/</code>文件夹下(<code>~</code>表示用户的主目录，还记得吗？)。然后它会提示你输入一个密码，这个密码用来在使用密钥的时候辅助验证身份，也就是只有正确输入密码才能使用你生成的这密钥。对我们自己的普通使用场景，可以省略这个密码。</p>
+<p>首先，<code>ssh</code>提供了一个工具可以用于生成密钥——<code>ssh-keygen</code>。这个工具的基础用法很简单，直接输入<code>ssh-keygen</code>就可以交互式地生成一个密钥。首先你需要根据提示输入你的密钥的保存路径和保存私钥的文件名，如果不输入就会自动生成在默认地址。如果你的默认地址已经有密钥了，说明你曾经生成过密钥，你也可以直接使用这个密钥。这种情况下如果再次把密钥生成在默认地址会将之前的那个密钥覆盖。这可能导致你之前能连接的服务器不再能连接了，所以这一步选择默认地址的话要小心一点。通常我们把用于<code>ssh</code>的密钥放在<code>~/.ssh/</code>文件夹下(<code>~</code>表示用户的主目录，还记得吗？)。然后它会提示你输入一个密码，这个密码用来在使用密钥的时候辅助验证身份，也就是只有正确输入密码才能使用你生成的这密钥。对我们自己的普通使用场景，可以省略这个密码。</p>
 <p>完成之后，我们可以在我们一开始输入的那个路径下面找到两个文件，一个有<code>.pub</code>后缀，这个就是公钥，另一个同名的没有后缀的文件则是私钥。我们需要把这里生成的公钥(也就是<code>.pub</code>结尾的文件的内容)复制到我们的主机上。通常我们在使用云服务器或者使用github的<code>ssh</code>连接的时候平台上都会有让我们创建密钥的地方，在那里根据提示复制公钥的内容就可以了。通常一个服务器可以使用多个密钥，所以如果不止你一个人要使用这台服务器的话，每个人都应该创建一个自己的密钥。</p>
 <div class="admonition danger">
 <p class="admonition-title">danger</p>
 <p>再次提示，不要将私钥以任何形式发到网上。</p>
 </div>
-<p>另一个很有用的命令行选项是<code>-R</code>。当我们使用<code>ssh</code>连接过一个主机之后，这个主机的信息就会被记录在known_hosts文件中，这样下次我们链接这个主机的时候就会自动使用上一次使用的密钥。但是当主机的密钥发生变化的时候就会连接失败了。这个时候就可以使用下面这个命令清除相关的记录
+<p>另一个很有用的命令行选项是<code>-R</code>。当我们使用<code>ssh</code>连接过一个主机之后，这个主机的信息就会被记录在<code>known_hosts</code>文件中，这样下次我们连接这个主机的时候就会自动使用上一次使用的密钥。但是当主机的密钥发生变化的时候就会连接失败了。这个时候就可以使用下面这个命令清除相关的记录
 <div class="highlight"><pre><span></span><code>ssh-keygen<span class="w"> </span>-R<span class="w"> </span>xxx
 </code></pre></div>
-其中<code>xxx</code>的位置是这主机的地址(域名或者ip地址)。</p>
+其中<code>xxx</code>的位置是这个主机的地址(域名或者ip地址)。</p>
 <h3 id="ssh_2">如何使用ssh连接主机</h3>
-<p>我们现在了解了关于<code>ssh</code>如何进行身份验证，我们终于可以使用<code>ssh</code>来链接服务器了。可以使用下面这个命令
+<p>我们现在了解了关于<code>ssh</code>如何进行身份验证，我们终于可以使用<code>ssh</code>来连接服务器了。可以使用下面这个命令
 <div class="highlight"><pre><span></span><code>ssh<span class="w"> </span>USR@HOST
 </code></pre></div>
 其中<code>USR</code>的位置是你的连接使用的用户的名称，<code>HOST</code>的位置是你要连接的服务器的地址(域名或者ip地址)。如果你目前没有可以用来尝试的远程主机的话，你可以搜索一个云服务器供应商(比如华为云，阿里云等)，他们通常会给新用户提供比较优惠的(甚至免费的)试用云服务器的机会。(如果你是北大的学生的话，可以使用Linux俱乐部提供的<a href="https://clab.pku.edu.cn/auth/login">clab</a>)</p>
@@ -1454,7 +1454,7 @@ sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> <
 <p>如果你连接的服务器使用的不是默认端口号(22)的话，可以使用<code>-p</code>选项来指定端口号。</p>
 <h3 id="ssh_3">ssh的配置文件</h3>
 <p>上面我们介绍了如何使用命令和命令行参数来进行<code>ssh</code>连接。如果你要连接的主机没有域名或者域名比较复杂的话，每次都要输入ip地址或者复杂的域名；如果你的密钥不在默认路径下的，你每次都要使用<code>-i</code>选项如果你使用的端口不是默认端口的话，你每次都要使用<code>-p</code>选项，这些都会让你每次使用<code>ssh</code>的时候很不方便。这时候就可以使用配置文件了。你可以在<code>ssh</code>的配置文件中添加你的主机，设置每次连接的时候使用的选项并且为这个主机取一个更有意义的名称。</p>
-<p><code>ssh</code>的配置文件在<code>~/.ssh/config</code>路径下，这文件下每个主机之间用空行隔开，每个主机的配置类似下面这样(注意缩进和空格)
+<p><code>ssh</code>的配置文件在<code>~/.ssh/config</code>路径下，这个文件下每个主机之间用空行隔开，每个主机的配置类似下面这样(注意缩进和空格)
 <div class="highlight"><pre><span></span><code>Host testHost
     HostName HOST
     User USR
@@ -1462,11 +1462,11 @@ sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> <
     IdentityFile /path/to/key
     PasswordAuthentication no
 </code></pre></div>
-这里，第一行<code>Host</code>后面是你给这主机去的名字，第二行<code>Hostname</code>后面<code>HOST</code>的位置是这个主机的地址，第三行<code>User</code>后面<code>USR</code>的位置是连接的时候使用的用户名，第四行<code>Port</code>后面是连接使用的端口号，第五行<code>IdentityFile</code>后面<code>/path/to/key</code>的位置是这主机连接的时候使用的私钥的地址，第六行表示是否使用密码登录(<code>ssh</code>也支持使用用户名和密码登录，但是这样不安全所以现在几乎不用了)。这些项的顺序不重要并且保持默认的项可以省略。</p>
+这里，第一行<code>Host</code>后面是你给这个主机取的名字，第二行<code>Hostname</code>后面<code>HOST</code>的位置是这个主机的地址，第三行<code>User</code>后面<code>USR</code>的位置是连接的时候使用的用户名，第四行<code>Port</code>后面是连接使用的端口号，第五行<code>IdentityFile</code>后面<code>/path/to/key</code>的位置是这主机连接的时候使用的私钥的地址，第六行表示是否使用密码登录(<code>ssh</code>也支持使用用户名和密码登录，但是这样不安全所以现在几乎不用了)。这些项的顺序不重要并且保持默认的项可以省略。</p>
 <h2 id="scp">与服务器之间传递文件——scp</h2>
-<p>和上面介绍过的命令一样，<code>scp</code>同时也是一个协议的名称。这个协议是一种基于<code>ssh</code>协议的文件传输协议。因此<code>scp</code>也就是一个可以与服务器传递文件的软件。因为这命令是基于<code>ssh</code>协议的，所以这个命令也使用和<code>ssh</code>完全相同的方式进行身份验证。</p>
+<p>和上面介绍过的命令一样，<code>scp</code>同时也是一个协议的名称。这个协议是一种基于<code>ssh</code>协议的文件传输协议。因此<code>scp</code>也是一个可以与服务器传递文件的软件。因为这个命令是基于<code>ssh</code>协议的，所以这个命令也使用和<code>ssh</code>完全相同的方式进行身份验证。</p>
 <h3 id="_4">基础用法</h3>
-<p>使用这个命令的方式也很简单，这个命令接收两个位置参数。按顺序前一个位置参数表示要传输的文件的路径，后一个位置参数表示文件要传输到的目标地址，如果指定了新的文件名称，那么文件在传输之后会用新的文件名称。这个命令既可以将文件从本地上传到服务器，也可以将文件从服务下载到本地。</p>
+<p>使用这个命令的方式也很简单，这个命令接收两个位置参数。按顺序前一个位置参数表示要传输的文件的路径，后一个位置参数表示文件要传输到的目标地址，如果指定了新的文件名称，那么文件在传输之后会用新的文件名称。这个命令既可以将文件从本地上传到服务器，也可以将文件从服务器下载到本地。</p>
 <p>很明显，这个指令的源地址和目标地址中有一个是本地文件路径，有一个是服务器上的文件路径。那么要如何表示服务器上的文件路径呢？采用下面这样的形式
 <div class="highlight"><pre><span></span><code>USR@HOST:/path/on/server
 </code></pre></div>
@@ -1476,7 +1476,7 @@ sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> <
 <p>和<code>ssh</code>一样，如果你想要指定使用的私钥地址，可以使用<code>-i</code>选项。</p>
 <p>和<code>ssh</code>有一点不同的是，如果你想要指定端口号要使用<code>-P</code>选项。因为小写的<code>-p</code>被用来表示在文件传输的时候保留文件的修改时间，访问时间和模式位信息。</p>
 <h3 id="_6">在两个服务器之间传递文件</h3>
-<p>这命令的一个比较有趣的用法是，你可以以你自己的电脑作为中转在两个服务器之间传递文件。如果你有多个服务器，你想在多个服务器之间传递文件，但是你又不想在服务器上放置密钥的话(比较麻烦而且可能不安全)，你可以选择用自己的电脑作为中转。这个功能使用<code>-3</code>选项。后面的位置参数和前面介绍的一样，有两个位置参数，前一个是源地址，后一个目标地址，只是这两个地址都是服务器上的地址。</p>
+<p>这个命令的一个比较有趣的用法是，你可以以你自己的电脑作为中转在两个服务器之间传递文件。如果你有多个服务器，你想在多个服务器之间传递文件，但是你又不想在服务器上放置密钥的话(比较麻烦而且可能不安全)，你可以选择用自己的电脑作为中转。这个功能使用<code>-3</code>选项。后面的位置参数和前面介绍的一样，有两个位置参数，前一个是源地址，后一个是目标地址，只是这两个地址都是服务器上的地址。</p>
 <h2 id="tcpnetcat">与服务器建立tcp连接——netcat</h2>
 <p>前面我们介绍的命令都是在tcp协议的基础之上，使用其他的应用层协议实现了某种功能的应用。但是<code>netcat</code>有一些不同，这个软件不基于任何应用层协议。我们既可以把它看作是应用层的软件，也在一定程度上可以把它看做是网络层的软件。这个软件的功能很简单，就是直接接受和发送tcp和udp数据。</p>
 <h3 id="tcp">建立tcp连接并发送数据</h3>
@@ -1486,20 +1486,20 @@ sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> <
 <code>netcat</code>也可以简写成<code>nc</code>，就像这样
 <div class="highlight"><pre><span></span><code>nc<span class="w"> </span>smtp.163.com<span class="w"> </span><span class="m">25</span>
 </code></pre></div>
-这里我们连接了163邮箱的服务器，并连接了smtp协议(用于发送邮件)的端口。如果链接成功了，<code>netcat</code>应该会返回一条从服务器发回的消息，然后会继续等待你的输入。你可以尝试输入下面的内容和邮箱服务器招呼。
+这里我们连接了163邮箱的服务器，并连接了smtp协议(用于发送邮件)的端口。如果连接成功了，<code>netcat</code>应该会返回一条从服务器发回的消息，然后会继续等待你的输入。你可以尝试输入下面的内容和邮箱服务器打招呼。
 <div class="highlight"><pre><span></span><code>HELO relay.162.com
 </code></pre></div>
-按回车之后，<code>netcat</code>就会通过tcp协议发送这条数据，然后你应该能看到来自服务器的回应。最前面的数字是<code>smtp</code>协议规定的回应状态码。你还可以根据<code>smtp</code>协议的规定继续和服务器通信并发送邮件，具体细节这里就不介绍了。实际上<code>netcat</code>的这个功能和之前介绍过的<code>telnet</code>很像。</p>
+按回车之后，<code>netcat</code>就会通过tcp协议发送这条数据，然后你应该能看到来自服务器的回应。最前面的数字是smtp协议规定的回应状态码。你还可以根据smtp协议的规定继续和服务器通信并发送邮件，具体细节这里就不介绍了。实际上<code>netcat</code>的这个功能和之前介绍过的<code>telnet</code>很像。</p>
 <h3 id="tcp_1">侦听tcp连接</h3>
 <p><code>netcat</code>除了可以主动和服务器建立tcp连接以外，还可以侦听来自其他计算机其他进程的连接建立请求。<code>netcat</code>可以使用<code>-l</code>选项指定侦听的端口号，像下面这样
 <div class="highlight"><pre><span></span><code>netcat<span class="w"> </span>-l<span class="w"> </span><span class="m">8080</span>
 </code></pre></div>
-这个命令让<code>netcat</code>侦听本机的8080端口，如果有其他人尝试和我们的电脑的8008端口建立tcp连接，那么<code>netcat</code>就会接受，并且将其他通过tcp传输过来的数据打印到屏幕上。</p>
+这个命令让<code>netcat</code>侦听本机的8080端口，如果有其他人尝试和我们的电脑的8080端口建立tcp连接，那么<code>netcat</code>就会接受，并且将其通过tcp传输过来的数据打印到屏幕上。</p>
 <p>利用上面两个命令我们可以尝试自己电脑上的两个进程互相连接。首先我们打开两个终端，在其中一个终端使用<code>netcat</code>命令侦听12345端口，然后我们打开另一个终端然后使用下面这个命令和刚才的<code>netcat</code>进程建立tcp连接，例如
 <div class="highlight"><pre><span></span><code>nc<span class="w"> </span><span class="m">127</span>.0.0.1<span class="w"> </span><span class="m">12345</span>
 </code></pre></div>
 这里使用的<code>127.0.0.1</code>是一个特殊的ip地址，表示自己这台计算机，这里就是和自己计算机上的12345端口建立连接。</p>
-<p>然后我们可以在两个终端分别尝试输入各种数据，然后回车，我们会看到另外一个终端上显示相同的文字，这说明我们的数据通过tcp连接被传输给了另一个进程。并且如果我们使用Ctrl-C终止侦听的一端，另一端不会终止，但是如果如果我们主动终止建立连接的一端，侦听一端也会终止。</p>
+<p>然后我们可以在两个终端分别尝试输入各种文字，然后回车，我们会看到另外一个终端上显示相同的文字，这说明我们的数据通过tcp连接被传输给了另一个进程。并且如果我们使用Ctrl-C终止侦听的一端，另一端不会终止，但是如果如果我们主动终止建立连接的一端，侦听一端也会终止。</p>
 <h3 id="udp">使用udp协议</h3>
 <p>在上面介绍过的用法中添加<code>-u</code>选项，我们就可以让<code>netcat</code>使用udp协议连接。</p>
 <h2 id="_7">小结</h2>
@@ -1588,14 +1588,25 @@ sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> <
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-copyright">
-  
-  
-    Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
-    </a>
-  
+      <!-- Copyright and theme information -->
+<div class="md-copyright">
+    
+    <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
+        <a property="dct:title" rel="cc:attributionURL"
+            href="https://oshinoshinobu-chan.github.io/Linux-shell-Tutorial/index.html">Linux shell Turorial</a> by <a
+            rel="cc:attributionURL dct:creator" property="cc:attributionName"
+            href="https://github.com/OshinoShinobu-Chan">OshinoShinobu-Chan</a> is licensed under <a
+            href="https://creativecommons.org/licenses/by-nc/4.0/?ref=chooser-v1" target="_blank"
+            rel="license noopener noreferrer" style="display:inline-block;">CC BY-NC 4.0<img
+                style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+                src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img
+                style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+                src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""><img
+                style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+                src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" alt=""></a>
+    </p>
+    
+    
 </div>
       
         <div class="md-social">
