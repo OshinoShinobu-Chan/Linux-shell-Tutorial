@@ -10,6 +10,7 @@ theme:
     code: Fira Mono
   language: zh
   name: material
+  custom_dir: overrides
   palette:
   - accent: light blue
     media: '(prefers-color-scheme: light)'
@@ -40,10 +41,8 @@ extra:
       # name: GitHub
     - icon: fontawesome/regular/envelope
       link: mailto:2200012909@stu.pku.edu.cn
-  status:
-    # <identifier>: <description>
-    # identifier 只能包含字母数字字符，破折号和下划线
-    new: Recently added
+  generator: false
+copyright: "Linux shell Turorial © 2024 by OshinoShinobu-Chan is licensed under CC BY-NC 4.0"
 markdown_extensions:
   - admonition
   - pymdownx.details
