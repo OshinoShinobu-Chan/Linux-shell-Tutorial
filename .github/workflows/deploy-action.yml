@@ -2,7 +2,7 @@ name: Page Deploy
 on: [push, pull_request]
 jobs:
   Build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
     - uses: actions/checkout@v2
     - name: Setup Python
@@ -12,7 +12,7 @@ jobs:
     - name: Install peotry
       run: |
         python -m pip install --upgrade pip
-        pip install poetry
+        pip install poetry=1.8.4
     - name: Install dependencies
       run: |
         poetry install
