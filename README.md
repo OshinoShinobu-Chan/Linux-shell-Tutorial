@@ -65,32 +65,31 @@ mkdocs build --clean
 * [x] 7. 输入输出重定向，管道, mkfifo, &&
 * [x] 8. ip, ifconfig
 * [x] 9. curl, telnet, wget, ssh, scp, netcat
-* [ ] 10. 进程，信号, ctrl-C, ctrl-D
-* [ ] 11. top, htop, kill, pkill, ps, nohup, &
-* [ ] 12. tar, zip, unzip
-* [ ] 13. sleep. timeout, date
-* [ ] 14. man, pr, tldr
-* [ ] 15. history, alias, su, sudo, install, yes
+* [x] 10. 进程，信号, ctrl-C, ctrl-D, kill, pkill, ps, nohup, &
+* [ ] 11. tar, zip, unzip
+* [ ] 12. sleep. timeout, date, time, hyperfine
+* [ ] 13. man, pr, tldr
+* [ ] 14. history, alias, su, sudo, install, yes, top, htop
 
 中级篇
 
-* [ ] 16. 硬链接，软连接，readlink, readpath, link, ln, mount, unmount, /mnt, pwd
-* [ ] 17. 万物皆文件，文件类型，mknod, mktemp
-* [ ] 18. less, more
-* [ ] 19. vim, vi
-* [ ] 10. head, tail, tr, wc, nl
-* [ ] 21. grep, awk, sed
-* [ ] 22. bc, numfmt, od, xxd, hexdump
-* [ ] 23. 展开
-* [ ] 24. tmux
-* [ ] 25. 环境变量, printenv，path
-* [ ] 26. .bashrc, fish-config
-* [ ] 27. strace
+* [ ] 15. 硬链接，软连接，readlink, readpath, link, ln, mount, unmount, /mnt, pwd
+* [ ] 16. 万物皆文件，文件类型，mknod, mktemp
+* [ ] 17. less, more
+* [ ] 18. vim, vi
+* [ ] 19. head, tail, tr, wc, nl
+* [ ] 20. grep, awk, sed
+* [ ] 21. bc, numfmt, od, xxd, hexdump
+* [ ] 22. 展开
+* [ ] 23. tmux
+* [ ] 24. 环境变量, printenv，path
+* [ ] 25. .bashrc, fish-config
+* [ ] 26. strace
 
 高级篇
 
-* [ ] 28. 脚本基础
-* [ ] 29. To be continue
+* [ ] 27. 脚本基础
+* [ ] 28. To be continue
 
 这一篇可能包括的内容：脚本, shabang, 脚本命令行参数，if语句，for语句，
 loop语句，变量，数组, seq, xargs, test
