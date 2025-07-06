@@ -1,7 +1,7 @@
 repo_name: OshinoShinobuLinux-Chan/-shell-Tutorial
 repo_url: https://github.com/OshinoShinobu-Chan/Linux-shell-Tutorial
 site_author: OshinoShinobu-Chan
-site_descrption: 这是一个关于如何更好地使用linux shell的教程
+site_description: 这是一个关于如何更好地使用linux shell的教程
 site_name: Linux shell Tutorial
 site_url: https://oshinoshinobu-chan.github.io/Linux-shell-Tutorial/
 use_directory_urls: false
