@@ -6,6 +6,8 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="这是一个关于如何更好地使用linux shell的教程">
+      
       
         <meta name="author" content="OshinoShinobu-Chan">
       
@@ -1108,7 +1110,7 @@
 <blockquote>
 <p>会<code>Python</code>的同学可能会觉得熟悉，<code>Python</code>的函数也支持选项参数。例如：<code>print("Hello world", end="!")</code>。这里的<code>end="!"</code>就是选项参数。</p>
 </blockquote>
-<p>上面给出的选项参数的开头有两种形式，这是因为通常情况下，命令行参数的选项中<code>-</code>后面只能接一个字母，具体原因在后面<a href="#命令行参数的缩写">命令行参数的缩写</a>中会提到。但是只用一个字母又很容易冲突，因此使用<code>--</code>，后面可以接一个单词。很多时候常用的选项参数会同时有<code>--xxx</code>的全称形式和<code>-x</code>的简称形式。</p>
+<p>上面给出的选项参数的开头有两种形式，这是因为通常情况下，命令行参数的选项中<code>-</code>后面只能接一个字母，具体原因在后面<a href="#_7">命令行参数的缩写</a>中会提到。但是只用一个字母又很容易冲突，因此使用<code>--</code>，后面可以接一个单词。很多时候常用的选项参数会同时有<code>--xxx</code>的全称形式和<code>-x</code>的简称形式。</p>
 <p>例如，很多需要传入文件名的命令都会有<code>--file /path/to/file</code>这个选项，它也常常可以用<code>-f /path/to/file</code>这样的简称形式。</p>
 <h3 id="_6">标志参数</h3>
 <p>标志参数(flag argument)和选项参数很像，但是它通常只有一个参数作为选项，没有后面的内容，也就是单独的形如<code>--xxx</code>或<code>-x</code>的形式。标志参数相当于是给程序传入了一个布尔值，有这个参数表示<code>true</code>，没有这个参数表示<code>false</code>，通常用于表示某项功能是否开启。习惯上同一个标志参数只出现一次，但是有的时候可能会使用同时出现多次的相同标志参数用于表示一些特殊含义。</p>

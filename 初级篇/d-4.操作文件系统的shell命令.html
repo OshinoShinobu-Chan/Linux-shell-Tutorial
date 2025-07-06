@@ -6,6 +6,8 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="这是一个关于如何更好地使用linux shell的教程">
+      
       
         <meta name="author" content="OshinoShinobu-Chan">
       
@@ -1231,7 +1233,7 @@
 <div class="highlight"><pre><span></span><code>ls
 </code></pre></div>
 如果你是从零开始跟着文档操作的话，现在你的文件夹下面应该只有一个叫做<code>test.txt</code>的文件。也就是输出只有一个<code>test.txt</code>。如果你的文件夹下面没有文件，那么<code>ls</code>什么也不会输出。</p>
-<p>现在你可以尝试使用<a href="./2.什么是shell.md#第一个-bash命令">第二章</a>的那条指令，换几个不同的文件名(你也可以更换<code>echo</code>输出的内容)，在你的文件夹下面再创建几个文件，然后使用<code>ls</code>看看结果。</p>
+<p>现在你可以尝试使用<a href="b-2.%E4%BB%80%E4%B9%88%E6%98%AFshell.html#bash_1">第二章</a>的那条指令，换几个不同的文件名(你也可以更换<code>echo</code>输出的内容)，在你的文件夹下面再创建几个文件，然后使用<code>ls</code>看看结果。</p>
 <p>根据你的<code>shell</code>和终端的不同，<code>ls</code>的输出结果可能会根据文件的类型有不同的颜色。</p>
 <h3 id="_4">展示其他文件夹的内容</h3>
 <p><code>ls</code>命令的最末尾可以使用一个位置参数，表示<code>ls</code>展示的文件夹的路径，如果没有这个参数就表示展示当前文件夹。例如，
@@ -1259,10 +1261,10 @@
 <p>当然，<code>ls</code>也是提供了显示隐藏文件的功能的，也就是参数<code>-a</code>(<code>-all</code>的缩写)。你可以尝试使用这个命令
 <div class="highlight"><pre><span></span><code>ls<span class="w"> </span>-a
 </code></pre></div>
-你会发现输出结果中出现了<code>.hidden</code>。同时，你可能注意到了，输出结果中还出现了两个奇怪的文件<code>.</code>和<code>..</code>，它们两个是两个特殊的文件，所有的文件夹都拥有，具体内容将会在<a href="">下一章</a>学到。</p>
+你会发现输出结果中出现了<code>.hidden</code>。同时，你可能注意到了，输出结果中还出现了两个奇怪的文件<code>.</code>和<code>..</code>，它们两个是两个特殊的文件，所有的文件夹都拥有，具体内容将会在<a href="e-5.%E6%96%87%E4%BB%B6%E8%B7%AF%E5%BE%84%E5%92%8C%E5%BD%93%E5%89%8D%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95.html">下一章</a>学到。</p>
 <p>如果你不想在你的输出中显示这两个特殊的文件，你可以使用<code>-A</code>(<code>--almost-all</code>的缩写形式)。</p>
 <blockquote>
-<p>你也许会好奇，如果同时使用<code>-a</code>和<code>-A</code>会怎么样？遇到这样的问题，很自然的想法应当是亲自去试试。你可以尝试<code>ls -aA</code>和<code>ls -Aa</code>(这里使用了<a href="./3.最开始的shell命令与shell的基本操作.md#命令行参数的缩写">命令行参数的缩写</a>，还记得吗)。</p>
+<p>你也许会好奇，如果同时使用<code>-a</code>和<code>-A</code>会怎么样？遇到这样的问题，很自然的想法应当是亲自去试试。你可以尝试<code>ls -aA</code>和<code>ls -Aa</code>(这里使用了<a href="c-3.%E6%9C%80%E5%BC%80%E5%A7%8B%E7%9A%84shell%E5%91%BD%E4%BB%A4%E4%B8%8Eshell%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C.html#_7">命令行参数的缩写</a>，还记得吗)。</p>
 <p>很神奇，两个结果不同。也许你已经能发现了，当两个参数的功能存在冲突的时候，在参数顺序中排在后面的参数会覆盖排在前面的参数的行为。也就是，前一章中讲到的选项参数和标志参数的顺序无所谓其实不完全正确。</p>
 </blockquote>
 <h3 id="_7">按输出排序</h3>
