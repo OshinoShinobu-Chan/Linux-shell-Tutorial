@@ -12,7 +12,7 @@
         <meta name="author" content="OshinoShinobu-Chan">
       
       
-        <link rel="canonical" href="https://oshinoshinobu-chan.github.io/Linux-shell-Tutorial/%E5%88%9D%E7%BA%A7%E7%AF%87/k-11.%E5%8E%8B%E7%BC%A9%E6%96%87%E4%BB%B6%E7%9A%84%E5%91%BD%E4%BB%A4.html">
+        <link rel="canonical" href="https://oshinoshinobu-chan.github.io/Linux-shell-Tutorial/%E5%88%9D%E7%BA%A7%E7%AF%87/k-11.%E5%BD%92%E6%A1%A3%E5%92%8C%E5%8E%8B%E7%BC%A9%E6%96%87%E4%BB%B6%E7%9A%84%E5%91%BD%E4%BB%A4.html">
       
       
         <link rel="prev" href="j-10.%E8%BF%9B%E7%A8%8B%E7%9B%B8%E5%85%B3%E7%9A%84shell%E5%91%BD%E4%BB%A4.html">
@@ -26,7 +26,7 @@
     
     
       
-        <title>压缩文件的命令 - Linux shell Tutorial</title>
+        <title>归档和压缩文件的命令 - Linux shell Tutorial</title>
       
     
     
@@ -133,7 +133,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              压缩文件的命令
+              归档和压缩文件的命令
             
           </span>
         </div>
@@ -594,18 +594,18 @@
           
   
   <span class="md-ellipsis">
-    压缩文件的命令
+    归档和压缩文件的命令
   </span>
   
 
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="k-11.%E5%8E%8B%E7%BC%A9%E6%96%87%E4%BB%B6%E7%9A%84%E5%91%BD%E4%BB%A4.html" class="md-nav__link md-nav__link--active">
+      <a href="k-11.%E5%BD%92%E6%A1%A3%E5%92%8C%E5%8E%8B%E7%BC%A9%E6%96%87%E4%BB%B6%E7%9A%84%E5%91%BD%E4%BB%A4.html" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
-    压缩文件的命令
+    归档和压缩文件的命令
   </span>
   
 
@@ -627,28 +627,64 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#zip" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      zip命令
+      归档和压缩
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="zip命令">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tar" class="md-nav__link">
+    <span class="md-ellipsis">
+      最常用的归档工具——tar
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="最常用的归档工具——tar">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      常用参数
+      归档
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
-      特殊用法
+      解归档
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      列举归档文件内容
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      向归档文件中追加文件
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      其他常用参数
     </span>
   </a>
   
@@ -660,28 +696,55 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#tar" class="md-nav__link">
+  <a href="#zipunzip" class="md-nav__link">
     <span class="md-ellipsis">
-      tar命令
+      最常用的压缩工具——zip（还有unzip）
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="tar命令">
+    <nav class="md-nav" aria-label="最常用的压缩工具——zip（还有unzip）">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
-      常用参数
+      压缩
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
-      常用参数组合
+      解压缩
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      列举压缩文件内容
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      修改压缩文件的内容
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      其他有用的参数
     </span>
   </a>
   
@@ -689,6 +752,15 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tar_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用tar复制文件
+    </span>
+  </a>
   
 </li>
       
@@ -885,28 +957,64 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#zip" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      zip命令
+      归档和压缩
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="zip命令">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tar" class="md-nav__link">
+    <span class="md-ellipsis">
+      最常用的归档工具——tar
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="最常用的归档工具——tar">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      常用参数
+      归档
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
-      特殊用法
+      解归档
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      列举归档文件内容
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      向归档文件中追加文件
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      其他常用参数
     </span>
   </a>
   
@@ -918,28 +1026,55 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#tar" class="md-nav__link">
+  <a href="#zipunzip" class="md-nav__link">
     <span class="md-ellipsis">
-      tar命令
+      最常用的压缩工具——zip（还有unzip）
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="tar命令">
+    <nav class="md-nav" aria-label="最常用的压缩工具——zip（还有unzip）">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
-      常用参数
+      压缩
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
-      常用参数组合
+      解压缩
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      列举压缩文件内容
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      修改压缩文件的内容
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      其他有用的参数
     </span>
   </a>
   
@@ -947,6 +1082,15 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tar_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用tar复制文件
+    </span>
+  </a>
   
 </li>
       
@@ -968,16 +1112,117 @@
   
 
 
-<h1 id="_1">压缩文件的命令</h1>
-<p>从这一章开始，我们将开始介绍一些比较常用，但是又比较零碎的一些命令。我尽量给这些命令划分了一些主题，但是分类可能仍然很零散。并且你会发现，有些章节比很短，而有些章节很长。</p>
-<p>总之，这一章，我们将会介绍几个和压缩文件有关的命令。这一章的内容会比较短，因为我不打算介绍压缩文件的具体细节，只是简单罗列一下这些命令的用法。</p>
-<h2 id="zip">zip命令</h2>
-<p>我首先要介绍的就是<code>zip</code>命令。实际上当这里我指的不只是<code>zip</code>命令，而是和他有关的一组命令，包括<code>zip</code>，<code>zipsplit</code>，<code>zipnote</code>，<code>zipcloak</code>，<code>unzip</code>等。</p>
-<h3 id="_2">常用参数</h3>
-<h3 id="_3">特殊用法</h3>
-<h2 id="tar">tar命令</h2>
-<h3 id="_4">常用参数</h3>
-<h3 id="_5">常用参数组合</h3>
+<h1 id="_1">归档和压缩文件的命令</h1>
+<p>恭喜你，进入这一章，你就已经完成了初级篇最核心的内容了。从这一章开始以及初级篇接下来的几章，我将介绍一些常用但是没那么核心的命令。</p>
+<p>这一章我们将先开始学习归档和压缩文件的方法。</p>
+<h2 id="_2">归档和压缩</h2>
+<p>在开始之前我认为有必要先介绍一下这两个基本概念。实际上对于绝大多数初学者，似乎会将归档也称为压缩，但是这两个概念其实有本质的不同。它们的概念如下：
+1. 归档(archiving)：将多个文件合并成一个文件，<strong>不减少体积</strong>。通过归档，我们可以简化文件的管理，因为文件的数量减少了。同时我们可以统一管理多个文件的权限和元数据（这两个概念在<a href="f-6.%E6%9B%B4%E5%A4%9A%E7%9A%84%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9Cshell%E5%91%BD%E4%BB%A4.html#stat">第6章</a>中讲到过），更准确地说，我们可以给一批文件添加一个统一的权限和元数据。
+2. 压缩(compression)：通过算法将<strong>减小文件体积</strong>。通过压缩，我们可以减小文件在存储中占用的空间大小，也可以减小文件在传输过程中占用的带宽和流量大小。</p>
+<p>也就是说，归档侧重于文件的合并，压缩侧重于减小文件体积。虽然被常常称作压缩文件的一些文件格式，例如zip，7z等常常也起到归档的作用，但是同样也存在属于压缩文件但不属于归档文件的例子，各种图片和音视频等多媒体文件通常都属于这样的例子，例如jpg，mp3，mp4等。当然，同样也存在属于归档文件但不属于压缩文件的例子，tar格式文件就是一个例子。</p>
+<p>由于还是存在一些相似之处，所以这里我还是将两个主题合成一个章节。需要注意，在这一章中我们会讲到的压缩文件将会仅仅指那些同时具有归档功能的压缩文件格式。</p>
+<h2 id="tar">最常用的归档工具——tar</h2>
+<p>对于归档来说，我们最常用的工具将会<code>tar</code>，而且本章我们将只会介绍这一个归档工具。</p>
+<p><code>tar</code>命令的名字是<strong>T</strong>ape <strong>Ar</strong>chive的缩写，不过很有趣的是，这个名称本身也是一个有意义的英文单词。使用<code>tar</code>命令将文件归档之后会得到<code>.tar</code>文件。</p>
+<h3 id="_3">归档</h3>
+<p><code>tar</code>最主要的用法就是归档。在这之前，我们先介绍一下<code>tar</code>采用的命令行参数的模式。<code>tar</code>采用和<code>ps</code>类似的模式，同时支持两种风格的参数。也就是你可以使用<code>-[abc..]</code>形式的缩写以及<code>--[...]</code>形式的全称，也可以使用不带<code>-</code>的缩写形式。（如果你不太理解，看看下面的例子就懂了）那么，<code>tar</code>的新建归档文件的参数就是<code>-c</code>/<code>c</code>/<code>--create</code>。例如，将两个文件<code>a.txt</code>和<code>b.txt</code>归档到一个新的文件<code>test.tar</code>中就可以使用下面三种形式中的一种。
+<div class="highlight"><pre><span></span><code>tar<span class="w"> </span>cf<span class="w"> </span>test.tar<span class="w"> </span>a.txt<span class="w"> </span>b.txt
+tar<span class="w"> </span>-cf<span class="w"> </span>test.tar<span class="w"> </span>a.txt<span class="w"> </span>b.txt
+tar<span class="w"> </span>--create<span class="w"> </span>--file<span class="w"> </span>test.tar<span class="w"> </span>a.txt<span class="w"> </span>b.txt
+</code></pre></div>
+其中<code>-f</code>（或者<code>--file</code>）参数的值用于指定归档文件的路径，用于创建归档的文件使用位置参数（也就是必须放到命令最后）。如果你不使用<code>-f</code>选项来指定归档文件的话，归档文件的内容会直接从标准输出流输出，但是如果你没有使用管道或者文件重定向而直接尝试直接将文件输出到终端的话，<code>tar</code>会报错。也就是说你使用下面这个命令也可以达到和上面相同的效果。
+<div class="highlight"><pre><span></span><code>tar<span class="w"> </span>c<span class="w"> </span>a.txt<span class="w"> </span>b.txt<span class="w"> </span>&gt;<span class="w"> </span>test.tar
+</code></pre></div>
+另外，请你自己想一想，如果你一定想要<code>tar</code>在它归档的时候将归档文件的内容打印到终端上应该怎么做？并且我推荐你亲自试一试，你会得到很有趣的结果。</p>
+<h3 id="_4">解归档</h3>
+<p><code>tar</code>另一个最主要的用法就是解归档，也就是将归档文件中的文件还原。解归档的命令行参数是<code>-x</code>/<code>x</code>/<code>--extract</code>。例如，将刚才得到的<code>test.tar</code>解归档可以使用下面三种形式中的一种。
+<div class="highlight"><pre><span></span><code>tar<span class="w"> </span>xf<span class="w"> </span>test.tar
+tar<span class="w"> </span>-xf<span class="w"> </span>test.tar
+tar<span class="w"> </span>--extract<span class="w"> </span>--file<span class="w"> </span>test.tar
+</code></pre></div>
+另外，在你解归档的时候，你可以使用<code>--directory=&lt;target&gt;</code>来指定解归档文件时的目标文件夹(请将<code>&lt;target&gt;</code>替换成目标路径，不带<code>&lt;&gt;</code>)。请不要问我为什么这个参数没有缩写，我也不知道，就像我也不知道为什么要将<code>--extract</code>缩写成<code>-x</code>而不是<code>-e</code>一样。你还可以使用命令最后的位置参数来指定要解归档的文件，也就是你不一定每次都要将归档文件中的全部文件都解归档。</p>
+<h3 id="_5">列举归档文件内容</h3>
+<p>列举归档文件的内容也是<code>tar</code>非常使用的功能，也就是你可以在不解归档的情况下查看一个归档文件中有哪些文件。列举归档文件内容的命令行参数就是<code>-t</code>/<code>t</code>/<code>--list</code>(这个缩写也很奇怪，为什么不是<code>-l</code>呢？)。例如，如果要列举出刚才的<code>test.tar</code>文件中的内容可以使用下面三种形式中的一种。
+<div class="highlight"><pre><span></span><code>tar<span class="w"> </span>tf<span class="w"> </span>test.tar
+tar<span class="w"> </span>-tf<span class="w"> </span>test.tar
+tar<span class="w"> </span>--list<span class="w"> </span>--file<span class="w"> </span>test.tar
+</code></pre></div></p>
+<h3 id="_6">向归档文件中追加文件</h3>
+<p>向归档文件中追加文件将会是我介绍的最后一个归档文件的常用功能，这个功能允许你向一个现有的归档文件中添加新的文件。向归档文件中追加文件的命令行参数是<code>-r</code>/<code>r</code>/<code>--append</code>(这个缩写更是没法解释orz)。例如，如果要向刚才的<code>test.tar</code>文件中添加一个<code>c.txt</code>可以使用下面三种形式中的一种。这个命令的位置参数的含义和<code>-c</code>一样
+<div class="highlight"><pre><span></span><code>tar<span class="w"> </span>rf<span class="w"> </span>test.tar<span class="w"> </span>c.txt
+tar<span class="w"> </span>-rf<span class="w"> </span>test.tar<span class="w"> </span>c.txt
+tar<span class="w"> </span>--append<span class="w"> </span>--file<span class="w"> </span>test.tar<span class="w"> </span>c.txt
+</code></pre></div>
+注意，如果你追加的文件和归档文件中的某个文件同名，使用<code>-c</code>选项追加之后你再列举归档文件的内容，你会发现其中有两个同名的文件，这是因为这两个文件都被被包含在了归档文件中。但是如果你尝试解归档这个文件，你会发现最终只有一个文件，这是因为在解归档的时候，先被添加的文件会先被解归档然后被后添加的同名文件覆盖。如果你想要在追加文件的时候就直接更新归档文件中原本就存在的同名文件，请使用<code>-u</code>/<code>u</code>/<code>--update</code>参数。</p>
+<h3 id="_7">其他常用参数</h3>
+<p>另外，<code>tar</code>还有其他几个也比较常用的参数。我在下面简单列举一下。
+1. <code>-v</code>/<code>v</code>/<code>--verbose</code>: 给出详细信息。（在不同的操作中，列出的详细信息也不同）
+2. <code>-z</code>/<code>z</code>/<code>--gzip</code>: 在归档或者解归档的同时使用<code>gzip</code>程序进行压缩或解压缩。虽然我们说<code>tar</code>只是归档工具，但是它同时附带了<code>gzip</code>, <code>bzip2</code>, <code>xz</code>等压缩工具，所以也提供了在归档的同时压缩的功能。上述三种工具最常用，经过它们的压缩处理之后的程序后缀一般使用<code>.tar.gz</code>/<code>.tar.bz2</code>/<code>.tar.xz</code>，你可能也见过。
+3. <code>-j</code>/<code>j</code>/<code>--bzip2</code>: 类似上一个，但是使用<code>bzip2</code>作为压缩工具。
+4. <code>-J</code>/<code>J</code>/<code>--xz</code>: 类似上一个，但是使用<code>xz</code>作为压缩工具。
+5. <code>-a</code>/<code>a</code>/<code>--auto-compress</code>: 类似上面，但是使用输入文件的后缀名来自动推测要使用的压缩工具。</p>
+<div class="admonition info">
+<p class="admonition-title">info</p>
+<p>我建议你在任何涉及<code>tar</code>的操作中都加上<code>-v</code>选项，这样你可以时刻查看你的操作细节，来确保你没有操作错误。</p>
+</div>
+<p>上面我们已经看到了，<code>tar</code>的种种选项的缩写都让人感到迷惑，因此<code>tar</code>命令也总是给人很难用的印象。以至于我们有下面这张十分有名的梗图。
+<a class="glightbox" href="resource/11-1.tar_2x.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="tar梗图" src="resource/11-1.tar_2x.png" /></a></p>
+<h2 id="zipunzip">最常用的压缩工具——zip（还有unzip）</h2>
+<p>前面介绍了主要作为归档工具的<code>tar</code>，那么接下来我自然也要介绍一个主要作为压缩工具的<code>zip</code>。虽然你可能会觉得，这个工具的名字和前面提到过的<code>gzip</code>很像，但是实际上<code>zip</code>和<code>gzip</code>用到的压缩算法之间截然不同。不过，我们这里也不会详细介绍<code>zip</code>的压缩算法，因为这个内容比较复杂并且也和我们的主题关系不大。那么下面我就主要介绍一下<code>zip</code>工具的常见用法。在使用<code>zip</code>之前，你需要先安装，因为这个软件通常不是Linux发行版自带的。你可以使用下面的命令或者使用其他你的发行版的默认包管理器进行安装。
+<div class="highlight"><pre><span></span><code>apt<span class="w"> </span>install<span class="w"> </span>zip
+</code></pre></div></p>
+<h3 id="_8">压缩</h3>
+<p><del>压缩工具要能压缩（✍✍✍）</del>。所以我们来介绍一下<code>zip</code>的压缩命令。<code>zip</code>命令的基础用法就是直接就是直接将一些文件归档并压缩。命令如下，
+<div class="highlight"><pre><span></span><code>zip<span class="w"> </span>test.zip<span class="w"> </span>a.txt<span class="w"> </span>b.txt
+</code></pre></div>
+其中<code>zip</code>命令末尾的位置参数中，第一个是压缩文件的路径，后面的若干个都是被压缩的文件的路径。在压缩过程中<code>-r</code>选项也十分常用。如果你要压缩的文件中包含文件夹，需要使用<code>-r</code>选项表示递归地压缩文件夹里的所有内容。这和之前遇到的大部分其他命令的<code>-r</code>选项含义类似。</p>
+<h3 id="_9">解压缩</h3>
+<p>和<code>tar</code>不太一样的地方是，如果你想要解压缩zip文件，你需要另一个命令<code>unzip</code>。你不需要额外安装<code>unzip</code>，因为通常它会随着<code>zip</code>一起被安装。不过你也可以单独安装<code>unzip</code>而不用安装<code>zip</code>。<code>unzip</code>的使用方法也很简单，直接在后面加上你要解压的文件路径即可。例如，
+<div class="highlight"><pre><span></span><code>unzip<span class="w"> </span>test.zip
+</code></pre></div></p>
+<h3 id="_10">列举压缩文件内容</h3>
+<p>使用<code>unzip</code>你也可以很轻松地列举压缩文件的内容。只需要使用使用<code>-l</code>选项即可，例如，
+<div class="highlight"><pre><span></span><code>unzip<span class="w"> </span>-l<span class="w"> </span>test.zip
+</code></pre></div></p>
+<h3 id="_11">修改压缩文件的内容</h3>
+<p><code>zip</code>当然也支持修改压缩文件的内容，例如添加新的文件，删除已有的文件，更新其中的文件等。但是用到的命令行选项比较复杂，所以请大家自己查看文档或者询问AI即可。</p>
+<h3 id="_12">其他有用的参数</h3>
+<p>下面列举几个其他我认为有用的<code>zip</code>的参数。
+1. <code>-@</code>：这是一个很特别的参数。它表示让<code>zip</code>从标准输入流中读取要压缩的文件的文件名列表。也就是你可以使用其他命令得到你要压缩的文件的文件名有哪些然后使用管道直接传给<code>zip</code>。（当然，其实也可以使用<code>xargs</code>来实现这个功能，后面我们会介绍）</p>
+<p>例如，
+<div class="highlight"><pre><span></span><code>find<span class="w"> </span>.<span class="w"> </span>-name<span class="w"> </span>test?.txt<span class="w"> </span><span class="p">|</span><span class="w"> </span>zip<span class="w"> </span>-@<span class="w"> </span>test.zip
+</code></pre></div>
+这个命令表示查找当前文件夹下符合模式<code>test?.txt</code>文件并添加到压缩文件<code>test.zip</code>中。</p>
+<ol>
+<li><code>-</code>：和其他一些命令一样，你可以使用<code>-</code>来表示从标准输入中读取要压缩文件或者将压缩文件输出到标准输出中。注意，和上面不一样的是<code>zip test.zip -</code>表示是从标准输入读取内容并压缩到<code>test.zip</code>中，而不是从标准输出中读取文件名然后将对应的文件添加到压缩文件中。实际上下面两个命令作用相同
+<div class="highlight"><pre><span></span><code>find<span class="w"> </span>.<span class="w"> </span>-name<span class="w"> </span>test?.txt<span class="w"> </span><span class="p">|</span><span class="w"> </span>zip<span class="w"> </span>-@<span class="w"> </span>test.zip
+find<span class="w"> </span>.<span class="w"> </span>-name<span class="w"> </span>test?.txt<span class="w"> </span><span class="p">|</span><span class="w"> </span>xargs<span class="w"> </span>cat<span class="w"> </span><span class="p">|</span><span class="w"> </span>zip<span class="w"> </span>test.zip<span class="w"> </span>-
+</code></pre></div>
+另外，<code>zip - -</code>可以被简写成<code>zip</code>，这个命令的作用相当于一个过滤器，将标准输入压缩后输出到标准输出。</li>
+</ol>
+<h2 id="tar_1">使用tar复制文件</h2>
+<p>在这一章的最后，我来介绍一个有关<code>tar</code>命令的神奇小技巧。</p>
+<p>在<a href="f-6.%E6%9B%B4%E5%A4%9A%E7%9A%84%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9Cshell%E5%91%BD%E4%BB%A4.html#cp">第六章</a>中，我们曾经介绍过，可以使用<code>cp</code>命令来复制文件。这里我将给大家介绍一种全新的复制文件的方式，简单来说就是利用<code>tar</code>命令将文件归档之后，使用管道传给另一个<code>tar</code>命令来解归档。也就是下面两个命令的作用相同，他们都可以将<code>./test</code>文件夹完整复制到<code>./test1</code>文件夹中。
+<div class="highlight"><pre><span></span><code>cp<span class="w"> </span>-r<span class="w"> </span>./test<span class="w"> </span>./test1/test
+tar<span class="w"> </span>cf<span class="w"> </span>-<span class="w"> </span>./test<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="o">(</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>./test1<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>tar<span class="w"> </span>xf<span class="w"> </span>-<span class="w"> </span><span class="o">)</span>
+</code></pre></div></p>
+<p>那么，肯定有人要问，既然我有<code>cp</code>了，为什么还要使用<code>tar</code>来进行复制呢？这是因为这种复制的方式对于文件数量较大的情况速度会比<code>cp</code>更快。根据我的测试，在固态硬盘（SSD）上，复制100,000个4KB大小随机数据的文件时，使用上面的<code>tar</code>命令会比<code>cp</code>（GNU coreutils 8.32）用时少4%~6%。</p>
+<script src="https://giscus.app/client.js"
+        data-repo="OshinoShinobu-Chan/Linux-shell-Tutorial"
+        data-repo-id="R_kgDONEc4yg"
+        data-category="Announcements"
+        data-category-id="DIC_kwDONEc4ys4Cj5Fk"
+        data-mapping="title"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
 
 
 
