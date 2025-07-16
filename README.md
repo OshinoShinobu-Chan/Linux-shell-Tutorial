@@ -66,7 +66,7 @@ mkdocs build --clean
 * [x] 8. ip, ifconfig
 * [x] 9. curl, telnet, wget, ssh, scp, netcat
 * [x] 10. 进程，信号, ctrl-C, ctrl-D, kill, pkill, ps, nohup, &
-* [ ] 11. tar, zip, unzip
+* [x] 11. tar, zip, unzip
 * [ ] 12. sleep. timeout, date, time, hyperfine
 * [ ] 13. man, pr, tldr
 * [ ] 14. history, alias, su, sudo, install, yes, top, htop
