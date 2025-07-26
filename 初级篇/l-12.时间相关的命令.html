@@ -12,13 +12,13 @@
         <meta name="author" content="OshinoShinobu-Chan">
       
       
-        <link rel="canonical" href="https://oshinoshinobu-chan.github.io/Linux-shell-Tutorial/%E5%88%9D%E7%BA%A7%E7%AF%87/index.html">
+        <link rel="canonical" href="https://oshinoshinobu-chan.github.io/Linux-shell-Tutorial/%E5%88%9D%E7%BA%A7%E7%AF%87/l-12.%E6%97%B6%E9%97%B4%E7%9B%B8%E5%85%B3%E7%9A%84%E5%91%BD%E4%BB%A4.html">
       
       
-        <link rel="prev" href="../index.html">
+        <link rel="prev" href="k-11.%E5%BD%92%E6%A1%A3%E5%92%8C%E5%8E%8B%E7%BC%A9%E6%96%87%E4%BB%B6%E7%9A%84%E5%91%BD%E4%BB%A4.html">
       
       
-        <link rel="next" href="a-1.%E5%BC%95%E8%A8%80.html">
+        <link rel="next" href="../%E9%99%84%E5%BD%95/index.html">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
@@ -26,7 +26,7 @@
     
     
       
-        <title>初级篇 - Linux shell Tutorial</title>
+        <title>时间相关的命令 - Linux shell Tutorial</title>
       
     
     
@@ -133,7 +133,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              初级篇
+              时间相关的命令
             
           </span>
         </div>
@@ -340,7 +340,7 @@
           
           
           <div class="md-nav__link md-nav__container">
-            <a href="index.html" class="md-nav__link md-nav__link--active">
+            <a href="index.html" class="md-nav__link ">
               
   
   <span class="md-ellipsis">
@@ -351,7 +351,7 @@
             </a>
             
               
-              <label class="md-nav__link md-nav__link--active" for="__nav_2" id="__nav_2_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
@@ -601,10 +601,30 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="l-12.%E6%97%B6%E9%97%B4%E7%9B%B8%E5%85%B3%E7%9A%84%E5%91%BD%E4%BB%A4.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    时间相关的命令
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="l-12.%E6%97%B6%E9%97%B4%E7%9B%B8%E5%85%B3%E7%9A%84%E5%91%BD%E4%BB%A4.html" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -613,6 +633,227 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#date" class="md-nav__link">
+    <span class="md-ellipsis">
+      获取系统时间的命令——date
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="获取系统时间的命令——date">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      格式化输出
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="格式化输出">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#iso-8601" class="md-nav__link">
+    <span class="md-ellipsis">
+      ISO 8601
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rfc-5322" class="md-nav__link">
+    <span class="md-ellipsis">
+      RFC 5322
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rfc-3339" class="md-nav__link">
+    <span class="md-ellipsis">
+      RFC 3339
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      推算时间
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      设置系统时间
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sleep" class="md-nav__link">
+    <span class="md-ellipsis">
+      用于休眠的命令——sleep
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#timeout" class="md-nav__link">
+    <span class="md-ellipsis">
+      用于限制命令运行时间的命令——timeout
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="用于限制命令运行时间的命令——timeout">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      设置发送的信号
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      发送强制终止
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#time" class="md-nav__link">
+    <span class="md-ellipsis">
+      测量时间的命令——time
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hyperfine" class="md-nav__link">
+    <span class="md-ellipsis">
+      更好用的测量时间的命令——hyperfine
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="更好用的测量时间的命令——hyperfine">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      基础用法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      指定测量次数
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      准备和收尾
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="准备和收尾">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      什么是冷启动
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      其他功能
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      小结
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -802,99 +1043,201 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
+  <a href="#date" class="md-nav__link">
     <span class="md-ellipsis">
-      1.引言
+      获取系统时间的命令——date
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="获取系统时间的命令——date">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      格式化输出
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="格式化输出">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#iso-8601" class="md-nav__link">
+    <span class="md-ellipsis">
+      ISO 8601
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rfc-5322" class="md-nav__link">
+    <span class="md-ellipsis">
+      RFC 5322
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rfc-3339" class="md-nav__link">
+    <span class="md-ellipsis">
+      RFC 3339
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      推算时间
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      设置系统时间
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sleep" class="md-nav__link">
+    <span class="md-ellipsis">
+      用于休眠的命令——sleep
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#2shell" class="md-nav__link">
+  <a href="#timeout" class="md-nav__link">
     <span class="md-ellipsis">
-      2.什么是shell
+      用于限制命令运行时间的命令——timeout
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="用于限制命令运行时间的命令——timeout">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      设置发送的信号
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      发送强制终止
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#time" class="md-nav__link">
+    <span class="md-ellipsis">
+      测量时间的命令——time
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3shellshell" class="md-nav__link">
+  <a href="#hyperfine" class="md-nav__link">
     <span class="md-ellipsis">
-      3.最开始的shell命令与shell的基本操作
+      更好用的测量时间的命令——hyperfine
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="更好用的测量时间的命令——hyperfine">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      基础用法
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#4shell" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
-      4.操作文件系统的shell命令
+      指定测量次数
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#5" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
-      5.文件路径和当前工作目录
+      准备和收尾
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="准备和收尾">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      什么是冷启动
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#6shell" class="md-nav__link">
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
     <span class="md-ellipsis">
-      6.更多的文件操作shell命令
+      其他功能
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#7linux" class="md-nav__link">
-    <span class="md-ellipsis">
-      7.Linux系统更多的文件类型
-    </span>
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#8shell" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     <span class="md-ellipsis">
-      8.网络相关的shell命令
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#9shell" class="md-nav__link">
-    <span class="md-ellipsis">
-      9.网络应用相关的shell命令
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#10shell" class="md-nav__link">
-    <span class="md-ellipsis">
-      10.进程相关的shell命令
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#11" class="md-nav__link">
-    <span class="md-ellipsis">
-      11. 归档和压缩文件的命令
+      小结
     </span>
   </a>
   
@@ -918,18 +1261,128 @@
   
 
 
-<h1 id="_1">初级篇</h1>
-<h2 id="1"><a href="a-1.%E5%BC%95%E8%A8%80.html">1.引言</a></h2>
-<h2 id="2shell"><a href="b-2.%E4%BB%80%E4%B9%88%E6%98%AFshell.html">2.什么是shell</a></h2>
-<h2 id="3shellshell"><a href="c-3.%E6%9C%80%E5%BC%80%E5%A7%8B%E7%9A%84shell%E5%91%BD%E4%BB%A4%E4%B8%8Eshell%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C.html">3.最开始的shell命令与shell的基本操作</a></h2>
-<h2 id="4shell"><a href="d-4.%E6%93%8D%E4%BD%9C%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%9A%84shell%E5%91%BD%E4%BB%A4.html">4.操作文件系统的shell命令</a></h2>
-<h2 id="5"><a href="e-5.%E6%96%87%E4%BB%B6%E8%B7%AF%E5%BE%84%E5%92%8C%E5%BD%93%E5%89%8D%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95.html">5.文件路径和当前工作目录</a></h2>
-<h2 id="6shell"><a href="f-6.%E6%9B%B4%E5%A4%9A%E7%9A%84%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9Cshell%E5%91%BD%E4%BB%A4.html">6.更多的文件操作shell命令</a></h2>
-<h2 id="7linux"><a href="g-7.Linux%E7%B3%BB%E7%BB%9F%E6%9B%B4%E5%A4%9A%E7%9A%84%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B.html">7.Linux系统更多的文件类型</a></h2>
-<h2 id="8shell"><a href="h-8.%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3%E7%9A%84shell%E5%91%BD%E4%BB%A4.html">8.网络相关的shell命令</a></h2>
-<h2 id="9shell"><a href="i-9.%E7%BD%91%E7%BB%9C%E5%BA%94%E7%94%A8%E7%9B%B8%E5%85%B3%E7%9A%84shell%E5%91%BD%E4%BB%A4.html">9.网络应用相关的shell命令</a></h2>
-<h2 id="10shell"><a href="j-10.%E8%BF%9B%E7%A8%8B%E7%9B%B8%E5%85%B3%E7%9A%84shell%E5%91%BD%E4%BB%A4.html">10.进程相关的shell命令</a></h2>
-<h2 id="11"><a href="k-11.%E5%BD%92%E6%A1%A3%E5%92%8C%E5%8E%8B%E7%BC%A9%E6%96%87%E4%BB%B6%E7%9A%84%E5%91%BD%E4%BB%A4.html">11. 归档和压缩文件的命令</a></h2>
+<h1 id="_1">时间相关的命令</h1>
+<p>时间，对于人类来说是一个十分重要的概念，对于程序来说也是。不管是在写日志的时候需要输出相应的时间，还是为了衡量程序的性能需要测量运行时间等等。因此，这一章我们来介绍几个和时间有关的命令。</p>
+<h2 id="date">获取系统时间的命令——date</h2>
+<p>这个命令最基础的用法就是直接输出系统时间，输出的时间会根据系统设置的时区来选择。例如，你在中国，那么<code>date</code>默认输出的时间大概率是<code>CST</code>(China Standard Time)。</p>
+<p>你可能想说，这个命令也太简单了。但是，实际上，这个命令除了基础用法之外还有很多用法，其中的一些用法非常好用。</p>
+<h3 id="_2">格式化输出</h3>
+<p>我们要介绍的第一个用法，也是最常用的用法，就是对输出的时间进行格式化。默认情况下，<code>date</code>的输出格式也会根据系统所设置的地区的习惯来显示。我们也可以手动设置时间的输出格式，以满足我们的各种需求。</p>
+<p>如果你学过C语言，你会发现，<code>date</code>的格式化方式与C语言的<code>printf</code>有点类似，你需要在最后的位置参数上放上一个设置的格式的字符串，并且记号也是使用<code>%</code>开头的。这种<code>%</code>开头的记号的通用格式如下，其中<code>[]</code>中的内容不是必须的。
+<div class="highlight"><pre><span></span><code>%[Flag][Width]S
+</code></pre></div>
+下面我来详细解释一下每个部分的含义：
+1. <code>S</code>：这里是这个标记中唯一必须的部分，使用一个约定的记号来表示时间中的某个成分，例如：<code>%Y</code>可以表示4位数字的年份，<code>%m</code>可以表示两位数字的月份。这里可选的记号有很多，你可以根据需要查看<code>date</code>的文档，或者询问AI。
+2. Flag，Width: 这个部分是一个可选的参数和一个表示宽度的数字，这两个部分通常配合使用，用于表示当前这个部分的对齐方式或者大小写方式。例如：<code>%06Y</code>，其中Flag的部分是<code>0</code>，Width的部分是<code>6</code>，表示当年份数字不足6位的时候，在前面使用0来补齐6位。对于用于补齐的字符，你可以选择0, 空格或者不补齐。另外还有两个特殊作用的参数<code>^</code>和<code>#</code>，它们用于那些原本为字母的成分，例如星期或者月份的名称。请你自己查阅文档去了解他们的作用。
+3. 最后，整个格式化字符串必须以<code>+</code>开头。
+下面是几个例子：
+<div class="highlight"><pre><span></span><code>date<span class="w"> </span>+%Y-%m-%dT%H:%M:%S%Z
+</code></pre></div>
+使用这个例子，你可以得到你所在的时区以ISO 8601格式的输出，可能类似<code>2025-07-23T21:44:09CST</code>。
+<div class="highlight"><pre><span></span><code>date<span class="w"> </span><span class="s2">&quot;+%Y-%m-%dT%H:%M:%S.%3N [INFO]&quot;</span>
+</code></pre></div>
+你可以用这个例子作为你的脚本程序的日志输出的开头，结果类似与<code>2025-07-23T21:47:16.760 [INFO]</code>。</p>
+<p>最后，在这一节，我介绍三个比较常见的时间戳格式。</p>
+<h4 id="iso-8601">ISO 8601</h4>
+<p>首先，是刚才提到过的ISO 8601。这是一个国际标准化组织提供的一个有关时间表示的方案。其实从上面举例用的格式化字符串就能看出它的格式规定。“年-月-日T时:分:秒[,纳秒]时区”，其中纳秒部分可以省略。最后的时区部分可以使用时区对应的英文缩写，可以使用+/-加数字来表示，有时也用字母Z表示UTC时间。</p>
+<p><code>date</code>也提供了参数-I/--iso-8601来输出使用ISO 8601格式化的时间，并且参数后面可以紧跟"date", "hours", "minutes", "seconds", "ns"来指定输出时间的精度，默认情况为"date"。例如，
+<div class="highlight"><pre><span></span><code>date<span class="w"> </span>-Iminutes<span class="w"> </span><span class="c1"># 输出ISO 8601格式化的时间，精确到分钟</span>
+</code></pre></div></p>
+<h4 id="rfc-5322">RFC 5322</h4>
+<p>RFC是一些计算机网络方面的文件，通常用于提出一些标准化的建议供大家审阅。大部分计算机网络中的标准文档都是脱胎于此的。这里我们涉及到的RFC 5322是一个有关电子邮件格式的文档，其中的<a href="https://www.rfc-editor.org/rfc/rfc5322#section-3.3">3.3</a>节规定了电子邮件的日期和时间戳的规范。下面这三个命令的效果相同，都可以输出符合RFC 5322规定的时间戳，其中-R/--rfc-email是<code>date</code>提供的专门用于输出RFC 5322格式的参数。你可以参考我提供的格式化字符串或者文档去了解这个规范的具体格式。
+<div class="highlight"><pre><span></span><code>date<span class="w"> </span><span class="s2">&quot;+%a, %d %b %Y %T %z&quot;</span>
+date<span class="w"> </span>-R
+date<span class="w"> </span>--rfc-email
+</code></pre></div></p>
+<h4 id="rfc-3339">RFC 3339</h4>
+<p><a href="https://www.rfc-editor.org/rfc/rfc3339">RFC 3339</a>是一个专门规定了互联网上的时间戳格式的RFC文件，它主要基于上面提到过的ISO 8601。你可以使用<code>date</code>提供的参数<code>--rfc-3339=[date/seconds/ns]</code>来输出符合RFC 3339规定格式的时间戳，其中等号后面必须从<code>date</code>, <code>seconds</code>, <code>ns</code>中三选一以选择输出时间的精度。</p>
+<h3 id="_3">推算时间</h3>
+<p><code>date</code>还可以用于推算时间，也就是根据你给定的一个时间来生成时间戳。你给定的时间不只可以是一个确定描述的绝对时间，也可以是一个相对时间，也就是根据你的当前时间来推算这个相对时间对应的时间戳。这个功能使用<code>--date=</code>参数，等号后面给出你要要生成时间戳的时间。同时你也可以使用上面提到过的格式化方式来选择时间戳的格式化方式。例如
+<div class="highlight"><pre><span></span><code>date<span class="w"> </span>--date<span class="o">=</span><span class="s2">&quot;next Friday&quot;</span><span class="w"> </span>-I
+</code></pre></div>
+这个例子使用ISO 8601格式输出了以当前时间为基准下一个最近的周五的最开始（也就是0点0分0秒）对应的时间戳。</p>
+<h3 id="_4">设置系统时间</h3>
+<p><code>date</code>命令还可以用来设置系统时间。使用<code>-s=</code>/<code>--set=</code>后面接上你要设置的时间即可。当然，大部分情况我们并不希望设置一个任意的时间，因为对于很多应用，尤其是使用到互联网，需要与其他计算机通信的应用，有一个精准的时间是非常重要的。因此，我们可以使用<code>nptdate</code>工具来和npt服务器同步时间。</p>
+<p>NPT(Network Time Protocol)是一个用于同步计算机时间的协议。互联网上有有一些权威的授时机构会设立NPT服务器供大家同步时间。你可以使用下面这个命令安装nptdate工具。
+<div class="highlight"><pre><span></span><code>apt<span class="w"> </span>update
+apt<span class="w"> </span>install<span class="w"> </span>nptdate
+</code></pre></div>
+然后使用下面的命令来同步时间
+<div class="highlight"><pre><span></span><code>nptdate<span class="w"> </span>ntp.ntsc.ac.cn
+</code></pre></div>
+这里我使用的是国家授时中心的NPT服务器，你可以把这里的域名换成其他你信任的NPT服务器的域名。</p>
+<h2 id="sleep">用于休眠的命令——sleep</h2>
+<p><code>sleep</code>命令可以让你的当前shell会话休眠指定时间(最高精度为秒)。这个命令的用法很简单，<code>sleep</code>后面跟上你想要休眠的时间长度（整数）即可，默认单位为秒。你也可以使用<code>s</code>/<code>m</code>/<code>h</code>/<code>d</code>中的一个后缀来作为单位。（注意：<code>d</code>表示天）这个命令只会休眠<strong>当前shell会话</strong>计算机上其他运行的程序都不会受影响，它通常用于脚本中运行命令之间的停顿。</p>
+<h2 id="timeout">用于限制命令运行时间的命令——timeout</h2>
+<p>有的时候你会有需要限制程序运行时间的命令，例如一个程序有概率会因为出现错误导致无法停止等。<code>timeout</code>命令给你提供了这种功能。它可以在命令到达指定时间仍然没有结束的时候给程序发送一个信号来尝试终止这个程序。和上面的<code>sleep</code>类似，你需要使用一个位置参数表示超时时间，超过这个时间的时候就会给正在运行的程序发送信号，这个参数的格式和<code>sleep</code>一样。然后你可以再加上一系列位置参数表示你要运行的命令和参数。你可以用下面这个命令来试试它的效果。
+<div class="highlight"><pre><span></span><code>timeout<span class="w"> </span><span class="m">10</span><span class="w"> </span>sleep<span class="w"> </span>1m
+</code></pre></div>
+正常情况下，<code>sleep 1m</code>会导致你的shell会话被休眠1分钟，但是<code>timeout</code>会在10秒钟的时候就终止<code>sleep</code>命令。</p>
+<p><code>timeout</code>还有一些其他可选参数，我在下面介绍几个最常用的。</p>
+<h3 id="_5">设置发送的信号</h3>
+<p>默认情况下，<code>timeout</code>会发送SIGTERM信号，让程序终止。但是有的时候你可能需要发送其他信号。这种情况喜下，你可以使用<code>-s=</code>/<code>--signal=</code>参数，在等号后面接上你要发送的信号的名称，这里使用的名称和<code>kill -l</code>列出的名称一致。</p>
+<h3 id="_6">发送强制终止</h3>
+<p>有的时候，一些程序可能会设置信号处理程序，这可能导致你发送的SIGTERM或者其他信号不能按照你的预期终止程序。在这种情况下<code>timeout</code>也提供了参数<code>-k=</code>/<code>--kill-after=</code>，在等号后面接上一个时间<code>t</code>，可以让timeout在超时发送过指定信号后继续等待时间<code>t</code>。如果这个时间之后程序还没有停止就会给它发送一个SIGKILL让它被强制终止（还记得吗，SIGKILL的默认行为是终止并且不能被修改）。这里的时间<code>t</code>格式和<code>sleep</code>的参数也一致。</p>
+<h2 id="time">测量时间的命令——time</h2>
+<p>测量程序的运行时间也是十分有用的功能，所以<code>shell</code>中当然也有提供，这里我们先介绍要给简单易用的命令。GNU coreutils中提供的<code>time</code>命令，这个命令不需要任何参数，只需要在后面接上你需要测量时间的语句即可。它的运行结果如下：
+<div class="highlight"><pre><span></span><code><span class="nb">time</span><span class="w"> </span>sleep<span class="w"> </span><span class="m">1</span>
+<span class="c1"># real    0m1.003s</span>
+<span class="c1"># user    0m0.002s</span>
+<span class="c1"># sys     0m0.000s</span>
+</code></pre></div>
+我们可以看到，这个命令的结果中总共包含了三个数据。其中第一个<code>real</code>的时间是这个程序的真正运行时间。</p>
+<p>这个命令也支持格式化输出和其他的用法，但是因为<code>time</code>并不是现在大家最常用的测量时间的工具，所以其他细节请大家自己查阅文档。</p>
+<h2 id="hyperfine">更好用的测量时间的命令——hyperfine</h2>
+<p>刚才我们介绍了GNU coreutils中提供的测量时间的工具，并且我们提到<code>time</code>并不是现在大家最常用的工具。这是因为<code>time</code>测量的时间不够精准，并且功能比较少，而且输出的可视化效果不够好。因此这里我向大家介绍一个更好用的测量时间的工具<code>hyperfine</code>。你可以使用你的包管理器来安装，也可以使用<code>cargo</code>（Rust的包管理器）来安装，因为这是一个Rust的项目。虾米那我们来介绍一下<code>hyperfine</code>的用法。</p>
+<h3 id="_7">基础用法</h3>
+<p><code>hyperfine</code>最基础的用法就是直接测量一个或者多个命令的运行时间。用法也很简单，就是在<code>hyperfine</code>命令的后面接上要测量的命令（通常你需要用引号把你需要测量的命令包裹起来）。如果你同时测量多个命令，它还会比较这个命令的运行效率。下面你可以尝试一下，
+<div class="highlight"><pre><span></span><code>hyperfine<span class="w"> </span><span class="s2">&quot;sleep 10&quot;</span>
+</code></pre></div>
+在等待一段时间之后你可以看到测量的结果，应该是一个比较漂亮的形式。同时，你可能会注意到，hyperfine默认情况下会多次运行测试来减少随机性并且你得到的结果包含平均值和标准差(<span class="arithmatex">\(\sigma\)</span>)。如果你同时测试多个程序，那么你还可以得到它们运行时间的倍数关系。</p>
+<h3 id="_8">指定测量次数</h3>
+<p>上面我看到<code>hyperfine</code>为了测来的准确性会默认运行多次测试，并且测试的次数是不一定的，会根据你的命令的单次运行时间来决定。但是有的时候，我们可能想要指定运行此数，<code>hyperfine</code>当然也提供了这个功能，你可以从下面的参数中选择：
+1. <code>-m</code>/<code>--min-runs</code>: 在这个参数后面接一个整数，表示最少运行的次数。
+2. <code>-M</code>/<code>--max-runs</code>: 在这个参数后面接一个整数，表示最多运行的次数。
+3. <code>-r</code>/<code>--runs</code>: 在这个参数后面接一个整数，表示指定运行的次数。</p>
+<h3 id="_9">准备和收尾</h3>
+<p>在一些更复杂的情况下，我们可能希望在测试运行之前运行一些命令，或者在测试完成之后运行一些脚本。<code>hyperfine</code>也为我们提供了这种功能，你可以从下面的参数中选择；
+1. <code>-s</code>/<code>--setup</code>: 后面接你需要运行的命令，这个命令会在每一轮测试开始之前执行，多次重复运行算一轮。这个参数通常可以用来做一些例如，编译你需要测试的程序之类的任务。
+2. <code>-p</code>/<code>--prepare</code>: 后面接你需要运行的命令，这个命令会在每一次测试开始之前执行，通常用于做一些测试的准备，例如生成测试数据等。
+3. <code>--conclude</code>: 后面接你需要运行的命令，这个命令会在每一轮结束之后执行，同样的，多次重复运行算一轮。
+4. <code>-c</code>/<code>--cleanup</code>: 后面接你需要运行的命令，这个命令会在每一次测试结束之后执行，通常用于清理测试产生的数据或者磁盘缓存等。
+这些参数都可以分别为每个要测试的命令指定。</p>
+<p>另外，有的时候，我们可能想要排除冷启动对于测试结果的影响。这种情况下，我们可以选择先重复运行若干次测试，但是不计算在结果中。我们可以使用<code>hyperfine</code>提供的<code>-w</code>/<code>--warmup</code>参数。后面接上要先重复运行的测试。（这也是为什么这个参数叫<code>warmup</code>）</p>
+<div class="admonition info">
+<p class="admonition-title">info</p>
+<h4 id="_10">什么是冷启动</h4>
+<p>有的时候一些会经常被运行的程序可能会利用计算机或者操作系统中的一些缓存来提升自己的性能。例如当我们反复读取同一个文件的时候，第一次读取这个文件需要从磁盘中读取，但是第一次读取后，数据就会被操作系统缓存到系统的内存中。由于从内存中读取会比从磁盘中读取快，所以从第二次读取开始，程序的读取速度就会变快。类似这种的情况中，第一次（或者前几次）运行就被成为冷启动，之后的运行就被成为热启动。</p>
+</div>
+<h3 id="_11">其他功能</h3>
+<p><code>hyperfine</code>还有很多其他好用的功能，包括但不限于：
+1. 指定测试程序的输入输出位置（标准流，文件或者管道）。
+2. 依照某种规则遍历所有可能参数进行测试。这个功能对于需要尝试大量参数的情况比较有用，这样就不需要将每一种命令都写一遍了。
+3. 忽略测试程序发生的错误。
+4. 指定输出格式。（是否包含颜色，或者用某种格式输出，例如json, html, markdown等）
+5. 指定测试程序运行的shell。有的时候，你的测试命令可能用到了某些shell的特性，这个功能会比较有用。</p>
+<p>如果你需要使用上这些功能，请你自己探索<code>hyperfine</code>的文档。</p>
+<h2 id="_12">小结</h2>
+<p>这一章介绍了一些和时间有关的命令，虽然内容也不少，但是实际上都很简单。并且，这其中很多命令也都是非常常用的。另外一提，你也可以尝试使用我在这一章提到的命令去测量一下上一章最后介绍的“使用<code>tar</code>命令复制”的命令，并且在你的电脑上和<code>cp</code>比一比，看看能得到什么结论。</p>
+<script src="https://giscus.app/client.js"
+        data-repo="OshinoShinobu-Chan/Linux-shell-Tutorial"
+        data-repo-id="R_kgDONEc4yg"
+        data-category="Announcements"
+        data-category-id="DIC_kwDONEc4ys4Cj5Fk"
+        data-mapping="title"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="preferred_color_scheme"
+        data-lang="zh-CN"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
 
 
 
@@ -961,7 +1414,7 @@
       <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../index.html" class="md-footer__link md-footer__link--prev" aria-label="上一页: 更丝滑的Linux体验——Linux shell教程">
+          <a href="k-11.%E5%BD%92%E6%A1%A3%E5%92%8C%E5%8E%8B%E7%BC%A9%E6%96%87%E4%BB%B6%E7%9A%84%E5%91%BD%E4%BB%A4.html" class="md-footer__link md-footer__link--prev" aria-label="上一页: 归档和压缩文件的命令">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -971,20 +1424,20 @@
                 上一页
               </span>
               <div class="md-ellipsis">
-                更丝滑的Linux体验——Linux shell教程
+                归档和压缩文件的命令
               </div>
             </div>
           </a>
         
         
           
-          <a href="a-1.%E5%BC%95%E8%A8%80.html" class="md-footer__link md-footer__link--next" aria-label="下一页: 引言">
+          <a href="../%E9%99%84%E5%BD%95/index.html" class="md-footer__link md-footer__link--next" aria-label="下一页: 附录">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                引言
+                附录
               </div>
             </div>
             <div class="md-footer__button md-icon">
