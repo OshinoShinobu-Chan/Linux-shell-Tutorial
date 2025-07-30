@@ -68,15 +68,14 @@ mkdocs build --clean
 * [x] 10. 进程，信号, ctrl-C, ctrl-D, kill, pkill, ps, nohup, &
 * [x] 11. tar, zip, unzip
 * [ ] 12. sleep. timeout, date, time, hyperfine
-* [ ] 13. man, pr, tldr
+* [ ] 13. man, tldr
 * [ ] 14. history, alias, su, sudo, install, yes, top, htop
 
 中级篇
 
 * [ ] 15. 硬链接，软连接，readlink, readpath, link, ln, mount, unmount, /mnt, /proc, chmod
 * [ ] 16. 万物皆文件，文件类型，mknod, mktemp
-* [ ] 17. less, more
-* [ ] 18. vim, vi
+* [ ] 18. vim, vi, less, more
 * [ ] 19. head, tail, tr, wc, nl
 * [ ] 20. grep, awk, sed
 * [ ] 21. bc, numfmt, od, xxd, hexdump
