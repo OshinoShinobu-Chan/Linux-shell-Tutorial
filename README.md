@@ -67,23 +67,24 @@ mkdocs build --clean
 * [x] 9. curl, telnet, wget, ssh, scp, netcat
 * [x] 10. 进程，信号, ctrl-C, ctrl-D, kill, pkill, ps, nohup, &
 * [x] 11. tar, zip, unzip
-* [ ] 12. sleep. timeout, date, time, hyperfine
-* [ ] 13. man, tldr
+* [x] 12. sleep. timeout, date, time, hyperfine
+* [x] 13. man, tldr
 * [ ] 14. history, alias, su, sudo, install, yes, top, htop
 
 中级篇
 
-* [ ] 15. 硬链接，软连接，readlink, readpath, link, ln, mount, unmount, /mnt, /proc, chmod
-* [ ] 16. 万物皆文件，文件类型，mknod, mktemp
+* [ ] 15. 硬链接，软连接，readlink, readpath, link, ln, mount, unmount, 
+* [ ] 16. 万物皆文件，/mnt, /proc, chmod
+* [ ] 17. 文件类型，mknod, mktemp
 * [ ] 18. vim, vi, less, more
 * [ ] 19. head, tail, tr, wc, nl
 * [ ] 20. grep, awk, sed
 * [ ] 21. bc, numfmt, od, xxd, hexdump
-* [ ] 22. 展开
-* [ ] 23. tmux
-* [ ] 24. 环境变量, printenv，path
-* [ ] 25. .bashrc, fish-config
-* [ ] 26. strace
+* [ ] 22. tmux
+* [ ] 23. 包管理器
+* [ ] 24. .bashrc, fish-config
+* [ ] 25. 环境变量, printenv，path
+* [ ] 26. 展开
 
 高级篇
 
