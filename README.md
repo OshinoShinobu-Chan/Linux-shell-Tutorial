@@ -69,7 +69,7 @@ mkdocs build --clean
 * [x] 11. tar, zip, unzip
 * [x] 12. sleep. timeout, date, time, hyperfine
 * [x] 13. man, tldr
-* [ ] 14. history, alias, su, sudo, install, yes, top, htop
+* [ ] 14. history, alias, su, sudo, yes, top, htop
 
 中级篇
 
@@ -84,7 +84,7 @@ mkdocs build --clean
 * [ ] 23. 包管理器
 * [ ] 24. .bashrc, fish-config
 * [ ] 25. 环境变量, printenv，path
-* [ ] 26. 展开
+* [ ] 26. $展开, !的展开
 
 高级篇
 
