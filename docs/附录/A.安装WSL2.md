@@ -42,6 +42,10 @@ WSL(**W**indows **S**ubsystem for **L**inux), 也就是Windows的Linux子系统�
 
 如果你开始更加大量地使用WSL2用于你的开发，你可能需要关心一些WSL2的高级配置，例如如何配置WSL可以使用的内存用量，CPU用量，网络模式等。这个方面微软也提供了详细的[文档](https://learn.microsoft.com/zh-cn/windows/wsl/wsl-config)进行说明，你可以在需要的时候阅读这个文档进行操作。
 
+## 通过Windows terminal来使用WSL
+
+我们推荐你通过Windows terminal来使用WSL，你可以通过微软的[文档](https://learn.microsoft.com/zh-cn/windows/terminal/install)来了解如何安装和使用它。
+
 <script src="https://giscus.app/client.js"
         data-repo="OshinoShinobu-Chan/Linux-shell-Tutorial"
         data-repo-id="R_kgDONEc4yg"
