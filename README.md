@@ -69,7 +69,7 @@ mkdocs build --clean
 * [x] 11. tar, zip, unzip
 * [x] 12. sleep. timeout, date, time, hyperfine
 * [x] 13. man, tldr
-* [ ] 14. history, alias, su, sudo, yes, top, htop
+* [x] 14. history, alias, su, sudo, yes, top, htop
 
 中级篇
 
