@@ -74,7 +74,7 @@ mkdocs build --clean
 中级篇
 
 * [ ] 15. 硬链接，软连接，readlink, readpath, link, ln, mount, unmount, 
-* [ ] 16. 万物皆文件，/mnt, /proc, chmod
+* [ ] 16. 万物皆文件，/mnt, /proc, /dev, chmod
 * [ ] 17. 文件类型，mknod, mktemp
 * [ ] 18. vim, vi, less, more
 * [ ] 19. head, tail, tr, wc, nl
