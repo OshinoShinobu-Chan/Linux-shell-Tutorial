@@ -1171,7 +1171,7 @@
 <p>2: 标准错误流(standard error, 简称stderr)，一般用于向屏幕上输出错误信息。</p>
 </li>
 </ul>
-<p>这里，标准输出流和标准错误流默认都是向屏幕上输出信息。但是一般来说，程序向错误提示信息输出到标准错误流上，这样使用本章之后的方法可以将正常的输出信息和错误的输出信息分开。</p>
+<p>这里，标准输出流和标准错误流默认都是向屏幕上输出信息。但是一般来说，程序将错误提示信息输出到标准错误流上，这样使用本章之后的方法可以将正常的输出信息和错误的输出信息分开。</p>
 <p>现在我们可以对第二章的时候我们的那个程序做一点修改
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;fcntl.h&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unistd.h&gt;</span>
@@ -1182,12 +1182,13 @@
 <span class="w">    </span><span class="n">write</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="mi">12</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
-我们省去了打开文件的过程，使用<code>write</code>系统直接向文件描述符为1的文件写入。运行这个程序，我们会发现，我们在屏幕上输出了<code>Hello world!</code>。</p>
+我们省去了打开文件的过程，使用<code>write</code>系统直接向文件描述符为1的文件写入。运行这个程序会发现，我们在屏幕上输出了<code>Hello world!</code>。</p>
 <blockquote>
-<p>你是否会好奇，如果我向标准输入流写数据会怎么样？类似的我们还可以问，如果我从标准输出流读数据会怎么样？或许有人会说，都说了叫标准输入流了，肯定不能读吧。但是我建议大家，当遇到这种问题的时候，不要轻易下结论，自己去试一试。不过，我仍然推荐你按照约定的方式使用这些标准输入输出流，否则之后使用<code>shell</code>的重定向和管道之类功能的时候可能会发生意料之外的事情。</p>
+<p>你是否会好奇，如果我向标准输入流写数据会怎么样？类似的我们还可以问，如果我从标准输出流读数据会怎么样？或许有人会说，都说了叫标准输入流了，肯定不能读吧。但是我建议大家，当遇到这种问题的时候，不要轻易下结论，自己去试一试。</p>
+<p>不过，我仍然推荐你按照约定的方式使用这些标准输入输出流，否则之后使用<code>shell</code>的重定向和管道之类功能的时候可能会发生意料之外的事情。</p>
 </blockquote>
 <h3 id="shell">在shell中表示标准输入输出文件</h3>
-<p>在<code>shell</code>中我们可以使用<code>-</code>表示标准输入输出文件，这个符号可以被使用在很多命令中。比如<code>cat</code>命令就可以接<code>-</code>表示从标准输入文件中读入，然后把内容输出到标准输出中，因此我们可以使用这样的命令来使用<code>cat</code>
+<p>在<code>shell</code>中我们可以使用<code>-</code>表示标准输入输出文件，这个符号可以被使用在很多命令中。比如<code>cat</code>命令就可以接<code>-</code>表示从标准输入文件中读入，然后把内容输出到标准输出中。因此我们可以使用这样的命令
 <div class="highlight"><pre><span></span><code>cat<span class="w"> </span>test.txt<span class="w"> </span>-<span class="w"> </span>test.txt
 </code></pre></div>
 上面这个命令中，<code>cat</code>首先会输出<code>test.txt</code>的内容，然后读取标准输入流中的内容输出到标准输出中，然后再输出一遍<code>test.txt</code>的内容。结合下面我们马上会讲到的输出重定向，我们可以实现将文件的内容和我们输入的内容连接起来并输出到另一个文件中。这也是向文件末尾附加内容的方式。</p>
@@ -1196,7 +1197,7 @@
 </code></pre></div></p>
 <h2 id="_4">输入输出重定向</h2>
 <h3 id="_5">简短的前置知识</h3>
-<p>我们现在其实还有一个问题上面没有提及，上面的代码相比于第二章的代码还有一个区别，就是我们还省去了关闭文件的过程。或许直觉上告诉我们，标准输入输出流怎么能被关掉呢？但是仍然，我建议大家亲自试一试。试一试下面这段C程序。
+<p>到现在其实还有一个问题没有提及，上面的代码相比于第二章的代码还有一个区别，就是我们还省去了关闭文件的过程。或许直觉上告诉我们，标准输入输出流怎么能被关掉呢？但是，我仍然建议大家亲自试一试。你可以试一试下面这段C程序。
 <div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;fcntl.h&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unistd.h&gt;</span>
 
@@ -1271,7 +1272,7 @@
 <p>很有趣的是，GNU coreutils还给我们提供了可以创造有名称的管道的命令<code>mkfifo</code>(<strong>m</strong>a<strong>k</strong>e <strong>fifo</strong>)。这里<code>fifo</code>就是First In First Out的缩写，也就是管道最重要的特点。用这条命令创建出来的文件拥有管道的2, 3, 4三个特点，但不满足1, 5这两条特点。也就是它拥有名称，并且需要我们手动删掉。</p>
 <p>这条命令的基础用法很简单，就是后面使用一个位置参数表示创建的管道的文件路径。因为一般用到的很少，所以这里我们只做一个简单的介绍，感兴趣的同学可以自己去尝试一下。你们可以思考一下，怎样用命令检验它创建的文件是否有3, 4这两个特点(管道的特点2很难用命令行命令来验证)。</p>
 <h2 id="_12">小结</h2>
-<p>这一章我们讲解了Linux系统中的两种特殊的文件，标准输出输出文件和管道，并且介绍了在<code>shell</code>中使用输入输出重定向和使用管道的方式。使用这两种能力，我们就可以将命令组合起来使用完成更加复杂的工作了。至此，初级篇和文件系统相关的内容就全部完成了(别想多了，中级篇还会介绍更多<code>shell</code>和文件系统相关的内容的)。从下一章开始，我们将会开始介绍如何使用<code>shell</code>操作计算机另一项，我们每个人现在都离不开的东西——网络。</p>
+<p>这一章我们讲解了Linux系统中的两种特殊的文件，标准输入输出文件和管道，并且介绍了在<code>shell</code>中使用输入输出重定向和使用管道的方式。拥有这两种能力，我们就可以将命令组合起来使用完成更加复杂的工作了。至此，初级篇和文件系统相关的内容就全部完成了(别担心，中级篇还会介绍更多<code>shell</code>和文件系统相关的内容的)。从下一章开始，我们将会开始介绍如何使用<code>shell</code>操作计算机另一项，我们每个人现在都离不开的东西——网络。</p>
 <script src="https://giscus.app/client.js"
         data-repo="OshinoShinobu-Chan/Linux-shell-Tutorial"
         data-repo-id="R_kgDONEc4yg"
