@@ -1182,9 +1182,9 @@
 <h2 id="_2">归档和压缩</h2>
 <p>在开始之前我认为有必要先介绍一下这两个基本概念。实际上对于绝大多数初学者，似乎会将归档也称为压缩，但是这两个概念其实有本质的不同。它们的概念如下：
 1. 归档(archiving)：将多个文件合并成一个文件，<strong>不减少体积</strong>。通过归档，我们可以简化文件的管理，因为文件的数量减少了。同时我们可以统一管理多个文件的权限和元数据（这两个概念在<a href="f-6.%E6%9B%B4%E5%A4%9A%E7%9A%84%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9Cshell%E5%91%BD%E4%BB%A4.html#stat">第6章</a>中讲到过），更准确地说，我们可以给一批文件添加一个统一的权限和元数据。
-2. 压缩(compression)：通过算法将<strong>减小文件体积</strong>。通过压缩，我们可以减小文件在存储中占用的空间大小，也可以减小文件在传输过程中占用的带宽和流量大小。</p>
-<p>也就是说，归档侧重于文件的合并，压缩侧重于减小文件体积。虽然被常常称作压缩文件的一些文件格式，例如zip，7z等常常也起到归档的作用，但是同样也存在属于压缩文件但不属于归档文件的例子，各种图片和音视频等多媒体文件通常都属于这样的例子，例如jpg，mp3，mp4等。当然，同样也存在属于归档文件但不属于压缩文件的例子，tar格式文件就是一个例子。</p>
-<p>由于还是存在一些相似之处，所以这里我还是将两个主题合成一个章节。需要注意，在这一章中我们会讲到的压缩文件将会仅仅指那些同时具有归档功能的压缩文件格式。</p>
+2. 压缩(compression)：通过算法<strong>减小文件体积</strong>。通过压缩，我们可以减小文件在存储中占用的空间大小，也可以减小文件在传输过程中占用的带宽和流量大小。</p>
+<p>也就是说，归档侧重于文件的合并，压缩侧重于减小文件体积。虽然被称作压缩文件的一些文件格式，例如zip，7z等常常也起到归档的作用。但是同样也存在属于压缩文件但不属于归档文件的例子，例如jpg，mp3，mp4等各种图片和音视频等多媒体文件通常都有压缩，但是并没有归档。当然，同样也存在属于归档文件但不属于压缩文件的例子，tar格式文件就是一个例子。</p>
+<p>由于二者存在相当多相似之处，所以这里我还是将两个主题合成一个章节。需要注意，在这一章中我们会讲到的压缩文件将会仅仅指那些同时具有归档功能的压缩文件格式。</p>
 <h2 id="tar">最常用的归档工具——tar</h2>
 <p>对于归档来说，我们最常用的工具将会<code>tar</code>，而且本章我们将只会介绍这一个归档工具。</p>
 <p><code>tar</code>命令的名字是<strong>T</strong>ape <strong>Ar</strong>chive的缩写，不过很有趣的是，这个名称本身也是一个有意义的英文单词。使用<code>tar</code>命令将文件归档之后会得到<code>.tar</code>文件。</p>
@@ -1206,13 +1206,13 @@ tar<span class="w"> </span>--extract<span class="w"> </span>--file<span class="w
 </code></pre></div>
 另外，在你解归档的时候，你可以使用<code>--directory=&lt;target&gt;</code>来指定解归档文件时的目标文件夹(请将<code>&lt;target&gt;</code>替换成目标路径，不带<code>&lt;&gt;</code>)。请不要问我为什么这个参数没有缩写，我也不知道，就像我也不知道为什么要将<code>--extract</code>缩写成<code>-x</code>而不是<code>-e</code>一样。你还可以使用命令最后的位置参数来指定要解归档的文件，也就是你不一定每次都要将归档文件中的全部文件都解归档。</p>
 <h3 id="_5">列举归档文件内容</h3>
-<p>列举归档文件的内容也是<code>tar</code>非常使用的功能，也就是你可以在不解归档的情况下查看一个归档文件中有哪些文件。列举归档文件内容的命令行参数就是<code>-t</code>/<code>t</code>/<code>--list</code>(这个缩写也很奇怪，为什么不是<code>-l</code>呢？)。例如，如果要列举出刚才的<code>test.tar</code>文件中的内容可以使用下面三种形式中的一种。
+<p>列举归档文件的内容也是<code>tar</code>非常使用的功能，也就是你可以在不解归档的情况下查看一个归档文件中有哪些文件。列举归档文件内容的命令行参数是<code>-t</code>/<code>t</code>/<code>--list</code>(这个缩写也很奇怪，为什么不是<code>-l</code>呢？)。例如，列举出刚才的<code>test.tar</code>文件中的内容可以使用下面三种形式中的一种。
 <div class="highlight"><pre><span></span><code>tar<span class="w"> </span>tf<span class="w"> </span>test.tar
 tar<span class="w"> </span>-tf<span class="w"> </span>test.tar
 tar<span class="w"> </span>--list<span class="w"> </span>--file<span class="w"> </span>test.tar
 </code></pre></div></p>
 <h3 id="_6">向归档文件中追加文件</h3>
-<p>向归档文件中追加文件将会是我介绍的最后一个归档文件的常用功能，这个功能允许你向一个现有的归档文件中添加新的文件。向归档文件中追加文件的命令行参数是<code>-r</code>/<code>r</code>/<code>--append</code>(这个缩写更是没法解释orz)。例如，如果要向刚才的<code>test.tar</code>文件中添加一个<code>c.txt</code>可以使用下面三种形式中的一种。这个命令的位置参数的含义和<code>-c</code>一样
+<p>向归档文件中追加文件也是一个归档文件的常用功能，这个功能允许你向一个现有的归档文件中添加新的文件。向归档文件中追加文件的命令行参数是<code>-r</code>/<code>r</code>/<code>--append</code>(这个缩写更是没法解释orz)。例如，如果要向刚才的<code>test.tar</code>文件中添加一个<code>c.txt</code>可以使用下面三种形式中的一种。这个命令的位置参数的含义和<code>-c</code>一样
 <div class="highlight"><pre><span></span><code>tar<span class="w"> </span>rf<span class="w"> </span>test.tar<span class="w"> </span>c.txt
 tar<span class="w"> </span>-rf<span class="w"> </span>test.tar<span class="w"> </span>c.txt
 tar<span class="w"> </span>--append<span class="w"> </span>--file<span class="w"> </span>test.tar<span class="w"> </span>c.txt
@@ -1232,11 +1232,11 @@ tar<span class="w"> </span>--append<span class="w"> </span>--file<span class="w"
 <p>上面我们已经看到了，<code>tar</code>的种种选项的缩写都让人感到迷惑，因此<code>tar</code>命令也总是给人很难用的印象。以至于我们有下面这张十分有名的梗图。
 <a class="glightbox" href="resource/11-1.tar_2x.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="tar梗图" src="resource/11-1.tar_2x.png" /></a></p>
 <h2 id="zipunzip">最常用的压缩工具——zip（还有unzip）</h2>
-<p>前面介绍了主要作为归档工具的<code>tar</code>，那么接下来我自然也要介绍一个主要作为压缩工具的<code>zip</code>。虽然你可能会觉得，这个工具的名字和前面提到过的<code>gzip</code>很像，但是实际上<code>zip</code>和<code>gzip</code>用到的压缩算法之间截然不同。不过，我们这里也不会详细介绍<code>zip</code>的压缩算法，因为这个内容比较复杂并且也和我们的主题关系不大。那么下面我就主要介绍一下<code>zip</code>工具的常见用法。在使用<code>zip</code>之前，你需要先安装，因为这个软件通常不是Linux发行版自带的。你可以使用下面的命令或者使用其他你的发行版的默认包管理器进行安装。
+<p>前面介绍了主要作为归档工具的<code>tar</code>，那么接下来我自然也要介绍一个主要作为压缩工具的<code>zip</code>。虽然你可能会觉得，这个工具的名字和前面提到过的<code>gzip</code>很像，但是实际上<code>zip</code>和<code>gzip</code>用到的压缩算法之间截然不同。不过，我们这里也不会详细介绍<code>zip</code>的压缩算法，因为这个内容比较复杂并且也和我们的主题关系不大。那么下面我就主要介绍一下<code>zip</code>工具的常见用法。在使用<code>zip</code>之前，你需要先安装它，因为这个软件通常不是Linux发行版自带的。你可以使用下面的命令或者使用其他你的发行版的默认包管理器进行安装。
 <div class="highlight"><pre><span></span><code>apt<span class="w"> </span>install<span class="w"> </span>zip
 </code></pre></div></p>
 <h3 id="_8">压缩</h3>
-<p><del>压缩工具要能压缩（✍✍✍）</del>。所以我们来介绍一下<code>zip</code>的压缩命令。<code>zip</code>命令的基础用法就是直接就是直接将一些文件归档并压缩。命令如下，
+<p><del>压缩工具要能压缩（✍✍✍）</del>。所以我们来介绍一下<code>zip</code>的压缩命令。<code>zip</code>命令的基础用法就是就是直接将一些文件归档并压缩。命令如下，
 <div class="highlight"><pre><span></span><code>zip<span class="w"> </span>test.zip<span class="w"> </span>a.txt<span class="w"> </span>b.txt
 </code></pre></div>
 其中<code>zip</code>命令末尾的位置参数中，第一个是压缩文件的路径，后面的若干个都是被压缩的文件的路径。在压缩过程中<code>-r</code>选项也十分常用。如果你要压缩的文件中包含文件夹，需要使用<code>-r</code>选项表示递归地压缩文件夹里的所有内容。这和之前遇到的大部分其他命令的<code>-r</code>选项含义类似。</p>
@@ -1266,13 +1266,13 @@ find<span class="w"> </span>.<span class="w"> </span>-name<span class="w"> </spa
 </ol>
 <h2 id="tar_1">使用tar复制文件</h2>
 <p>在这一章的最后，我来介绍一个有关<code>tar</code>命令的神奇小技巧。</p>
-<p>在<a href="f-6.%E6%9B%B4%E5%A4%9A%E7%9A%84%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9Cshell%E5%91%BD%E4%BB%A4.html#cp">第六章</a>中，我们曾经介绍过，可以使用<code>cp</code>命令来复制文件。这里我将给大家介绍一种全新的复制文件的方式，简单来说就是利用<code>tar</code>命令将文件归档之后，使用管道传给另一个<code>tar</code>命令来解归档。也就是下面两个命令的作用相同，他们都可以将<code>./test</code>文件夹完整复制到<code>./test1</code>文件夹中。
+<p>在<a href="f-6.%E6%9B%B4%E5%A4%9A%E7%9A%84%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9Cshell%E5%91%BD%E4%BB%A4.html#cp">第六章</a>中，我们曾经介绍过，可以使用<code>cp</code>命令来复制文件。这里我将给大家介绍一种全新的复制文件的方式。简单来说，就是利用<code>tar</code>命令将文件归档之后，使用管道传给另一个<code>tar</code>命令来解归档。也就是下面两个命令的作用相同，他们都可以将<code>./test</code>文件夹完整复制到<code>./test1</code>文件夹中。
 <div class="highlight"><pre><span></span><code>cp<span class="w"> </span>-r<span class="w"> </span>./test<span class="w"> </span>./test1/test
 tar<span class="w"> </span>cf<span class="w"> </span>-<span class="w"> </span>./test<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="o">(</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>./test1<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>tar<span class="w"> </span>xf<span class="w"> </span>-<span class="w"> </span><span class="o">)</span>
 </code></pre></div></p>
-<p>那么，肯定有人要问，既然我有<code>cp</code>了，为什么还要使用<code>tar</code>来进行复制呢？这是因为这种复制的方式对于文件数量较大的情况速度会比<code>cp</code>更快。根据我的测试，在固态硬盘（SSD）上，复制100,000个4KB大小随机数据的文件时，使用上面的<code>tar</code>命令会比<code>cp</code>（GNU coreutils 8.32）用时少4%~6%。</p>
+<p>那么，肯定有人要问，既然都有<code>cp</code>了，为什么还要使用<code>tar</code>来进行复制呢？这是因为这种复制的方式对于文件数量较大的情况速度会比<code>cp</code>更快。根据我的测试，在固态硬盘（SSD）上，复制100,000个4KB大小随机数据的文件时，使用上面的<code>tar</code>命令会比<code>cp</code>（GNU coreutils 8.32）用时少4%~6%。</p>
 <h2 id="_13">小结</h2>
-<p>这一章介绍了归档和压缩文件的命令。同时，我相信大家应该也学会了区分归档和压缩的不同。最后，我还介绍了一个很有趣的使用<code>tar</code>命令来复制文件的用法。这个用法很有趣并且在大量小文件存在的时候还可能有更高的性能。</p>
+<p>这一章介绍了归档和压缩的命令。同时，我相信大家应该也学会了区分归档和压缩的不同。最后，我还介绍了一个很有趣的使用<code>tar</code>命令来复制文件的用法。这个用法很有趣并且在大量小文件存在的时候还可能有更高的性能。</p>
 <script src="https://giscus.app/client.js"
         data-repo="OshinoShinobu-Chan/Linux-shell-Tutorial"
         data-repo-id="R_kgDONEc4yg"
